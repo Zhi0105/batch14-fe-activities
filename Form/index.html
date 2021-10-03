@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity-Form</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <div class="main">
+
+        <div class="container">
+            <h1 id="title"> <img src="./img/setup.png" alt="Icon"> Setup your Account.</h1>
+            <p id="description">All Item is required and make sure to use a valid email address, You'll need to verify it before you can proceed.</p>
+
+            <div class="form-container">
+                
+                <form id="survey-form">
+
+                    <label for="name" id="name-label">Name:</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+
+                    <label for="email" id="email-label">Email:</label>
+                    <input type="email" id="email" placeholder="Enter a valid email" required>
+
+                    <br>
+                    <label for="number" id="number-label">Age:</label>
+                    <input type="number" id="number" placeholder="Enter your age" min="0" max="100" required>
+
+                    <label for="dropdown" id="role-label">Role:</label>
+                    <select name="dropdown" id="dropdown" required>
+                        <option value="..." selected>...</option>
+                        <option value="Administrator" id="admin">Administrator</option>
+                        <option value="Editor" id="editor">Editor</option>
+                        <option value="Author" id="author">Author</option>
+                        <option value="Contributor" id="contributor">Contributor</option>
+                        <option value="Subscriber" id="subscriber">Subscriber</option>
+                    </select>
+
+                    <br>
+                    <label id="gender-label">Gender:</label><br>
+                    <input type="radio" name="gender" id="male "value="Male" required><label for="male">Male</label>
+                    <input type="radio" name="gender" id="female" value="Female" required><label for="female">Female</label>
+
+                    <br><br>
+                    <label id="pl-label">Skills:</label><br>
+                    <input type="checkbox" id="html "value="HTML"><label for="html">HTML</label>
+                    <input type="checkbox" id="css "value="css"><label for="css">CSS</label>
+                    <input type="checkbox" id="js "value="javascript"><label for="js">Javascript</label>
+                    <input type="checkbox" id="jquery "value="jquery"><label for="jquery">jquery</label>
+                    <input type="checkbox" id="php "value="php"><label for="php">PHP</label>
+
+                    <br><br>
+                    <label for="comment">Comment:</label><br><br>
+                    <textarea id="comment" name="comment" placeholder="Comment here!" required></textarea>
+
+                    <br>
+                    <center><input type="submit" value="submit"></center>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
