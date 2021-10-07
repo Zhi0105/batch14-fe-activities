@@ -1,0 +1,130 @@
+//VARIABLES
+$bodyFont : Arial, Helvetica, sans-serif;
+$resetPadding: 0;
+$resetMargin: 0;
+$resetBoxSizing: border-box;
+
+//INHERITANCE
+%mainStyle{
+    height: 100vh;
+    background: teal;
+    display: flex;
+    justify-content: center;
+}
+
+%containerStyle{
+    margin: 1% 0 1% 0;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    position: relative;
+}
+
+%containerImgStyle{
+    width: 5rem;
+    height: 5rem;
+}
+
+%formContainerStyle{
+    background:black;
+    position: absolute;
+    border-radius: 10px;
+}
+
+%labelStyle{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 13px;
+    text-transform: initial;
+    font-weight: bold;
+    color:white;
+}
+
+%inputStyle{
+    width: 35%;
+    height: 30px;
+    border-radius: .5rem;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+*{
+    padding: $resetPadding;
+    margin: $resetMargin;
+    box-sizing: $resetBoxSizing;
+}
+
+body{
+    font-family: $bodyFont;
+}
+
+.main{
+    @extend %mainStyle;
+}
+
+
+//NESTING
+.container{
+    @extend %containerStyle;
+
+    img{
+        @extend %containerImgStyle;
+    }
+    #description {
+        margin:10px 0 0 0;
+        color:lightslategray;
+        font-size: .9rem;
+        font-style: italic;
+    }
+
+}
+
+//NESTING
+.form-container{
+    @extend %formContainerStyle;
+    padding: 10px;
+    margin: 20px;
+    width: 87%;
+    height: auto;
+
+    label{
+        @extend %labelStyle;
+    }
+    
+    input[type='text'], input[type='email'], input[type='number'], select{
+        @extend %inputStyle;
+    }
+    
+    input[type='checkbox'], input[type='radio']{
+        margin-right: 10px;
+    }
+    
+    input[type='submit']{
+        width: 100%;
+        height: 25px;
+        margin: 5px;
+        background:blue;
+        border-radius: 6px;
+        color:white;
+        font-family: $bodyFont;
+        font-size: 15px;
+    }
+    
+    input[type='submit']:hover{
+        background:lightseagreen;
+    }
+    
+    input[type='text']:hover, input[type='email']:hover, input[type='number']:hover, select:hover, textarea:hover{
+        border: 2px solid green;
+    }
+    
+    textarea{
+        width: 100%;
+        height: 9rem;
+        padding: 10px;
+        border-radius: 10px;
+        font-family: $bodyFont;
+    }
+    
+}
+
+
