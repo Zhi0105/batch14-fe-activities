@@ -20,6 +20,10 @@ img{
     margin:.5rem 0 0 0;
 }
 
+//VARIABLE
+$bgDarkColor : rgb(112, 162, 163);
+$bgLightColor: rgb(177, 228, 184);
+
 //INHERITANCE
 %boardLightColor{
     background:rgb(177, 228, 184);
@@ -48,7 +52,9 @@ img{
 
     max-width: 100%;
     max-height: 100%;
-    margin:2%;
+    margin:1%;
+    height: 90vh;
+    
 
     .first-layer {
         @extend %LayerDesign;
@@ -290,5 +296,120 @@ img{
                 @extend %boardLightColor;
             }
     }
+
+
+    //ANIMATION
+    .second-layer{
+        .box:nth-child(5){
+            img{
+            animation-name: whitePawnMove;
+            animation-fill-mode: forwards;
+            animation-timing-function:ease;
+            animation-duration: 2s;
+            animation-delay: 1s;
+            position:relative;
+            }
+        }
+    }
+
+    .seventh-layer{
+        .box:nth-child(5){
+            img{
+            animation : blackPawnMove 2s ease 3s normal forwards;
+            position: relative;
+            }
+        }
+    }
+
+    .first-layer{
+        .box:nth-child(7){
+            img{
+            animation: whiteKnightMove 2s ease 5s normal forwards;
+            position: relative;
+            }
+        }
+    }
+
+    .eight-layer{
+        .box:nth-child(6){
+            img{
+            animation: blackBishopMove 2s ease 7s normal forwards;
+            position: relative;
+            }
+        }
+    }
+
+    .second-layer{
+        .box:nth-child(3){
+            img{
+            animation: whitePawn2Move 2s ease 9s normal forwards;
+            position:relative;
+            }
+        }
+    }
+
+    .eight-layer{
+        .box:nth-child(4){
+            img{
+            animation: 
+                blackQueenMove 2s ease 11s normal forwards,
+                blackQueen2ndMove 2s ease 15s normal forwards;
+
+            position:relative;
+            }
+        }
+    }
+
+    .first-layer{
+        .box:nth-child(2){
+            img{
+            animation: whiteKnight2Move 2s ease 13s normal forwards;
+            position: relative;
+            }
+        }
+    }
+
+
+    @keyframes whitePawnMove {
+        0% {background: red; top:0px;}
+        100% {background: $bgDarkColor; top:8rem;}
+    }
+
+    @keyframes blackPawnMove {
+        0% {background: red; bottom:0px;}
+        100% {background: $bgLightColor; bottom:8rem;}
+    }
+    
+    @keyframes whiteKnightMove {
+        0% {background: red; top:0px;}
+        100% {background: $bgDarkColor; transform: translate(4rem, 8rem);}
+    }
+
+    @keyframes blackBishopMove {
+        0% {background: red; bottom:0px;}
+        100% {background: $bgLightColor; transform: translate(-11.6rem, -11.9rem);}
+    }
+
+    @keyframes whitePawn2Move {
+        0% {background: red; top:0px;}
+        100% {background: $bgDarkColor; top:8rem;}
+    }
+
+    @keyframes blackQueenMove {
+        0% {background: red; top:0px;}
+        100% {background: $bgLightColor; transform: translate(8rem, -8rem);}
+    }
+
+    @keyframes whiteKnight2Move {
+        0% {background: red; top:0px;}
+        100% {background: $bgLightColor; transform: translate(4rem, 8rem);}
+    }
+
+    @keyframes blackQueen2ndMove {
+        0% {background: red; bottom:0px;}
+        100% {background: $bgLightColor; bottom:16rem;}
+    }
+    
+
 
 }
