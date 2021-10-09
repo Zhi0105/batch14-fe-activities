@@ -1,0 +1,294 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: teal;
+}
+
+h1{
+    color:white;
+    margin-top: 10px;
+}
+
+img{
+    height: 3rem;
+    width: 3rem;
+    margin:.5rem 0 0 0;
+}
+
+//INHERITANCE
+%boardLightColor{
+    background:rgb(177, 228, 184);
+    width: 4rem;
+    height: 4rem;
+    
+}
+
+%boardDarkColor{
+    background:rgb(112, 162, 163);
+    width: 4rem;
+    height: 4rem;
+}
+
+%LayerDesign{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+
+//NESTING
+.main{
+
+    max-width: 100%;
+    max-height: 100%;
+    margin:2%;
+
+    .first-layer {
+        @extend %LayerDesign;
+        margin-top: 3%;
+    
+            .box:nth-child(1){
+                @extend %boardLightColor;
+            }
+            .box:nth-child(2){
+                @extend %boardDarkColor;
+            }
+            .box:nth-child(3){
+                @extend %boardLightColor;
+            }
+            .box:nth-child(4){
+                @extend %boardDarkColor;
+            }
+            .box:nth-child(5){
+                @extend %boardLightColor;
+            }
+            .box:nth-child(6){
+                @extend %boardDarkColor;
+            }
+            .box:nth-child(7){
+                @extend %boardLightColor;
+            }
+            .box:nth-child(8){
+                @extend %boardDarkColor;
+            }
+    }
+
+
+    .second-layer {
+
+        @extend %LayerDesign;
+    
+            .box:nth-child(1){
+                @extend %boardDarkColor;
+            }
+            .box:nth-child(2){
+                @extend %boardLightColor;
+            }
+            .box:nth-child(3){
+                @extend %boardDarkColor;
+            }
+            .box:nth-child(4){
+                @extend %boardLightColor;
+            }
+            .box:nth-child(5){
+                @extend %boardDarkColor;
+            }
+            .box:nth-child(6){
+                @extend %boardLightColor;
+            }
+            .box:nth-child(7){
+                @extend %boardDarkColor;
+            }
+            .box:nth-child(8){
+                @extend %boardLightColor;
+            }
+    }
+
+    .third-layer {
+
+        @extend %LayerDesign;
+    
+            .box:nth-child(1){
+                @extend %boardLightColor;
+            }
+            .box:nth-child(2){
+                @extend %boardDarkColor;
+            }
+            .box:nth-child(3){
+                @extend %boardLightColor;
+            }
+            .box:nth-child(4){
+                @extend %boardDarkColor;
+            }
+            .box:nth-child(5){
+                @extend %boardLightColor;
+            }
+            .box:nth-child(6){
+                @extend %boardDarkColor;
+            }
+            .box:nth-child(7){
+                @extend %boardLightColor;
+            }
+            .box:nth-child(8){
+                @extend %boardDarkColor;
+            }
+    }
+
+    .fourth-layer {
+
+        @extend %LayerDesign;
+    
+            .box:nth-child(1){
+                @extend %boardDarkColor;
+            }
+            .box:nth-child(2){
+                @extend %boardLightColor;
+            }
+            .box:nth-child(3){
+                @extend %boardDarkColor;
+            }
+            .box:nth-child(4){
+                @extend %boardLightColor;
+            }
+            .box:nth-child(5){
+                @extend %boardDarkColor;
+            }
+            .box:nth-child(6){
+                @extend %boardLightColor;
+            }
+            .box:nth-child(7){
+                @extend %boardDarkColor;
+            }
+            .box:nth-child(8){
+                @extend %boardLightColor;
+            }
+    }
+
+    .fifth-layer {
+
+        @extend %LayerDesign;
+    
+            .box:nth-child(1){
+                @extend %boardLightColor;
+            }
+            .box:nth-child(2){
+                @extend %boardDarkColor;
+            }
+            .box:nth-child(3){
+                @extend %boardLightColor;
+            }
+            .box:nth-child(4){
+                @extend %boardDarkColor;
+            }
+            .box:nth-child(5){
+                @extend %boardLightColor;
+            }
+            .box:nth-child(6){
+                @extend %boardDarkColor;
+            }
+            .box:nth-child(7){
+                @extend %boardLightColor;
+            }
+            .box:nth-child(8){
+                @extend %boardDarkColor;
+            }
+    }
+
+    .sixth-layer {
+
+        @extend %LayerDesign;
+    
+            .box:nth-child(1){
+                @extend %boardDarkColor;
+            }
+            .box:nth-child(2){
+                @extend %boardLightColor;
+            }
+            .box:nth-child(3){
+                @extend %boardDarkColor;
+            }
+            .box:nth-child(4){
+                @extend %boardLightColor;
+            }
+            .box:nth-child(5){
+                @extend %boardDarkColor;
+            }
+            .box:nth-child(6){
+                @extend %boardLightColor;
+            }
+            .box:nth-child(7){
+                @extend %boardDarkColor;
+            }
+            .box:nth-child(8){
+                @extend %boardLightColor;
+            }
+    }
+
+    .seventh-layer {
+
+        @extend %LayerDesign;
+    
+            .box:nth-child(1){
+                @extend %boardLightColor;
+            }
+            .box:nth-child(2){
+                @extend %boardDarkColor;
+            }
+            .box:nth-child(3){
+                @extend %boardLightColor;
+            }
+            .box:nth-child(4){
+                @extend %boardDarkColor;
+            }
+            .box:nth-child(5){
+                @extend %boardLightColor;
+            }
+            .box:nth-child(6){
+                @extend %boardDarkColor;
+            }
+            .box:nth-child(7){
+                @extend %boardLightColor;
+            }
+            .box:nth-child(8){
+                @extend %boardDarkColor;
+            }
+    }
+
+    .eight-layer {
+
+        @extend %LayerDesign;
+    
+            .box:nth-child(1){
+                @extend %boardDarkColor;
+            }
+            .box:nth-child(2){
+                @extend %boardLightColor;
+            }
+            .box:nth-child(3){
+                @extend %boardDarkColor;
+            }
+            .box:nth-child(4){
+                @extend %boardLightColor;
+            }
+            .box:nth-child(5){
+                @extend %boardDarkColor;
+            }
+            .box:nth-child(6){
+                @extend %boardLightColor;
+            }
+            .box:nth-child(7){
+                @extend %boardDarkColor;
+            }
+            .box:nth-child(8){
+                @extend %boardLightColor;
+            }
+    }
+
+}

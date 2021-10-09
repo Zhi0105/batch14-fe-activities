@@ -1,0 +1,412 @@
+// VARIABLES
+$boardLightColor: rgb(240, 217, 181);
+$boardDarkColor: rgb(181, 136, 99);
+
+// INHERITANCE
+%layoutPerLayer{
+    display: grid;
+    grid-template-columns: 4rem 4rem 4rem 4rem 4rem 4rem 4rem 4rem;
+    justify-content: center;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: teal;
+}
+
+h1{
+    text-align: center;
+    color:white;
+    margin: 20px 0 0 0;
+}
+
+img{
+    width: 3rem;
+    height: 3rem;
+    margin-top:5px;
+}
+
+//NESTING
+.main {
+    // GRID PER ROWS
+    display: grid;
+    grid-template-rows: 4rem 4rem 4rem 4rem 4rem 4rem 4rem 4rem;
+    margin-top: 3%;
+
+            .layer-one {
+                grid-row: 1/2;
+                // background: blue;
+                
+                // GRID PER COLUMNS
+                @extend %layoutPerLayer;
+
+                .box:nth-child(1){
+                    grid-column:1/2;
+                    background: $boardLightColor;
+                }
+                .box:nth-child(2){
+                    grid-column:2/3;
+                    background: $boardDarkColor;
+                }
+                .box:nth-child(3){
+                    grid-column:3/4;
+                    background: $boardLightColor;
+                    
+                }
+                .box:nth-child(4){
+                    grid-column:4/5;
+                    background: $boardDarkColor;
+                    
+                }
+                .box:nth-child(5){
+                    grid-column:5/6;
+                    background: $boardLightColor;
+                    
+                }
+                .box:nth-child(6){
+                    grid-column:6/7;
+                    background: $boardDarkColor;
+                    
+                }
+                .box:nth-child(7){
+                    grid-column:7/8;
+                    background: $boardLightColor;
+                    
+                }
+                .box:nth-child(8){
+                    grid-column:8/9;
+                    background: $boardDarkColor;
+                    
+                }
+
+            }
+    .layer-two {
+        grid-row: 2/3;
+        // background: red;
+
+            // GRID PER COLUMNS
+                @extend %layoutPerLayer;
+
+                .box:nth-child(1){
+                    grid-column:1/2;
+                    background: $boardDarkColor;
+                }
+                .box:nth-child(2){
+                    grid-column:2/3;
+                    background: $boardLightColor;
+                }
+                .box:nth-child(3){
+                    grid-column:3/4;
+                    background: $boardDarkColor;
+                    
+                }
+                .box:nth-child(4){
+                    grid-column:4/5;
+                    background: $boardLightColor;
+                    
+                }
+                .box:nth-child(5){
+                    grid-column:5/6;
+                    background: $boardDarkColor;
+                    
+                }
+                .box:nth-child(6){
+                    grid-column:6/7;
+                    background: $boardLightColor;
+                    
+                }
+                .box:nth-child(7){
+                    grid-column:7/8;
+                    background: $boardDarkColor;
+                    
+                }
+                .box:nth-child(8){
+                    grid-column:8/9;
+                    background: $boardLightColor;
+                    
+                }
+    }
+    .layer-three {
+        grid-row: 3/4;
+        // background: green;
+
+                // GRID PER COLUMNS
+                @extend %layoutPerLayer;
+
+                .box:nth-child(1){
+                    grid-column:1/2;
+                    background: $boardLightColor;
+                }
+                .box:nth-child(2){
+                    grid-column:2/3;
+                    background: $boardDarkColor;
+                }
+                .box:nth-child(3){
+                    grid-column:3/4;
+                    background: $boardLightColor;
+                    
+                }
+                .box:nth-child(4){
+                    grid-column:4/5;
+                    background: $boardDarkColor;
+                    
+                }
+                .box:nth-child(5){
+                    grid-column:5/6;
+                    background: $boardLightColor;
+                    
+                }
+                .box:nth-child(6){
+                    grid-column:6/7;
+                    background: $boardDarkColor;
+                    
+                }
+                .box:nth-child(7){
+                    grid-column:7/8;
+                    background: $boardLightColor;
+                    
+                }
+                .box:nth-child(8){
+                    grid-column:8/9;
+                    background: $boardDarkColor;
+                    
+                }
+    }
+    .layer-four {
+        grid-row: 4/5;
+        // background: yellow;
+        
+                // GRID PER COLUMNS
+                @extend %layoutPerLayer;
+
+                .box:nth-child(1){
+                    grid-column:1/2;
+                    background: $boardDarkColor;
+                }
+                .box:nth-child(2){
+                    grid-column:2/3;
+                    background: $boardLightColor;
+                }
+                .box:nth-child(3){
+                    grid-column:3/4;
+                    background: $boardDarkColor;
+                    
+                }
+                .box:nth-child(4){
+                    grid-column:4/5;
+                    background: $boardLightColor;
+                    
+                }
+                .box:nth-child(5){
+                    grid-column:5/6;
+                    background: $boardDarkColor;
+                    
+                }
+                .box:nth-child(6){
+                    grid-column:6/7;
+                    background: $boardLightColor;
+                    
+                }
+                .box:nth-child(7){
+                    grid-column:7/8;
+                    background: $boardDarkColor;
+                    
+                }
+                .box:nth-child(8){
+                    grid-column:8/9;
+                    background: $boardLightColor;
+                    
+                }
+    }
+
+    .layer-five {
+        grid-row: 5/6;
+        // background: blue;
+
+                // GRID PER COLUMNS
+                @extend %layoutPerLayer;
+
+                .box:nth-child(1){
+                    grid-column:1/2;
+                    background: $boardLightColor;
+                }
+                .box:nth-child(2){
+                    grid-column:2/3;
+                    background: $boardDarkColor;
+                }
+                .box:nth-child(3){
+                    grid-column:3/4;
+                    background: $boardLightColor;
+                    
+                }
+                .box:nth-child(4){
+                    grid-column:4/5;
+                    background: $boardDarkColor;
+                    
+                }
+                .box:nth-child(5){
+                    grid-column:5/6;
+                    background: $boardLightColor;
+                    
+                }
+                .box:nth-child(6){
+                    grid-column:6/7;
+                    background: $boardDarkColor;
+                    
+                }
+                .box:nth-child(7){
+                    grid-column:7/8;
+                    background: $boardLightColor;
+                    
+                }
+                .box:nth-child(8){
+                    grid-column:8/9;
+                    background: $boardDarkColor;
+                    
+                }
+    }
+    .layer-six {
+        grid-row: 6/7;
+        // background: red;
+
+                // GRID PER COLUMNS
+                @extend %layoutPerLayer;
+
+                .box:nth-child(1){
+                    grid-column:1/2;
+                    background: $boardDarkColor;
+                }
+                .box:nth-child(2){
+                    grid-column:2/3;
+                    background: $boardLightColor;
+                }
+                .box:nth-child(3){
+                    grid-column:3/4;
+                    background: $boardDarkColor;
+                    
+                }
+                .box:nth-child(4){
+                    grid-column:4/5;
+                    background: $boardLightColor;
+                    
+                }
+                .box:nth-child(5){
+                    grid-column:5/6;
+                    background: $boardDarkColor;
+                    
+                }
+                .box:nth-child(6){
+                    grid-column:6/7;
+                    background: $boardLightColor;
+                    
+                }
+                .box:nth-child(7){
+                    grid-column:7/8;
+                    background: $boardDarkColor;
+                    
+                }
+                .box:nth-child(8){
+                    grid-column:8/9;
+                    background: $boardLightColor;
+                    
+                }
+    }
+    .layer-seven {
+        grid-row: 7/8;
+        // background: green;
+
+                // GRID PER COLUMNS
+                @extend %layoutPerLayer;
+
+                .box:nth-child(1){
+                    grid-column:1/2;
+                    background: $boardLightColor;
+                }
+                .box:nth-child(2){
+                    grid-column:2/3;
+                    background: $boardDarkColor;
+                }
+                .box:nth-child(3){
+                    grid-column:3/4;
+                    background: $boardLightColor;
+                    
+                }
+                .box:nth-child(4){
+                    grid-column:4/5;
+                    background: $boardDarkColor;
+                    
+                }
+                .box:nth-child(5){
+                    grid-column:5/6;
+                    background: $boardLightColor;
+                    
+                }
+                .box:nth-child(6){
+                    grid-column:6/7;
+                    background: $boardDarkColor;
+                    
+                }
+                .box:nth-child(7){
+                    grid-column:7/8;
+                    background: $boardLightColor;
+                    
+                }
+                .box:nth-child(8){
+                    grid-column:8/9;
+                    background: $boardDarkColor;
+                    
+                }
+    }
+    .layer-eight {
+        grid-row: 8/9;
+        // background: yellow;
+
+                // GRID PER COLUMNS
+                @extend %layoutPerLayer;
+
+                .box:nth-child(1){
+                    grid-column:1/2;
+                    background: $boardDarkColor;
+                }
+                .box:nth-child(2){
+                    grid-column:2/3;
+                    background: $boardLightColor;
+                }
+                .box:nth-child(3){
+                    grid-column:3/4;
+                    background: $boardDarkColor;
+                    
+                }
+                .box:nth-child(4){
+                    grid-column:4/5;
+                    background: $boardLightColor;
+                    
+                }
+                .box:nth-child(5){
+                    grid-column:5/6;
+                    background: $boardDarkColor;
+                    
+                }
+                .box:nth-child(6){
+                    grid-column:6/7;
+                    background: $boardLightColor;
+                    
+                }
+                .box:nth-child(7){
+                    grid-column:7/8;
+                    background: $boardDarkColor;
+                    
+                }
+                .box:nth-child(8){
+                    grid-column:8/9;
+                    background: $boardLightColor;
+                    
+                }
+    }
+}
