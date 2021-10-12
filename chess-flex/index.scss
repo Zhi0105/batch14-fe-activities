@@ -6,23 +6,25 @@
 
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background: teal;
 }
 
 h1{
     color:white;
-    margin-top: 10px;
+    padding-top: 10px
 }
 
 img{
     height: 3rem;
     width: 3rem;
+    max-width:  100%;
+    max-height: 100%;
+    display: block;
     margin:.5rem 0 0 0;
 }
 
-//VARIABLE
-$bgDarkColor : rgb(112, 162, 163);
-$bgLightColor: rgb(177, 228, 184);
+// //VARIABLE
+// $bgDarkColor : rgb(112, 162, 163);
+// $bgLightColor: rgb(177, 228, 184);
 
 //INHERITANCE
 %boardLightColor{
@@ -42,24 +44,21 @@ $bgLightColor: rgb(177, 228, 184);
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
     flex-wrap: nowrap;
 }
 
 
 //NESTING
 .main{
-
-    max-width: 100%;
-    max-height: 100%;
-    margin:1%;
-    height: 90vh;
-    
+    padding: 1% 5% 1% 5%;
+    height: 100vh;
+    width: 100vw;
+    background: teal;   
 
     .first-layer {
         @extend %LayerDesign;
-        margin-top: 3%;
-    
+        padding-top: 3%;
+
             .box:nth-child(1){
                 @extend %boardLightColor;
             }
@@ -369,45 +368,61 @@ $bgLightColor: rgb(177, 228, 184);
         }
     }
 
+    .second-layer{
+        .box:nth-child(6){
+            img{
+            animation: whitePawnGone 2s ease 15s normal forwards;
+            position: relative;
+            }
+        }
+    }
+    
+    
+
 
     @keyframes whitePawnMove {
         0% {background: red; top:0px;}
-        100% {background: $bgDarkColor; top:8rem;}
+        100% {background: transparent; top:8rem;}
     }
 
     @keyframes blackPawnMove {
         0% {background: red; bottom:0px;}
-        100% {background: $bgLightColor; bottom:8rem;}
+        100% {background: transparent; bottom:8rem;}
     }
     
     @keyframes whiteKnightMove {
         0% {background: red; top:0px;}
-        100% {background: $bgDarkColor; transform: translate(4rem, 8rem);}
+        100% {background: transparent; transform: translate(4rem, 8rem);}
     }
 
     @keyframes blackBishopMove {
         0% {background: red; bottom:0px;}
-        100% {background: $bgLightColor; transform: translate(-11.6rem, -11.9rem);}
+        100% {background: transparent; transform: translate(-11.6rem, -11.9rem);}
     }
 
     @keyframes whitePawn2Move {
         0% {background: red; top:0px;}
-        100% {background: $bgDarkColor; top:8rem;}
+        100% {background:transparent; top:8rem;}
     }
 
     @keyframes blackQueenMove {
         0% {background: red; top:0px;}
-        100% {background: $bgLightColor; transform: translate(8rem, -8rem);}
+        100% {background: transparent; transform: translate(8rem, -8rem);}
     }
 
     @keyframes whiteKnight2Move {
         0% {background: red; top:0px;}
-        100% {background: $bgLightColor; transform: translate(4rem, 8rem);}
+        100% {background: transparent; transform: translate(4rem, 8rem);}
     }
 
     @keyframes blackQueen2ndMove {
         0% {background: red; bottom:0px;}
-        100% {background: $bgLightColor; bottom:16rem;}
+        100% {background: transparent; bottom:16rem;}
+    }
+    
+    @keyframes whitePawnGone {
+        0% {background: red; bottom:0px;}
+        100% {display: none; opacity: 0;}
     }
     
 
