@@ -52,13 +52,18 @@ img{
 .main{
     padding: 1% 5% 1% 5%;
     height: 100vh;
-    width: 100vw;
-    background: teal;   
+    width: 100%;
+    background: teal;
+    
+        .container{
+            width: 100%;
+            height: auto;
+        }
 
     .first-layer {
         @extend %LayerDesign;
         padding-top: 3%;
-
+    
             .box:nth-child(1){
                 @extend %boardLightColor;
             }
@@ -269,6 +274,7 @@ img{
     .eight-layer {
 
         @extend %LayerDesign;
+        padding-bottom:1%;
     
             .box:nth-child(1){
                 @extend %boardDarkColor;
