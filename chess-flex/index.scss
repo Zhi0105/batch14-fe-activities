@@ -52,8 +52,8 @@ img{
 .main{
     padding: 1% 5% 1% 5%;
     height: 100vh;
-    width: 100%;
-    background: teal;
+    width: 100vw;
+    background:rgb(45, 62, 80);
     
         .container{
             width: 100%;
@@ -431,6 +431,5 @@ img{
         100% {display: none; opacity: 0;}
     }
     
-
 
 }
