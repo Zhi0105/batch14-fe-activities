@@ -1,0 +1,42 @@
+@import url("../css/index.css");
+
+.content{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    .box1, .box2{
+        margin: 2em;
+        width: 100%;
+
+        p,h1{
+            color:white;
+            text-align: center;
+        }
+        p{
+            margin: 1em 0 1em 0;
+        }
+
+    }
+    
+}
+
+@media (max-width: 989px) {
+    .content{
+        flex-direction: column;
+        .box1, .box2{
+            margin: 2em;
+            width: 90%;
+    
+            p,h1{
+                color:white;
+                text-align: center;
+            }
+            p{
+                margin: 1em 0 1em 0;
+            }
+    
+        }
+    }
+}

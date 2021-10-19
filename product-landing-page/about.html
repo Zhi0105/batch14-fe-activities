@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product-landing-page</title>
+    <link rel="stylesheet" href="./css/about.css">
+</head>
+<body>
+    <div class="main">
+        <div class="header" id="header">
+                <!-- Simulate a smartphone / tablet -->
+                <div class="mobile-container">
+                    <!-- Top Navigation Menu -->
+                    <div class="topnav" id="nav-bar">
+                        <a href="./index.html" class="active" id="logo"><img src="./img/Ray-Ban-Logo.png" width="100vmin" height="40vmin" alt="img logo" id="header-img"></a>
+                            <div id="myLinks">
+                                <a href="javascript:void(0)" class="nav-link" style="color:red">About</a>
+                                <a href="./videos.html" class="nav-link">Videos</a>
+                                <a href="./contact.html" class="nav-link">Contact Us</a>
+                            </div>
+                        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </a>
+                    </div>
+                </div>
+        </div>
+        <div class="header-bottom"></div>
+        <div class="content">
+            <div class="about-img"><img src="./img/ray-ban-about.PNG" alt="about-img"></div><br>
+            <p>Today, we’re excited to launch Ray-Ban Stories: smart glasses that give you a new way to capture photos and video, share your adventures and listen to music or take phone calls — so you can stay present with friends, family and the world around you. Built in partnership with Facebook and EssilorLuxottica, Ray-Ban Stories start at $299 USD and will be available for purchase in 20 style combinations online and in select retail stores in the US, as well as Australia, Canada, Ireland, Italy and the UK.</p>
+            <div class="btn-read-more">
+                <a href="https://about.fb.com/news/2021/09/introducing-ray-ban-stories-smart-glasses/" target="_blank">READ MORE</a>
+            </div>
+        </div>
+        <div class="footer">
+            <center><h2>Related Blogs</h2></center>
+            <div class="footer-container">
+
+                    <div class="content-1">
+                        <h3>Engineering</h3>
+                        <p><a href="https://engineering.fb.com/" target="_blank">Facebook Engineering</a></p><br>
+                        <p><a href="https://ai.facebook.com/blog" target="_blank">AI Blog</a></p>
+                    </div>
+                    <div class="content-2">
+                        <h3>Research</h3>
+                        <p><a href="https://research.fb.com/" target="_blank">Facebook Research</a></p><br><br>
+                    </div>
+                    <div class="content-3">
+                        <h3>Developers</h3>
+                        <p><a href="https://developer.oculus.com/" target="_blank">Oculus Developers</a></p><br>
+                        <p><a href="https://developers.facebook.com/" target="_blank">Facebook Developers</a></p>
+                    </div>
+                    <div class="content-4">
+                        <h3>News</h3>
+                        <p><a href="https://about.facebook.com/" target="_blank">Facebook Newsroom</a></p><br>
+                        <p><a href="https://www.oculus.com/blog/" target="_blank">Oculus Blog</a></p>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+
+
+        <script>
+            function myFunction() {
+            var x = document.getElementById("myLinks");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+            }
+        </script>
+</body>
+</html>

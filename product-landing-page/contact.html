@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product-landing-page</title>
+    <link rel="stylesheet" href="./css/contact.css">
+</head>
+<body>
+    <div class="main">
+        <div class="header" id="header">
+                <!-- Simulate a smartphone / tablet -->
+                <div class="mobile-container">
+                    <!-- Top Navigation Menu -->
+                    <div class="topnav" id="nav-bar">
+                        <a href="./index.html" class="active" id="logo"><img src="./img/Ray-Ban-Logo.png" width="100vmin" height="40vmin" alt="img logo" id="header-img"></a>
+                            <div id="myLinks">
+                                <a href="./about.html" class="nav-link">About</a>
+                                <a href="./videos.html" class="nav-link">Videos</a>
+                                <a href="javascript:void(0)" class="nav-link" style="color:red">Contact Us</a>
+                            </div>
+                        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </a>
+                    </div>
+                </div>
+        </div>
+        <div class="header-bottom"></div>
+        <div class="content">
+            <center>
+                <div class="main-container">
+                    <h1>Contact Us</h1><br><br><br>
+                    <p>We'd love to hear from you. Send us your queries, concerns, and other messages using the form below and we'll try to get back to you as when we can.</p>
+
+                    <form id="form" class="form">
+                        <label for="email">Email:</label>
+                        <input type="email" name="email" id="email" placeholder="enter valid email" required><br><br>
+                        <!-- <label for="comment">Comment:</label> -->
+                        <textarea name="comment" id="comment" maxlength="200" placeholder="Message here!" required></textarea><br><br>
+                        <input type="submit" class="submit" id="submit" value="submit">
+                    </form>
+
+                    <!-- MODAL  -->
+                    <div class="modal" id="modal">
+                        <!-- MODAL CONTENT -->
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <p>Thank you for your response!</p>
+                        </div>
+                    </div>
+
+                </div>
+            </center>
+        </div>
+        <div class="footer">
+            <center><h2>Related Blogs</h2></center>
+            <div class="footer-container">
+
+                    <div class="content-1">
+                        <h3>Engineering</h3>
+                        <p><a href="https://engineering.fb.com/" target="_blank">Facebook Engineering</a></p><br>
+                        <p><a href="https://ai.facebook.com/blog" target="_blank">AI Blog</a></p>
+                    </div>
+                    <div class="content-2">
+                        <h3>Research</h3>
+                        <p><a href="https://research.fb.com/" target="_blank">Facebook Research</a></p><br><br>
+                    </div>
+                    <div class="content-3">
+                        <h3>Developers</h3>
+                        <p><a href="https://developer.oculus.com/" target="_blank">Oculus Developers</a></p><br>
+                        <p><a href="https://developers.facebook.com/" target="_blank">Facebook Developers</a></p>
+                    </div>
+                    <div class="content-4">
+                        <h3>News</h3>
+                        <p><a href="https://about.facebook.com/" target="_blank">Facebook Newsroom</a></p><br>
+                        <p><a href="https://www.oculus.com/blog/" target="_blank">Oculus Blog</a></p>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+
+
+        <script>
+            //NAVBAR FUNCTIONALITY
+            function myFunction() {
+            var x = document.getElementById("myLinks")
+            if (x.style.display === "block") {
+                x.style.display = "none"
+            } else {
+                x.style.display = "block"
+            }
+            }
+
+            //MODAL FUNCTIONALITY
+            let modal = document.querySelector(`.modal`)
+            let submit = document.querySelector(`.form`)
+            let close = document.getElementsByClassName(`close`)[0]
+            
+
+            // When the user clicks the button, open the modal
+            submit.addEventListener(`submit`, (e) => {
+                e.preventDefault()
+                modal.style.display = 'block'
+
+                        // When the user clicks on <span> (x), close the modal
+                    close.addEventListener(`click`, () => {
+                            //location.reload()
+                            window.location.assign(`./index.html`)
+                    })
+
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.addEventListener(`click`, (e) => {
+                        if(e.target == modal){
+                             //location.reload()
+                            window.location.assign(`./index.html`)
+                        
+                        }
+                    })
+
+            })
+
+
+        </script>
+</body>
+</html>

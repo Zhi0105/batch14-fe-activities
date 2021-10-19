@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product-landing-page</title>
+    <link rel="stylesheet" href="./css/videos.css">
+</head>
+<body>
+    <div class="main">
+        <div class="header" id="header">
+                <!-- Simulate a smartphone / tablet -->
+                <div class="mobile-container">
+                    <!-- Top Navigation Menu -->
+                    <div class="topnav" id="nav-bar">
+                        <a href="./index.html" class="active" id="logo"><img src="./img/Ray-Ban-Logo.png" width="100vmin" height="40vmin" alt="img logo" id="header-img"></a>
+                            <div id="myLinks">
+                                <a href="./about.html" class="nav-link">About</a>
+                                <a href="javascript:void(0)" class="nav-link" style="color:red">Videos</a>
+                                <a href="./contact.html" class="nav-link">Contact Us</a>
+                            </div>
+                        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </a>
+                    </div>
+                </div>
+        </div>
+        <div class="header-bottom"></div>
+        <div class="content">
+
+            
+            <div class="box1">
+                <h1>Watch Mark Zuckerberg announce new Facebook and Ray-Ban smart glasses</h1>
+                <p>Ray-Ban and Facebook joined forces to make smart glasses that can capture pictures and video, make phone calls, and play music. But will customers actually want to wear them?</p>
+                <iframe width="100%" height="450vmin" src="https://www.youtube.com/embed/Gn6_3G_uvYA" id="video">
+                </iframe>
+            </div>
+            <div class="box2">
+                <h1>Hands-on with Facebook and Ray-Ban’s $299 camera glasses</h1>
+                <p>Facebook and Ray-Ban’s first pair of smart glasses cost $299 and feature two cameras for taking photos and videos. They can also play audio from your phone over Bluetooth.</p>
+                <iframe width="100%" height="450vmin" src="https://www.youtube.com/embed/B7Nmmxq1aK4" id="vid">
+                </iframe>
+            </div>
+        
+
+        </div>
+        <div class="footer">
+            <center><h2>Related Blogs</h2></center>
+            <div class="footer-container">
+
+                    <div class="content-1">
+                        <h3>Engineering</h3>
+                        <p><a href="https://engineering.fb.com/" target="_blank">Facebook Engineering</a></p><br>
+                        <p><a href="https://ai.facebook.com/blog" target="_blank">AI Blog</a></p>
+                    </div>
+                    <div class="content-2">
+                        <h3>Research</h3>
+                        <p><a href="https://research.fb.com/" target="_blank">Facebook Research</a></p><br><br>
+                    </div>
+                    <div class="content-3">
+                        <h3>Developers</h3>
+                        <p><a href="https://developer.oculus.com/" target="_blank">Oculus Developers</a></p><br>
+                        <p><a href="https://developers.facebook.com/" target="_blank">Facebook Developers</a></p>
+                    </div>
+                    <div class="content-4">
+                        <h3>News</h3>
+                        <p><a href="https://about.facebook.com/" target="_blank">Facebook Newsroom</a></p><br>
+                        <p><a href="https://www.oculus.com/blog/" target="_blank">Oculus Blog</a></p>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+
+
+        <script>
+            function myFunction() {
+            var x = document.getElementById("myLinks");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+            }
+        </script>
+</body>
+</html>
