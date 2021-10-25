@@ -146,8 +146,12 @@ body{
             outline: none;
             
         }
-        .quote{
+        .quote-detail{
             text-align: center;
+                .quote:hover{
+                    color:green;
+                    cursor:pointer;
+                }
         }
     }
 

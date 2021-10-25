@@ -11,6 +11,7 @@ window.addEventListener('DOMContentLoaded', () => {
         ]
     
         var item = quote_arr[Math.floor(Math.random()*quote_arr.length)]
+    
         let span = document.createElement(`span`)
             span.textContent = `"${item}"`
             span.style.cursor = "pointer"
@@ -32,14 +33,27 @@ window.addEventListener('DOMContentLoaded', () => {
         document.querySelector(`.quote-description`).style.visibility = "visible"
 
         document.querySelector(`.quote-description`).addEventListener(`change`, () => {
-                let span = document.createElement(`span`)
+            
+            //INSERTING NEW QUOTE INTO ARRAY
+            quote_arr.push(document.querySelector(`.quote-description`).value)
+            console.log(quote_arr)
+            
+            document.querySelector(`.quote-description`).value = ""
+            document.querySelector(`.quote-description`).style.visibility = "hidden"
 
-                span.textContent = `"${document.querySelector(`.quote-description`).value}"`
-                document.querySelector(`.quote`).append(span)
-                document.querySelector(`.quote-description`).style.visibility = "hidden"
-
+            //DISPLAYING NEW QUOTE INSIDE OF ARRAY
+            document.querySelector(`.quote`).textContent = `"${quote_arr[quote_arr.length - 1]}"`
+            document.querySelector(`.quote`).style.visibility = "visible"
+            
         })
-    
+
+        document.querySelector(`.quote`).addEventListener(`click`, () => {
+            document.querySelector(`.quote`).style.visibility = "hidden"
+            document.querySelector(`.quote-description`).style.visibility = "visible"
+        })
+
     })
+
+
 
 })
