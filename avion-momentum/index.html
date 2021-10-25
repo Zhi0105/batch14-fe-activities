@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>avion-momentum</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body onload="initClock()"> 
+    <div class="main">
+        <div class="header"><p>This is a header</p></div>
+        <div class="content">
+
+            <!-- INITIAL CONTAINER FOR INSERTING A NAME -->
+            <div class="initial-container">
+                <label for="name">What is your name ?</label>
+                <input type="text" id="name" class="name" maxlength="100">
+            </div>
+            
+            <!-- MAIN CONTAINER AFTER INSERTING YOUR NAME -->
+        <center>
+            <div class="main-container">
+                <center>
+                    <div class="time">
+                        <span id="hours">00</span><span>:</span>
+                        <span id="minutes">00</span><span>:</span>
+                        <span id="seconds">00</span>
+                        <span id="period">AM</span>
+                    </div>
+                </center>
+                <center>
+                    <div class="greet-container">
+                        <span id="greet" class="greet"></span>
+                        <label class="edit-name">
+                            <a href="javascript:void(0)" class="btn-edit-name">&nbsp;...&nbsp;</a>  
+                        </label>
+                    </div>
+                </center>
+                <p class="focus-greet">What is your main focus for today?</p>
+                <input type="text" id="today-focus" class="today-focus" maxlength="50">
+                <div class="focus-info"></div>
+                <div class="focus-comment">Great Work!</div>
+            </div>
+        </center>
+        </div>
+
+        <div class="footer">
+            <input type="text" class="quote-description" maxlength="100">     
+            <a href="javascript:void(0)" class="btn-add-quote">Add new quote</a>
+            <div class="quote"></div>
+        </div>
+
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+<script src="./js/index.js"></script>
+<script src="./js/focus.js"></script>
+<script src="./js/quote.js"></script>
+<script src="./js/todo.js"></script>
+
+<script>
+    let updateClock = () => {
+
+        //INITIALIZING DATETIME
+        let date = new Date()
+        let hr =  date.getHours(),
+            min = date.getMinutes(),
+            sec = date.getSeconds(),
+            per = "AM"
+
+        //SET TIMEFRAME INTO 12HRS FORMAT
+            if(hr == 0){
+                hr = 12
+            }
+            if(hr > 12){
+                hr-=12
+                per = "PM"
+            }
+            if(min > 0 && min < 10){
+                min = `0${min}`
+            }
+            if(min == 0){
+                min = `00`
+            }
+        
+        //INITIALIZE, ITERATE TIME VALUE AND DISPLAY IT TO THE WEB PAGE
+        var ids = ["hours", "minutes", "seconds", "period"]
+        var values = [hr, min, sec, per]
+        
+        for(let i = 0; i < ids.length; i+=1){
+            document.getElementById(ids[i]).firstChild.nodeValue = `${values[i]}`;
+        }
+
+        
+    }
+
+    let initClock = () => {
+        updateClock()
+        window.setInterval("updateClock()", 1000)
+        
+        
+    }
+</script>
+</body>
+</html>

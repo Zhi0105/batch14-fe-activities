@@ -1,0 +1,154 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Segoe UI", sans-serif;
+}
+
+%inputTextDesign{
+    width:90%;
+    height: 40px;    
+    text-align: center;
+    color: white;
+    background:transparent;
+    border-color: transparent;
+    border-bottom: 2px solid white;
+    font-size: 40px;
+    margin-top: 10px;
+    padding:30px;
+    outline: none;
+}
+
+.main{
+    height: 100vh;
+    background-image: url('../img/bg.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+
+    //GRID
+    display:grid;
+    grid-template-rows: 8% 2fr .4fr;
+
+    .header{
+        grid-row:1/2;
+    }
+    .content{
+        grid-row:2/3;
+        width:auto;
+        height: auto;
+
+        //FLEX;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction:column;
+        flex-wrap: wrap;
+
+            *{
+                width: 80vmin;
+            }
+
+            .initial-container  {
+                    label{
+                        color:white;
+                        font-size: 8vmin;
+                    }
+                    .name{
+                        @extend %inputTextDesign;
+                    }
+            }
+            .main-container{
+                margin-bottom: 50px;
+                span{
+                    color:white;
+                    font-size: 6.8vmin;
+                }   
+                p{
+                    color:white;
+                    font-size: 1.5em;
+                    margin-top: 10px;
+                    font-weight: bold;
+                }
+                .today-focus{
+                    @extend %inputTextDesign;
+                    font-size: 25px;
+                }
+                .time{
+                    span{
+                        font-size:20vmin;
+                    }
+                    span:last-child(){
+                        font-size : 2vmin;
+                    }
+                }
+                
+            }
+            .edit-name{
+                display: none;
+                a{
+                    color:white;
+                    padding:3px;
+                    font-size: 3.5vmin;
+                    border-radius: 50%;
+                    text-decoration: none;
+                }
+
+            }
+            .focus-info{
+                display:flex;
+                margin-top:20px;
+                width: 30%;
+                text-align: center;
+                
+                
+            }
+            .focus-comment{
+                color:white;
+                visibility: hidden;
+            }
+            
+    }
+    .footer{
+        grid-row:3/4;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        
+        *{
+            color: white;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: bold;
+        }
+
+        .btn-add-quote{
+            text-decoration: none;
+            font-size: 2.5vmin;
+            
+        }
+        .btn-add-quote:hover{
+            color:red;
+        }
+        .quote-description{
+            width: 50%;
+            text-align: center;
+            color: white;
+            background:transparent;
+            border-color: transparent;
+            border-bottom: 2px solid rgb(240, 240, 240);
+            font-size: 15px;
+            padding:5px;
+            outline: none;
+            
+        }
+        .quote{
+            text-align: center;
+        }
+    }
+
+}
