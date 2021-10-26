@@ -85,9 +85,10 @@ window.addEventListener('DOMContentLoaded', () => {
                 allList[i].remove()
                 allList[allList.length - 1].remove()
             }
+            console.log(todo_arr)
         })
 
-    
+        
         
         
 })  
