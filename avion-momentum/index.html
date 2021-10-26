@@ -6,10 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>avion-momentum</title>
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/todo.css">
+    
 </head>
 <body onload="initClock()"> 
     <div class="main">
-        <div class="header"><p>This is a header</p></div>
+
+        <div class="header">
+            <a href="javascript:void(0)" class="todo">Todo</a>
+
+                <!-- MODAL  -->
+                <div class="modal" id="modal">
+                    <!-- MODAL CONTENT -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+
+                        <div class="todo-container">
+
+                            <div class="todo-header">
+                                <h1>List items</h1>
+                            </div>
+                            
+                            <div class="todo-content">
+                                <div class="add-list">
+                                    <input type="text" id="add-list" placeholder="Add your list ?">
+                                    <a href="javascript:void(0)" class="btn-add-list">Add</a>
+                                </div>
+
+                                <div class="list-item">
+                                    <!-- <span class="list-item-detail">asdas</span> -->
+                                </div>
+                            </div>
+
+                            <div class="todo-footer">
+                                <a href="javascript:void(0)" class="btn-clear-todo">Clear All</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            
+        </div>
         <div class="content">
 
             <!-- INITIAL CONTAINER FOR INSERTING A NAME -->
@@ -72,6 +110,9 @@
         //SET TIMEFRAME INTO 12HRS FORMAT
             if(hr == 0){
                 hr = 12
+            }
+            if(hr == 12){
+                per = "PM"
             }
             if(hr > 12){
                 hr-=12

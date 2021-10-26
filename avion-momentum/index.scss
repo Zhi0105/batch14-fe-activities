@@ -36,6 +36,10 @@ body{
 
     .header{
         grid-row:1/2;
+        
+        display:flex;
+        justify-content: center;
+        padding:20px;
     }
     .content{
         grid-row:2/3;
