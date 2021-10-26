@@ -52,8 +52,14 @@ window.addEventListener('DOMContentLoaded', () => {
             document.querySelector(`.quote-description`).style.visibility = "visible"
         })
 
+        
+        document.querySelector(`.btn-change-quote`).addEventListener(`click`, () => {
+            var newItem = quote_arr[Math.floor(Math.random()*quote_arr.length)]
+            
+            document.querySelector(`.quote`).textContent = `"${newItem}"`
+
+        })
+
     })
-
-
 
 })

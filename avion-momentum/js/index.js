@@ -13,9 +13,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
         let name = document.querySelector(`.name`).value
 
-        document.querySelector(`.greet`).textContent = `Have a nice Day!, ${name}.`
+        document.querySelector(`.greet-detail`).textContent = `${name}!`
     })
 
-    
+    document.querySelector(`.greet-detail`).addEventListener(`click`, () => {
+        window.location.reload()
+    })
     
 })
