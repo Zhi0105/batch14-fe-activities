@@ -144,6 +144,10 @@ body{
         .btn-add-quote:hover{
             color:red;
         }
+
+        .btn-change-quote{
+            visibility: hidden;
+        }
         
         .btn-change-quote:hover{
             color:green;

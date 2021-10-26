@@ -26,7 +26,6 @@ window.addEventListener('DOMContentLoaded', () => {
             span.remove()
         })
 
-
     document.querySelector(`.btn-add-quote`).addEventListener(`click`, () => {
 
         document.querySelector(`.btn-add-quote`).style.visibility = "hidden"
@@ -44,15 +43,17 @@ window.addEventListener('DOMContentLoaded', () => {
             //DISPLAYING NEW QUOTE INSIDE OF ARRAY
             document.querySelector(`.quote`).textContent = `"${quote_arr[quote_arr.length - 1]}"`
             document.querySelector(`.quote`).style.visibility = "visible"
+            document.querySelector(`.btn-change-quote`).style.visibility = 'visible'
+            
             
         })
 
         document.querySelector(`.quote`).addEventListener(`click`, () => {
             document.querySelector(`.quote`).style.visibility = "hidden"
             document.querySelector(`.quote-description`).style.visibility = "visible"
+        
         })
 
-        
         document.querySelector(`.btn-change-quote`).addEventListener(`click`, () => {
             var newItem = quote_arr[Math.floor(Math.random()*quote_arr.length)]
             
@@ -61,5 +62,6 @@ window.addEventListener('DOMContentLoaded', () => {
         })
 
     })
+
 
 })
