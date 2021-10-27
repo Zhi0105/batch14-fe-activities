@@ -111,11 +111,12 @@ body{
             }
             .focus-info{
                 display:flex;
+                flex-direction: row;
                 margin-top:20px;
-                width: 30%;
+                width: 40%;
                 text-align: center;
                 
-                
+
             }
             .focus-comment{
                 color:white;

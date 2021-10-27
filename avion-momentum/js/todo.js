@@ -29,7 +29,7 @@ window.addEventListener('DOMContentLoaded', () => {
         let todo_arr = []
         document.querySelector(`.btn-add-list`).addEventListener(`click`, () => {
             todo_arr.push(document.querySelector(`#add-list`).value)
-            // localStorage.setItem('toDo', JSON.stringify(todo_arr))    
+            // localStorage.setItem('List', JSON.stringify(todo_arr))  
             let span = document.createElement(`span`)
 
             

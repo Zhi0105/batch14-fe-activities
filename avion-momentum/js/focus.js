@@ -2,7 +2,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
     document.querySelector(`.today-focus`).addEventListener(`change`, () => {
     
-        $(`.today-focus`).fadeOut()
+        // $(`.today-focus`).fadeOut()
+        document.querySelector(`.today-focus`).style.display = `none`
+
 
         let info = document.querySelector(`.focus-info`)
         let focusCheckBox = document.createElement(`input`)
@@ -16,6 +18,7 @@ window.addEventListener('DOMContentLoaded', () => {
         focusLabel.style.color = "white"
         focusLabel.style.fontSize = "3.5vmin"
         focusLabel.style.cursor = "pointer"
+        focusLabel.style.textAlign = 'center'
         
         info.append(focusCheckBox, focusLabel)
 
@@ -25,8 +28,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
             focusLabel.style.textDecoration = "line-through"
             document.querySelector(`.focus-comment`).style.visibility = "visible"
-            $(`.focus-info`).fadeOut(2000)
-            $(`.focus-comment`).fadeOut(2000)
+            // $(`.focus-info`).fadeOut(2000)
+            // $(`.focus-comment`).fadeOut(2000)
+            document.querySelector(`.focus-info`).style.display = 'none'
+            document.querySelector(`.focus-comment`).style.display = 'none'
+            
             document.querySelector(`.focus-greet`).textContent = "Job well done for this day!"
             
         })
@@ -40,7 +46,8 @@ window.addEventListener('DOMContentLoaded', () => {
         const editFocus = () => {
             document.querySelector(`.focus-checkbox`).remove()
             document.querySelector(`.focus-label`).remove()
-            $(`.today-focus`).fadeIn()
+            // $(`.today-focus`).fadeIn()
+            document.querySelector(`.today-focus`).style.display = `block`
             
         }
 

@@ -6,10 +6,16 @@ window.addEventListener('DOMContentLoaded', () => {
     document.querySelector(`.main-container`).style.display = "none"
 
     document.querySelector(`.name`).addEventListener(`change`, () => {
-        $(`.initial-container`).fadeOut(500);
-        $(`.header`).fadeIn(2000);
-        $(`.footer`).fadeIn(2000);
-        $(`.main-container`).fadeIn(2000);
+        // $(`.initial-container`).fadeOut(500);
+        // $(`.header`).fadeIn(2000);
+        // $(`.footer`).fadeIn(2000);
+        // $(`.main-container`).fadeIn(2000);
+        document.querySelector(`.initial-container`).style.display = 'none'
+        document.querySelector(`.header`).style.display = "block"
+        document.querySelector(`.footer`).style.display = "block"
+
+    
+        document.querySelector(`.main-container`).style.display = 'block'
 
         let name = document.querySelector(`.name`).value
 
