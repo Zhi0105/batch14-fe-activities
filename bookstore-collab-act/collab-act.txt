@@ -1,0 +1,117 @@
+
+//INITIALIZE STORE
+const store = {
+  name : "National Book store",
+  inventoryList : 0,
+  earnings : 0,
+  totalEarnings : function (){
+    return `${this.name} TotalEarnings : Php ${this.earnings.toFixed(2)}`
+  }
+}
+
+
+//CREATING AND STORING A BOOK
+let arr = []
+
+class storeBook {
+    constructor(title, quantity, value){
+        this.title = title
+        this.quantity = quantity
+        this.value = value
+    }
+    createBook(){
+      addbook(this.title, this.quantity, this.value)
+    }
+}
+
+const addbook = (bookTitle, bookQuantity, bookValue) => {
+    let book = {
+        title : bookTitle,
+        quantity: bookQuantity,
+        value : bookValue
+    }
+    arr.push(book)
+    
+}
+
+  let newBook = new storeBook(`Sample`, 2, 50)
+  let newBook2 = new storeBook(`Sample1`, 5, 50)
+      newBook.createBook()
+      newBook2.createBook()
+      
+      
+      
+//RESTOCKING A BOOK
+const restockBook = (title, quantity) => {
+      arr.forEach(i => {
+        if(i.title === title){
+          i.quantity += quantity
+        } 
+        
+      })
+}
+
+// restockBook(`Sample`, 4)
+
+
+//SELLING A BOOK
+const sellBook = (title, quantity) => {
+  
+  
+    let itemList = []
+    arr.forEach(i => {
+      itemList.push(i.title)
+    })
+    
+      if(itemList.indexOf(title) >= 0){
+        
+           arr.forEach(i => {
+             
+             if(i.title == title){
+                if(i.quantity < quantity){
+                  console.log(`only ${i.quantity} stock left!`)
+                } else {
+                  
+                  i.quantity -= quantity
+                  store.earnings += i.value
+                  console.log(`Successful Transaction!`)
+                  
+                }
+             }
+             
+           })
+         
+      } else {
+        console.log(`"${title}" out of Stock!`)
+      }
+    
+}
+
+sellBook(`Sample`, 2)
+
+
+
+//INVENTORYLIST
+const listInventory = () => {
+  arr.forEach(i => {
+    console.log(i)
+  })
+}
+
+
+//GET TOTAL INVENTORY STOCKS 
+let getTotalInventoryList = 0;
+arr.forEach(i => {
+  getTotalInventoryList += i.quantity
+})
+
+  store.inventoryList = getTotalInventoryList
+  
+  
+
+//DISPLAYING INVENTORY STATUS
+// console.log(arr)
+
+console.log(store) // STORE STATUS
+listInventory() // INVENTORY ITEMS
+console.log(store.totalEarnings()) // TOTAL EARNINGS
