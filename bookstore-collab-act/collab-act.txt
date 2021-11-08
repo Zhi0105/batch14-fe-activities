@@ -54,6 +54,7 @@ const restockBook = (title, quantity) => {
 // restockBook(`Sample`, 4)
 
 
+
 //SELLING A BOOK
 const sellBook = (title, quantity) => {
   
@@ -73,7 +74,7 @@ const sellBook = (title, quantity) => {
                 } else {
                   
                   i.quantity -= quantity
-                  store.earnings += i.value
+                  store.earnings += (i.value * quantity)
                   console.log(`Successful Transaction!`)
                   
                 }
@@ -87,7 +88,10 @@ const sellBook = (title, quantity) => {
     
 }
 
-sellBook(`Sample`, 2)
+// sellBook(`Sample1`, 2)
+
+
+
 
 
 
