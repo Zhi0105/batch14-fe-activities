@@ -1,5 +1,10 @@
 //OOP FOR CREATING A RECORD PER ROUND OF GAME
-const board = []
+
+let board = []
+if(storedBoard){
+    board = [...storedBoard]
+}
+
 
 class boardRecord{
     constructor(gameNo, playerWon, playerMovement){

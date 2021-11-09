@@ -58,6 +58,22 @@
         
     </div>
 
+<script>
+    let storedScore = JSON.parse(localStorage.getItem(`Score`))
+    let storedBoard = JSON.parse(localStorage.getItem(`boardRecord`))
+        
+        if(storedScore){
+            document.querySelector(`#X`).textContent = storedScore.X
+            document.querySelector(`#O`).textContent = storedScore.O
+            document.querySelector(`#draw`).textContent = storedScore.Draw
+            
+        }
+        if(storedBoard){
+            let lastRecord = storedBoard[storedBoard.length - 1]
+            document.querySelector(`.gameNo`).value = parseInt(lastRecord.gameNo) + 1
+        }
+    
+</script>
 <script src="./js/index.js"></script>
 <script src="./js/player.js"></script>
 <script src="./js/win.js"></script>
