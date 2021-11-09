@@ -1,0 +1,191 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+$inputBorder : 2px solid white;
+
+%layoutPerLayer{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+%h1Design{
+    color:white;
+    text-align: center;
+    font-style: italic;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+.main{
+
+    height: 100vh;
+    width: 100vw;
+    background: rgb(45, 62, 80);
+    // background: black;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    // align-items: center;
+
+    .title{
+        h1{
+            @extend %h1Design;
+            font-size: 3rem;
+            padding: 1% 0 .5% 0;
+        }
+    }
+
+    .currentPlaying{
+        h1{
+            @extend %h1Design;
+        }
+    }
+
+    .score{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        color:yellowgreen;
+        margin:10px;
+        font-size: 1.3rem;
+        
+        span{
+            color:white;
+        }
+    }
+    .new-game{
+        display: flex;
+        justify-content: center;
+        margin:30px 0 0 0;
+
+        a{
+            color:black;
+            text-decoration: none;
+            font-size: 3vmin;
+        }
+        a:hover{
+            color:rgb(90, 199, 90);
+        }
+    }
+
+    .container{
+        padding: 3% 0 0 0;
+        width:100%;
+        height: auto;
+
+            .layer-one{
+                @extend %layoutPerLayer;
+                    .one{
+                        border-bottom:$inputBorder;
+                        border-right:$inputBorder;   
+                    }
+                    .two{
+                        border-left:$inputBorder;
+                        border-right:$inputBorder;   
+                        border-bottom:$inputBorder;
+                    }
+                    .three{
+                        border-left:$inputBorder;
+                        border-bottom:$inputBorder;
+                    }
+            }
+            .layer-two{
+                @extend %layoutPerLayer;
+                    .four{
+                        border-top:$inputBorder;
+                        border-right:$inputBorder;
+                        border-bottom:$inputBorder;
+                    }
+                    .five{
+                        border:$inputBorder;
+                    }
+                    .six{
+                        border-top:$inputBorder;
+                        border-left:$inputBorder;
+                        border-bottom:$inputBorder;
+                    }
+                
+            }
+            .layer-three{
+                @extend %layoutPerLayer;
+                    .seven{
+                        border-top:$inputBorder;
+                        border-right:$inputBorder;
+                    }
+                    .eight{
+                        border-top:$inputBorder;
+                        border-left:$inputBorder;
+                        border-right:$inputBorder;
+                    }
+                    .nine{
+                        border-top:$inputBorder;
+                        border-left:$inputBorder;
+                    }
+            
+            }
+
+            input[type=text]{
+                width: 7rem;
+                height: 7rem;
+                text-align: center;
+                text-transform: uppercase;
+                font-size: 3rem;
+                color:white;
+                cursor: pointer;
+                border-style: none;
+                background: transparent;
+            }
+    }
+
+    //CSS FOR MODAL
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        
+        h1{
+            font-size: 5vmin;
+        }
+
+        .change-player{
+            display: flex;
+            justify-content: center;
+            padding: 0 0 10px 0;
+                a{
+                    color :black;
+                    text-decoration: none;
+                    margin-top:10px;
+                    font-size: 3vmin;
+                }
+                a:hover{
+                    color:lime;
+                }
+        }
+    }
+    /* Modal Content */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        border-radius: 1em;
+        width: 40%;
+    }
+}
