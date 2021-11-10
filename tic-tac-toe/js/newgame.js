@@ -62,7 +62,7 @@ document.querySelector(`.newGame`).addEventListener(`click`, ()=>{
         let newRecord = new boardRecord(document.querySelector(`.gameNo`).value, document.querySelector(`.playerWon`).value, movements)
             newRecord.createBoardRecord()
             localStorage.setItem(`boardRecord`, JSON.stringify(board))
-        console.log(board)
+        // console.log(board)
 
         //TO RECORD SCORE
         const gameScore  = {
@@ -76,7 +76,7 @@ document.querySelector(`.newGame`).addEventListener(`click`, ()=>{
             gameScore.Draw = document.querySelector(`#draw`).textContent
 
         localStorage.setItem(`Score`, JSON.stringify(gameScore))
-        console.log(gameScore)
+        // console.log(gameScore)
         
         //UPDATING GAME NUMBER
         let currentGameNo = parseInt(document.querySelector(`.gameNo`).value) + 1

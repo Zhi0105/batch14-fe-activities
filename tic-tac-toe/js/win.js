@@ -135,13 +135,13 @@ const ifPlayerXWin = () => {
                 }
             }
 
-        else if(ifPlayerXWin() == true && ifPlayerOWin() == true){
+        if(ifPlayerXWin() == true && ifPlayerOWin() == true){
                 return `draw`
         }
-        else if(ifPlayerXWin() == true){
+        if(ifPlayerXWin() == true){
                 return `X`
         }
-        else if(ifPlayerOWin() == true){
+        if(ifPlayerOWin() == true){
                 return `O`
         }
     
