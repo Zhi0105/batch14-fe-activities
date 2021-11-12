@@ -28,6 +28,7 @@ const addBoardRecord = (gameNumber, player, playerMovement) => {
 
 //TO RECORD PLAYER MOVEMENTS
 let movements = []
+let movement = []
 
 document.querySelector(`.container`).addEventListener(`click`, () => {
     let inputs = document.querySelectorAll(`input[type=text]`)
@@ -39,12 +40,13 @@ document.querySelector(`.container`).addEventListener(`click`, () => {
     secondLayer.push(inputs[3].value); secondLayer.push(inputs[4].value); secondLayer.push(inputs[5].value)
     thirdLayer.push(inputs[6].value); thirdLayer.push(inputs[7].value); thirdLayer.push(inputs[8].value)
     
-    let movement = [[...firstLayer], [...secondLayer], [...thirdLayer]]
-    movements.push(movement)
     
+        movement = [[...firstLayer], [...secondLayer], [...thirdLayer]]
+        movements.push(movement)
+
+        console.table(movement)
 
 })
-
 
 
 //WHEN NEWGAME BUTTON CLICKED!
@@ -60,9 +62,10 @@ document.querySelector(`.newGame`).addEventListener(`click`, ()=>{
 
         //UPDATING NEW RECORD
         let newRecord = new boardRecord(document.querySelector(`.gameNo`).value, document.querySelector(`.playerWon`).value, movements)
+        
             newRecord.createBoardRecord()
             localStorage.setItem(`boardRecord`, JSON.stringify(board))
-        // console.log(board)
+            // console.log(board)
 
         //TO RECORD SCORE
         const gameScore  = {

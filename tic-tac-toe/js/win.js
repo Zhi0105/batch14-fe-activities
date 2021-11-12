@@ -160,6 +160,7 @@ const ifPlayerXWin = () => {
         
             if(whoPlayerWin() == `draw`){
                 document.querySelector(`#changePlayer`).style.display = 'block'
+                document.querySelector(`.checkGame`).style.display = 'block'
                 modal.style.display = `block`
                 document.querySelector(`.playerWin`).textContent = `Draw!`
 
@@ -171,6 +172,8 @@ const ifPlayerXWin = () => {
             }
             else if(whoPlayerWin() == `X`){
                 document.querySelector(`#changePlayer`).style.display = 'block'
+                document.querySelector(`.checkGame`).style.display = 'block'
+
                 modal.style.display = `block`
                 document.querySelector(`.playerWin`).textContent = `Player X's Wins!`
 
@@ -184,6 +187,7 @@ const ifPlayerXWin = () => {
 
             else if(whoPlayerWin() == `O`){
                 document.querySelector(`#changePlayer`).style.display = 'block'
+                document.querySelector(`.checkGame`).style.display = 'block'
                 modal.style.display = `block`
                 document.querySelector(`.playerWin`).textContent = `Player O's Wins!`
 

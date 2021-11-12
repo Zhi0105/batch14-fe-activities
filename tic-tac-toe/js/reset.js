@@ -22,8 +22,10 @@ document.querySelector(`.resetGame`).addEventListener(`click`, () => {
         movements = []
         board = []
 
-        //DELETING ALL DATA FROM LOCAL STORAGE
+        //DELETING ALL DATA FROM LOCAL STORAGE AND CONSOLE
         localStorage.clear()
+        console.clear()
+        
         
         }
 })
