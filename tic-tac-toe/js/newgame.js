@@ -30,7 +30,8 @@ const addBoardRecord = (gameNumber, player, playerMovement) => {
 let movements = []
 let movement = []
 
-document.querySelector(`.container`).addEventListener(`click`, () => {
+//FUNCTION THAT CAN SAVE MOVEMENT
+const getMovement = () => {
     let inputs = document.querySelectorAll(`input[type=text]`)
     let firstLayer = []
     let secondLayer = []
@@ -45,13 +46,22 @@ document.querySelector(`.container`).addEventListener(`click`, () => {
         movements.push(movement)
 
         console.table(movement)
+}
+
+document.querySelector(`.container`).addEventListener(`click`, () => {
+
+    getMovement()
+
+    setTimeout(()=>{       
+        getMovement()
+    }, 1000)
 
 })
 
 
 //WHEN NEWGAME BUTTON CLICKED!
 document.querySelector(`.newGame`).addEventListener(`click`, ()=>{
-    
+
     //RESETTING CONTAINER INPUTS
     document.querySelectorAll(`input[type=text]`).forEach( i => {
         i.value = ''
