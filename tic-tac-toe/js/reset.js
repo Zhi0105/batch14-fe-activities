@@ -15,6 +15,11 @@ document.querySelector(`.resetGame`).addEventListener(`click`, () => {
         document.querySelector(`#O`).textContent = 0;
         document.querySelector(`#draw`).textContent = 0;
         document.querySelector(`.gameNo`).value = 1;
+
+        //HIDE PREV AND NEXT BUTTON
+        document.querySelector(`.prev`).style.display = 'none'
+        document.querySelector(`.next`).style.display = 'none'
+        document.querySelector(`.backToModal`).style.display = 'none'
         
 
 

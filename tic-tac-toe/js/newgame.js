@@ -98,6 +98,9 @@ document.querySelector(`.newGame`).addEventListener(`click`, ()=>{
         //CLEAR ALL MOVEMENT OF PREV ROUND
         movements = []
 
+        //CLEAR CONSOLE
+        console.clear()
+
         
 })
 
