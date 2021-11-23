@@ -1,0 +1,25 @@
+.register-main{
+    padding:0;
+    margin:0;
+}
+
+.form-container .bank-form{
+    /* layout */
+    display:grid;
+    row-gap: 10px;
+}
+
+.bank-form .form-detail{
+    /*layout*/
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 5px;
+    row-gap: 5px;
+}
+
+.bank-form button, input[type=submit]{
+    background-color: darkgray;
+    border-radius: 6px;
+}
+
+
