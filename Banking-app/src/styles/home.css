@@ -17,3 +17,10 @@
     background:darkgray;
     border-radius: 6px;
 }
+
+.container form{
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+    
+}

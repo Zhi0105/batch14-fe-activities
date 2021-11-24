@@ -1,8 +1,8 @@
 import React from 'react'
 import {useNavigate} from 'react-router-dom'
 
-const Register = () => {
 
+const Register = () => {
 
     //FUNCTION NAVIGATE TO HOME PAGE
     const navigate = useNavigate()
@@ -13,37 +13,93 @@ const Register = () => {
     //FUNCTION THAT NOT ALLOW TO INPUT SPECIAL CHARACTERS & NUMBERS
     const handleInput = (e) => {
         
-        let regex = new RegExp("[a-zA-Z0-9]+$")
+        let regex = new RegExp("^[ A-Za-z0-9]$")
         let key = String.fromCharCode(!e.charCode ? e.which : e.charCode)
         if(!regex.test(key)){
             e.preventDefault()
             return false
         }
+        
         if(e.charCode >= 48 && e.charCode <= 59 ){
             e.preventDefault()
             return false
         }
     }
 
+    //OBJECT ORIENTED PROGRAMMING FOR STORING USER
+    let user = []
+    let storedUser = JSON.parse(localStorage.getItem(`userRecord`))
+    if(storedUser){
+        user = [...storedUser]
+    }
+
+    let userID = 0     
+    if(!storedUser){
+            userID = 0
+        }
+    if(storedUser){
+        userID = storedUser[storedUser.length - 1].id
+    }
+    
+    class userRecord{
+        constructor(firstname, lastname, email, password){
+            this.firstname = firstname
+            this.lastname = lastname
+            this.email = email
+            this.password = password
+        }
+        createUserRecord(){
+            addUserRecord(this.firstname, this.lastname, this.email, this.password)
+        }
+    }
+
+
+    const addUserRecord = (firstname, lastname, email, password) => {
+        let userDetail = {
+            id : userID + 1,
+            firstname : firstname,
+            lastname : lastname,
+            email : email,
+            password: password
+        }
+        user.push(userDetail)
+    }
+
+
+
     //FUNCTION CAN HANDLE TO SUBMIT REGISTRATION FORM
     const submitInfo = (e) => {
         e.preventDefault()
-        alert(`Form Submitted!`)
-    }
 
+        if(document.querySelector(`.password`).value === document.querySelector(`.confirmPassword`).value){
+            let newUser = new userRecord(
+                document.querySelector(`.fname`).value, 
+                document.querySelector(`.lname`).value,
+                document.querySelector(`.email`).value,
+                document.querySelector(`.password`).value
+            )     
+            newUser.createUserRecord()
+            localStorage.setItem(`userRecord`, JSON.stringify(user))
+            alert(`User successfully created!`)
+            handleBackToHome()
+        } else {
+            alert(`Please make sure your password matched!`)
+        }
+    }
 
     return(
 
         <div className="register-main">
             <h1>Sign Up</h1>
+
             <div className="form-container">
                 <form className="bank-form" onSubmit={submitInfo}>
                     <div className="form-detail">
-                        <i className="fa">&#xf406;</i><input type="text" placeholder="First Name" maxLength="25" autoComplete="on" onKeyPress={handleInput} required/>
-                        <i className="fa">&#xf406;</i><input type="text" placeholder="Last Name" maxLength="25" autoComplete="on" onKeyPress={handleInput} required/>
-                        <i className="fa">&#xf0e0;</i><input type="email" placeholder="Email" maxLength="30" autoComplete="off" required/>
-                        <i className='fa'>&#xf3c1;</i><input type="password" placeholder="Password" maxLength="20" minLength="8" autoComplete="off" required/>
-                        <i className='fa'>&#xf3c1;</i><input type="password" placeholder="Confirm Password" maxLength="20" minLength="8" autoComplete="off" required/>
+                        <i className="fa">&#xf406;</i><input type="text" className="fname" placeholder="First Name" maxLength="25" autoComplete="on" onKeyPress={handleInput} required/>
+                        <i className="fa">&#xf406;</i><input type="text" className="lname" placeholder="Last Name" maxLength="25" autoComplete="on" onKeyPress={handleInput} required/>
+                        <i className="fa">&#xf0e0;</i><input type="email" className="email" placeholder="Email" maxLength="30" autoComplete="off" required/>
+                        <i className='fa'>&#xf3c1;</i><input type="password" className="password" placeholder="Password" maxLength="20" minLength="8" autoComplete="off" required/>
+                        <i className='fa'>&#xf3c1;</i><input type="password" className="confirmPassword" placeholder="Confirm Password" maxLength="20" minLength="8" autoComplete="off" required/>
                     </div>
                     <input type="submit" id="btn-submit" value="Sign up" />
                     <button className="backHome" onClick={handleBackToHome}>back</button>
