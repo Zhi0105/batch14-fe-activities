@@ -71,12 +71,12 @@ const Register = () => {
     const submitInfo = (e) => {
         e.preventDefault()
 
-        if(document.querySelector(`.password`).value === document.querySelector(`.confirmPassword`).value){
+        if(document.querySelector(`.regPassword`).value === document.querySelector(`.confirmPassword`).value){
             let newUser = new userRecord(
                 document.querySelector(`.fname`).value, 
                 document.querySelector(`.lname`).value,
                 document.querySelector(`.email`).value,
-                document.querySelector(`.password`).value
+                document.querySelector(`.regPassword`).value
             )     
             newUser.createUserRecord()
             localStorage.setItem(`userRecord`, JSON.stringify(user))
@@ -87,22 +87,43 @@ const Register = () => {
         }
     }
 
+    // return(
+
+    //     <div className="register-main">
+    //         <h1>Sign Up</h1>
+
+    //         <div className="form-container">
+    //             <form className="bank-form" onSubmit={submitInfo}>
+    //                 <div className="form-detail">
+    //                     <i className="fa">&#xf406;</i><input type="text" className="fname" placeholder="First Name" maxLength="25" autoComplete="on" onKeyPress={handleInput} required/>
+    //                     <i className="fa">&#xf406;</i><input type="text" className="lname" placeholder="Last Name" maxLength="25" autoComplete="on" onKeyPress={handleInput} required/>
+    //                     <i className="fa">&#xf0e0;</i><input type="email" className="email" placeholder="Email" maxLength="30" autoComplete="off" required/>
+    //                     <i className='fa'>&#xf3c1;</i><input type="password" className="password" placeholder="Password" maxLength="20" minLength="8" autoComplete="off" required/>
+    //                     <i className='fa'>&#xf3c1;</i><input type="password" className="confirmPassword" placeholder="Confirm Password" maxLength="20" minLength="8" autoComplete="off" required/>
+    //                 </div>
+    //                 <input type="submit" id="btn-submit" value="Sign up" />
+    //                 <button className="backHome" onClick={handleBackToHome}>back</button>
+    //             </form>
+    //         </div>
+    //     </div>
+    // )
+
     return(
-
         <div className="register-main">
-            <h1>Sign Up</h1>
-
             <div className="form-container">
+            <h1 className="signUp">✍️ create your haribon account</h1>
                 <form className="bank-form" onSubmit={submitInfo}>
                     <div className="form-detail">
-                        <i className="fa">&#xf406;</i><input type="text" className="fname" placeholder="First Name" maxLength="25" autoComplete="on" onKeyPress={handleInput} required/>
-                        <i className="fa">&#xf406;</i><input type="text" className="lname" placeholder="Last Name" maxLength="25" autoComplete="on" onKeyPress={handleInput} required/>
-                        <i className="fa">&#xf0e0;</i><input type="email" className="email" placeholder="Email" maxLength="30" autoComplete="off" required/>
-                        <i className='fa'>&#xf3c1;</i><input type="password" className="password" placeholder="Password" maxLength="20" minLength="8" autoComplete="off" required/>
-                        <i className='fa'>&#xf3c1;</i><input type="password" className="confirmPassword" placeholder="Confirm Password" maxLength="20" minLength="8" autoComplete="off" required/>
+                        <input type="text" className="fname" placeholder="first name" maxLength="25" autoComplete="on" onKeyPress={handleInput} required/>
+                        <input type="text" className="lname"placeholder="last name" maxLength="25" autoComplete="on" onKeyPress={handleInput} required/>
+                        <input type="email" className="email" placeholder="email" maxLength="30" autoComplete="off" required/>
+                        <input type="password" className="regPassword" placeholder="password" maxLength="20" minLength="8" autoComplete="off" required/>
+                        <input type="password" className="confirmPassword" placeholder="confirm password" maxLength="20" minLength="8" autoComplete="off" required/>
                     </div>
-                    <input type="submit" id="btn-submit" value="Sign up" />
-                    <button className="backHome" onClick={handleBackToHome}>back</button>
+                    <div className="bttnDiv">
+                    <input type="submit" id="btn-submit" value="🦅create" />
+                    <button className="backHome" onClick={handleBackToHome}>👈 go back to home page</button>
+                    </div>
                 </form>
             </div>
         </div>

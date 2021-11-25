@@ -14,6 +14,8 @@ const admin = () => {
                         <td>First Name</td>
                         <td>Last Name</td>
                         <td>Email</td>    
+                        <td>Password</td>    
+                        
                     </tr>
                 </thead>
                 <tbody id="member-info">
@@ -26,6 +28,8 @@ const admin = () => {
                                         <td>{value.firstname}</td>
                                         <td>{value.lastname}</td>
                                         <td>{value.email}</td>
+                                        <td>{value.password}</td>
+                                        
                                     </tr>
                                 )
                             }) : <span>No users found!</span>

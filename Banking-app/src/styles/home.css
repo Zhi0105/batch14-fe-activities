@@ -1,26 +1,315 @@
+/* home page start */
 .home-main {
+    height: 30rem;
+    margin: 0;
+    padding: 0;
+    display: grid
+}
+/* home page start */
+
+/* login container start */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to right top, #753319, #7f3a1e, #894222, #944927, #9e512c, #a95c31, #b46837, #bf743c, #cc8644, #d9994c, #e4ac56, #efbf61);
+    padding: 2rem;
+    width: 17rem;
+    text-align: center;
+    box-shadow:  23px 23px 14px #d6d6d6,
+                -23px -23px 14px #ffffff;
+    border-radius: 3.125rem;
+    -webkit-border-radius: 3.125rem;
+    -moz-border-radius: 3.125rem;
+    -ms-border-radius: 3.125rem;
+    -o-border-radius: 3.125rem;
+}
+/* login container end */
+
+/* login waving hand emoji greeting start*/
+.hand-waving-animated-emoji {
+    display: flex;
+    justify-content: center;
+    font-size: 2.5rem;
+    animation: waving-hand-emoji 2.0s infinite;
+    -webkit-animation: waving-hand-emoji 2.0s infinite;
+    transform-origin: 70% 70%;
+}
+
+@keyframes waving-hand-emoji {
+    0% {
+        transform: rotate(0deg);
+    }
+    10% {
+        transform: rotate(4deg);
+        -webkit-transform: rotate(4deg);
+        -moz-transform: rotate(4deg);
+        -ms-transform: rotate(4deg);
+        -o-transform: rotate(4deg);
+    }
+    20% {
+        transform: rotate(-8deg);
+        -webkit-transform: rotate(-8deg);
+        -moz-transform: rotate(-8deg);
+        -ms-transform: rotate(-8deg);
+        -o-transform: rotate(-8deg);
+    }
+    30% {
+        transform: rotate(14deg);
+        -webkit-transform: rotate(14deg);
+        -moz-transform: rotate(14deg);
+        -ms-transform: rotate(14deg);
+        -o-transform: rotate(14deg);
+    }
+    40% {
+        transform: rotate(-4.0deg);
+        -webkit-transform: rotate(-4.0deg);
+        -moz-transform: rotate(-4.0deg);
+        -ms-transform: rotate(-4.0deg);
+        -o-transform: rotate(-4.0deg);
+    }
+    50% {
+        transform: rotate(10deg);
+        -webkit-transform: rotate(10deg);
+        -moz-transform: rotate(10deg);
+        -ms-transform: rotate(10deg);
+        -o-transform: rotate(10deg);
+    }
+    60% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+    }
+}
+/* login waving hand emoji greeting end*/
+
+/* greetings home page text start */
+.greetings-home-page-text {
+    margin-top: 0;
+    color: #ffffff;
+}
+/* greetings home page text end */
+
+/* login to your account text start */
+.login-to-your-account-text {
+    color: #ffffff;
+}
+/* login to your account text end */
+
+/* login form direction start */
+.login-form-row {
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+/* login form direction end */
+
+/* username and password input section start */
+.username,
+.password {
+    text-align: center;
+    box-sizing: border-box;
+    background: none;
+    color: #ffffff;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-color: #ffffff;
+    width: 100%;
+    outline: none;
+}
+
+.username::placeholder,
+.password::placeholder {
+    color: #ffffff;
+    opacity: 90%;
+}
+/* username and password input section end */
+
+/* login button start */
+.btn-login {
+    border: none;
+    background: none;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+.btn-login span {
+    padding-bottom: 0.4375rem;
+    letter-spacing: 0.1875rem;
+    font-size: 1rem;
+    padding-right: 0.9375rem;
+}
+
+.btn-login svg {
+    transform: translateX(-0.5rem);
+    transition: all 0.3s ease;
+    -webkit-transform: translateX(-0.5rem);
+    -moz-transform: translateX(-0.5rem);
+    -ms-transform: translateX(-0.5rem);
+    -o-transform: translateX(-0.5rem);
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+}
+
+.btn-login:hover svg {
+    transform: translateX(0);
+}
+
+.btn-login:active svg {
+    transform: scale(0.9);
+}
+
+.hover-underline-animation {
+    position: relative;
+    color: #f3c568;
+    padding-bottom: 1.25rem;
+}
+
+.hover-underline-animation:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 0.0938rem;
+    bottom: 0;
+    left: 0;
+    background-color: #f3c568;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+    -webkit-transition: transform 0.25s ease-out;
+    -moz-transition: transform 0.25s ease-out;
+    -ms-transition: transform 0.25s ease-out;
+    -o-transition: transform 0.25s ease-out;
+}
+
+.btn-login:hover .hover-underline-animation:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+/* login button end */
+
+/* dont have account text start */
+.dont-have-account-text {
+    margin-top: 2.5rem;
+    color: #ffffff;
+}
+/* dont have account text end */
+
+/* register or sign up button start*/
+.btn-register {
+    width: 10rem;
+    height: 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #f3c568;
+    font-weight: 400;
+    position: relative;
+    transition: all 0.5s;
+    z-index: 1;
+}
+
+.btn-register::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0.5rem;
+    height: 100%;
+    background-color: #f3c568;
+    z-index: -1;
+    transition: all 0.5s;
+}
+
+.btn-register:hover::before {
+    width: 100%;
+}
+
+.btn-register:hover {
+    color: #ffffff;
+}
+/* register or sign up button end*/
+
+
+
+
+
+
+
+
+/* .home-main {
     padding: 0;
     margin:0;
-}
+} */
 
-.home-main .container {
+/* .home-main .container { */
     /* Layout */
-    display: grid;
-    row-gap: 10px;
-}
+    /* display: grid;
+    row-gap: 10px; */
+/* } */
 
-.container *{
+/* .container *{
     text-align: center;
-}
-
+} */
+/* 
 .container button{
     background:darkgray;
     border-radius: 6px;
-}
+} */
 
-.container form{
+/* .container form{
     display: grid;
     grid-template-columns: 1fr;
     row-gap: 10px;
     
+} */
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 210px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    
 }
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
