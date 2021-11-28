@@ -1,0 +1,101 @@
+.register-main{
+    height: 25rem;
+    margin: 65px 0 0 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.signUp {
+    text-align: center;
+    color: #ffffff;
+}
+
+.bttnDiv{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.form-container{
+    background-image: linear-gradient(to right top, #753319, #7f3a1e, #894222, #944927, #9e512c, #a95c31, #b46837, #bf743c, #cc8644, #d9994c, #e4ac56, #efbf61);
+    padding: 2rem;
+    width: 17rem;
+    text-align: center;
+    box-shadow:  23px 23px 14px #d6d6d6,
+                -23px -23px 14px #ffffff;
+    border-radius: 3.125rem;
+    -webkit-border-radius: 3.125rem;
+    -moz-border-radius: 3.125rem;
+    -ms-border-radius: 3.125rem;
+    -o-border-radius: 3.125rem;
+}
+
+.bank-form .form-detail{
+    align-items: center;
+}
+
+.form-detail input {
+    margin: 0 0 10px 0;
+}
+
+.bank-form input[type=text], input[type=email], .form-detail input[type=password]{
+    text-align: center;
+    width: 100%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    border-radius: 0.3125rem;
+}
+
+.bank-form input[type=text]:focus, input[type=email]:focus, .form-detail input[type=password]:focus {
+    border: 3px solid #f3c568;
+    
+}
+
+.backHome, input[type=submit]{
+    margin: 0.5rem 0;
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #f3c568;
+    border: none;
+    border-radius: 0.3125rem;
+}
+
+.backHome:hover, input[type=submit]:hover{
+    background-color: goldenrod;
+}
+
+
+
+/* .register-main{
+    padding:0;
+    margin:0;
+} */
+
+/* .form-container .bank-form{
+    layout
+
+    display:grid;
+    row-gap: 10px;
+}
+
+.bank-form .form-detail{
+    layout
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 5px;
+    row-gap: 5px;
+}
+
+.bank-form button, input[type=submit]{
+    background-color: darkgray;
+    border-radius: 6px;
+}
+
+ */

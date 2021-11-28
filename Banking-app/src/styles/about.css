@@ -1,0 +1,11 @@
+.about-main{
+    padding:0;
+    box-sizing: border-box;
+
+    height: 100vh;
+    
+    /* Layout */
+    display: grid;
+    place-items: center;
+    
+}

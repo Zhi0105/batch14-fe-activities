@@ -1,9 +1,14 @@
 /* home page start */
 .home-main {
-    height: 30rem;
+    height: 100vh;
     margin: 0;
     padding: 0;
-    display: grid
+
+    /* layout */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
 }
 /* home page start */
 
@@ -14,7 +19,8 @@
     align-items: center;
     background-image: linear-gradient(to right top, #753319, #7f3a1e, #894222, #944927, #9e512c, #a95c31, #b46837, #bf743c, #cc8644, #d9994c, #e4ac56, #efbf61);
     padding: 2rem;
-    width: 17rem;
+    margin:20px;
+    width: 20rem;
     text-align: center;
     box-shadow:  23px 23px 14px #d6d6d6,
                 -23px -23px 14px #ffffff;
@@ -209,7 +215,7 @@
 /* dont have account text end */
 
 /* register or sign up button start*/
-.btn-register {
+/* .btn-register {
     width: 10rem;
     height: 2rem;
     font-size: 1rem;
@@ -222,9 +228,9 @@
     position: relative;
     transition: all 0.5s;
     z-index: 1;
-}
+} */
 
-.btn-register::before {
+/* .btn-register::before {
     content: "";
     position: absolute;
     top: 0;
@@ -241,8 +247,8 @@
 }
 
 .btn-register:hover {
-    color: #ffffff;
-}
+    color: rgb(0, 0, 0);
+} */
 /* register or sign up button end*/
 
 

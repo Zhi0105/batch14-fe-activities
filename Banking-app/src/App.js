@@ -3,25 +3,37 @@ import {Routes, Route} from 'react-router-dom'
 
 // Components
 import Home from './components/Home'
-import Register from './components/Register'
-import User from './components/User'
+import About from './components/About'
+import Features from './components/Features'
+
 import Admin from './components/Admin'
+import Create from './components/Create'
 
-
+// //ACTIVITY
+// import Api from './components/Api'
 
 const App = () => {
     
     return (
-        <div className="app-main">
-            <Routes>
-            <Route path='/home' element={<Home />} />
-            <Route path='/register' element={<Register />} />
-            <Route path='/user' element={<User />} />
-            <Route path='/admin' element={<Admin />} />
-            <Route path='/' element={<Home />} />
-            </Routes>  
-        </div>
+        <>
+            <div className="app-main">
+                <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='/home' element={<Home />} />
+                <Route path='/about' element={<About />}/>
+                <Route path='/features' element={<Features />}/>
+                <Route path='/admin' element={<Admin />} />
+                <Route path='/admin/create' element={<Create />} />
+                
+                {/* <Route path='/api' element={<Api />} /> */}
+                </Routes>
+            
+            </div>
+        </>
+    
     ) 
+
+
 }
 
 export default App
