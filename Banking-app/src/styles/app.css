@@ -2,7 +2,6 @@
 
 html, body{
     font-family: 'Karla', sans-serif;
-    
 }
 
 * {
@@ -18,7 +17,7 @@ html, body{
 }
 
 @import './home.css';
-@import './admin.css';
 @import './create.css';
 @import './about.css';
 @import './features.css';
+

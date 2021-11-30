@@ -1,0 +1,15 @@
+.footer-main{
+    height: auto;
+    width: 100vw;
+    padding:10px;
+    background: rgb(21,26,37);
+    color:white;
+
+    /* layout */
+    display: grid;
+    place-items: center;
+}
+
+.footer-main *{
+    font-size: 2vmin;
+}

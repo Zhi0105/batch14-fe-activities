@@ -1,11 +1,100 @@
-.about-main{
-    padding:0;
+.html, body {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+}
 
-    height: 100vh;
+/* ABOUT PAGE CONTAINER */
+.aboutPage{
+    
+    /* height: 100vh; */
     
     /* Layout */
     display: grid;
-    place-items: center;
+    height: 100vh;
+    margin: 0 30px 0 30px;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+    align-items: center;
+
+}
+
+/* IMAGE FOR ABOUT PAGE */
+.aboutImage{
+    width: 550px;
+    animation: fromTop 1.5s;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+/* VISION AND MISSION CONTAINER */
+.about-main .vision-section, .mission-section {
+
+    margin: 4rem 0;
+    padding: 1rem 2rem;
+    color: #ffff;
+    background-color: #ce8142;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.034), 0 6px 20px 0 rgba(0, 0, 0, 0.603);
+    animation: fromRight 1.5s;
+    text-align: justify;
+    text-justify: inter-word;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+/* KEYFRAMES FOR IMAGE, VISION AND MISSION CONTAINER ANIMATION  */
+@keyframes fromRight {
+    0% {
+        transform: translateY(1000px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes fromTop {
+    0% {
+        transform: translateY(-1000px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
     
+/* MEDIA QUERIES */
+@media only screen and (max-width: 1024px){
+	.aboutPage{
+        height: 100vh;        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+    }
+
+    .aboutImage{
+        /* margin:400px 0 0 0;
+         */
+        /* width: 350px;  
+         */
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 600px){
+	.aboutPage{
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .aboutImage{
+        display: none;
+    }
 }

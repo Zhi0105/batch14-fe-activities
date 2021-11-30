@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 
+//CSS
+import '../styles/admin.css';
 
 const Admin = () => {
 

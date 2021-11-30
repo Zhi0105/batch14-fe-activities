@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 //COMPONENT
 import Header from '../layout/Header'
+import Footer from '../layout/Footer'
 
 
 const Home = () => {
@@ -38,7 +39,11 @@ const Home = () => {
 
 
             if (username === "" || password === ""){
-                alert(`Incomplete login credential`)
+                document.querySelector(`.incLogin-modal`).style.display = 'block'
+                
+                setTimeout(() => {
+                    document.querySelector(`.incLogin-modal`).style.display = 'none'
+                }, 1000);
             }
 
             else if(    
@@ -54,9 +59,17 @@ const Home = () => {
 
 
             else {
-                alert(`Incorrect username or password!`)
+                
                 loginAttempt(attempt - 1)
                 // console.log(attempt,count)
+
+                    if(attempt != 0){
+                        document.querySelector('.xLogin-modal').style.display = 'block'
+
+                        setTimeout(() => {
+                            document.querySelector('.xLogin-modal').style.display = 'none'    
+                        }, 1000);
+                    }
                                 
                     if(attempt === 0){
                         document.querySelector(`.modal`).style.display = 'block'
@@ -96,6 +109,12 @@ const Home = () => {
         <>
         <div className="home-header">< Header /></div>
         <div className="home-main">
+            <div className="background-img">
+                <img src="./img/home.png" alt="backround-img"/>
+                <center><h1>Make banking easier!</h1></center>
+            </div>
+
+            {/* LOGIN */}
             <div className="login-container">
                 <form className="login-form" id="login-form">
                     <span className="hand-waving-animated-emoji">👋</span>
@@ -123,13 +142,28 @@ const Home = () => {
             {/* <!-- The Modal --> */}
             <div id="myModal" className="modal">
             {/* <!-- Modal content --> */}
-            <div className="modal-content">
-                <p>Login attempts reached, you won't be able to login for a while.</p><br></br>
-                <span className="timer">{count}</span>
+                <div className="modal-content">
+                    <p>Login attempts reached, you won't be able to login for a while.</p><br></br>
+                    <span className="timer">{count}</span>
+                </div>
             </div>
+
+            <div id="incLogin" className="incLogin-modal">
+            {/* <!-- Modal content --> */}
+                <div className="incLogin-content">
+                    <p><strong>Warning!</strong> Incomplete Login Credential!</p><br></br>
+                </div>
+            </div>
+            
+            <div id="xLogin" className="xLogin-modal">
+            {/* <!-- Modal content --> */}
+                <div className="xLogin-content">
+                    <p><strong>Danger!</strong> Incorrect username or password!</p><br></br>
+                </div>
             </div>
 
         </div>
+        <div className="home-footer">< Footer /></div>
         </>
     )
 

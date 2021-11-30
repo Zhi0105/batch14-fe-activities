@@ -6,11 +6,19 @@
 
     /* layout */
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     width: 100vw;
+    
 }
 /* home page start */
+
+
+.background-img img{
+    height: 30rem;
+    width: 35rem;
+}
+
 
 /* login container start */
 .login-container {
@@ -20,7 +28,7 @@
     background-image: linear-gradient(to right top, #753319, #7f3a1e, #894222, #944927, #9e512c, #a95c31, #b46837, #bf743c, #cc8644, #d9994c, #e4ac56, #efbf61);
     padding: 2rem;
     margin:20px;
-    width: 20rem;
+    width: 50vmin;
     text-align: center;
     box-shadow:  23px 23px 14px #d6d6d6,
                 -23px -23px 14px #ffffff;
@@ -214,6 +222,24 @@
 }
 /* dont have account text end */
 
+@media screen and (max-width : 899px){
+    .home-main{
+        flex-direction: column;
+        place-items: center;
+        width: 100vw;
+    }
+
+    .home-main .login-container{
+        order:1;
+        
+    }
+    .home-main .background-img{
+        display: none;
+    }
+}
+
+
+
 /* register or sign up button start*/
 /* .btn-register {
     width: 10rem;
@@ -286,7 +312,7 @@
 } */
 
 /* The Modal (background) */
-.modal {
+.modal , .incLogin-modal, .xLogin-modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -302,7 +328,7 @@
 }
 
 /* Modal Content */
-.modal-content {
+.modal-content, .incLogin-content, .xLogin-content{
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
@@ -310,6 +336,18 @@
     width: 40%;
     border-radius: 10px;
     text-align: center;
+}
+
+.incLogin-content{
+    color:white;
+    background-color: rgb(255, 169, 44);
+    width: 30%;
+}
+
+.xLogin-content{
+    color:white;
+    background-color: rgb(246, 99, 88);
+    width: 30%;
 }
 
 .close:hover,
