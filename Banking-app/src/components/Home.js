@@ -52,9 +52,13 @@ const Home = () => {
 
     
             ){  
-                alert(`Login Successful`)
-                sessionStorage.setItem('adminsession', 'login')
-                navigate('/admin')  
+                
+                document.querySelector('.loginSuccess-modal').style.display = 'block' 
+                setTimeout(() => {
+                    sessionStorage.setItem('adminsession', 'login')
+                    navigate('/admin') 
+                    
+                },1000);
             }
 
 
@@ -63,7 +67,7 @@ const Home = () => {
                 loginAttempt(attempt - 1)
                 // console.log(attempt,count)
 
-                    if(attempt != 0){
+                    if(attempt !== 0){
                         document.querySelector('.xLogin-modal').style.display = 'block'
 
                         setTimeout(() => {
@@ -143,7 +147,7 @@ const Home = () => {
             <div id="myModal" className="modal">
             {/* <!-- Modal content --> */}
                 <div className="modal-content">
-                    <p>Login attempts reached, you won't be able to login for a while.</p><br></br>
+                    <p>You've reached the maximum login attempts, please try again in a few seconds... 🦕</p><br></br>
                     <span className="timer">{count}</span>
                 </div>
             </div>
@@ -151,14 +155,21 @@ const Home = () => {
             <div id="incLogin" className="incLogin-modal">
             {/* <!-- Modal content --> */}
                 <div className="incLogin-content">
-                    <p><strong>Warning!</strong> Incomplete Login Credential!</p><br></br>
+                    <p><strong>WARNING!</strong> Incomplete Login Credential!😐</p><br></br>
                 </div>
             </div>
             
             <div id="xLogin" className="xLogin-modal">
             {/* <!-- Modal content --> */}
                 <div className="xLogin-content">
-                    <p><strong>Danger!</strong> Incorrect username or password!</p><br></br>
+                    <p><strong>DANGER!</strong> Incorrect username or password!❌</p><br></br>
+                </div>
+            </div>
+
+            <div id="loginSuccess" className="loginSuccess-modal">
+            {/* <!-- Modal content --> */}
+                <div className="loginSuccess-content">
+                    <p><strong>SUCCESS!💸</strong></p><br></br>
                 </div>
             </div>
 

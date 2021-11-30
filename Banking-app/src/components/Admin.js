@@ -30,8 +30,24 @@ const Admin = () => {
     return (
     
         <div className="admin-main">
-            <h1>Welcome admin!</h1>
-            {/* <table>
+            <div className="sidebar">
+                <button className="btn-logout" onClick={handleLogout}>logout</button>
+            </div>
+            <div className="main-dashboard">
+                <div className="main-dashboard-header"></div>
+                <div className="main-dashboard-content">
+
+                    
+
+                </div>
+                <div className="main-dashboard-footer"></div>
+            </div>
+        </div>
+    )
+    
+}
+
+    {/* <table>
                 <thead>
                     <tr>
                         <td>ID</td>
@@ -66,11 +82,5 @@ const Admin = () => {
                 
                 </tbody>
             </table> */}
-
-            <button className="btn-logout" onClick={handleLogout}>logout</button>
-        </div>
-    )
-    
-}
 
 export default Admin

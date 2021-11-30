@@ -312,7 +312,7 @@
 } */
 
 /* The Modal (background) */
-.modal , .incLogin-modal, .xLogin-modal {
+.modal , .incLogin-modal, .xLogin-modal, .loginSuccess-modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -328,7 +328,7 @@
 }
 
 /* Modal Content */
-.modal-content, .incLogin-content, .xLogin-content{
+.modal-content, .incLogin-content, .xLogin-content, .loginSuccess-content{
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
@@ -348,6 +348,11 @@
     color:white;
     background-color: rgb(246, 99, 88);
     width: 30%;
+}
+.loginSuccess-content{
+    color:white;
+    background-color: rgb(47, 184, 134);
+    width: 15%;
 }
 
 .close:hover,
