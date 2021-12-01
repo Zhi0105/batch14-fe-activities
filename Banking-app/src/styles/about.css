@@ -23,29 +23,42 @@
 .aboutImage{
     width: 550px;
     animation: fromTop 1.5s;
-    border-radius: 15px;
+    border-radius: 0 5rem 0 5rem;
+    -webkit-border-radius: 0 5rem 0 5rem;
+    -moz-border-radius: 0 5rem 0 5rem;
+    -ms-border-radius: 0 5rem 0 5rem;
+    -o-border-radius: 0 5rem 0 5rem;
+    /* border-radius: 15px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
     -ms-border-radius: 15px;
-    -o-border-radius: 15px;
+    -o-border-radius: 15px; */
+
 }
 
 /* VISION AND MISSION CONTAINER */
 .about-main .vision-section, .mission-section {
 
     margin: 4rem 0;
-    padding: 1rem 2rem;
+    /* padding: 1rem 2rem;
+     */
+    padding: 1rem 2.5rem 2rem 2.5rem;
     color: #ffff;
-    background-color: #ce8142;
+    background-color:chocolate;;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.034), 0 6px 20px 0 rgba(0, 0, 0, 0.603);
     animation: fromRight 1.5s;
     text-align: justify;
     text-justify: inter-word;
-    border-radius: 20px;
+    border-radius: 0 5rem 0 3rem;
+    -webkit-border-radius: 0 5rem 0 5rem;
+    -moz-border-radius: 0 5rem 0 5rem;
+    -ms-border-radius: 0 5rem 0 5rem;
+    -o-border-radius: 0 5rem 0 5rem;
+    /* border-radius: 20px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
-    -o-border-radius: 20px;
+    -o-border-radius: 20px; */
 }
 
 /* KEYFRAMES FOR IMAGE, VISION AND MISSION CONTAINER ANIMATION  */
