@@ -25,29 +25,86 @@ const Admin = () => {
         sessionStorage.clear()
         navigate('/')
     }
+
+    //FUNCTION HANDLES HOME DASHBOARD
+    const handleDashboardHome = () => {
+        navigate('/admin');
+    }
     
-    
+    //FUNCTION FOR MOBILE VIEW
+    const openNav = () => {
+        document.getElementById("Nav").style.width = "100%";
+    }
+    const closeNav = () => {
+        document.getElementById("Nav").style.width = "0%";
+    }
+
     return (
     
         <div className="admin-main">
             <div className="sidebar">
-                <button className="btn-logout" onClick={handleLogout}>logout</button>
+                <div className="sidebar-header">
+                    <span onClick={handleDashboardHome}>🦅 MENU</span>
+                </div>
+                <div className="sidebar-menu">
+                    <button className="btn-account-list">👥Account lists</button>
+                    <button className="btn-add">➕Add account</button>
+                    <button className="btn-debit">💱Debit transact</button>
+                    <button className="btn-withdraw">💵Withdrawal</button>
+                    <button className="btn-transfer">🏦Bank transfer</button>
+                    <button className="btn-logout" onClick={handleLogout}>🚪Logout</button>
+                </div>
             </div>
             <div className="main-dashboard">
-                <div className="main-dashboard-header"></div>
-                <div className="main-dashboard-content">
 
+                <div className="main-dashboard-header">
+                    <div>
+                        <h3>Dashboard</h3>
+                        <small>Banking app panel</small>    
+                    </div>
+                    <div className="greet">
+                        <span>👋</span>&nbsp;&nbsp;<strong>Welcome Admin!</strong>
+                    </div>
                     
+                            {/* Navigation for mobile size screen */}
+                            <div className="top-admin-nav">
+                                <div className="nav-icon">
+                                    <img src="./img/burger.png" alt="icon-burger" onClick={openNav}/>
+                                </div>
 
+                                {/* OVERLAY NAV */}
+                                <div id="Nav" className="navOverlay">
+                                    <a href="#" className="closebtn" onClick={closeNav}>&times;</a>
+                                    <div className="navOverlay-content">
+                                        <a href="#">🏠Home</a>
+                                        <a href="#">👥Account lists</a>
+                                        <a href="#">➕Add account</a>
+                                        <a href="#">💱Debit transact</a>
+                                        <a href="#">💵Withdrawal</a>
+                                        <a href="#">🏦Bank transfer</a>
+                                        <a href="#" onClick={handleLogout}>🚪Logout</a>
+                                        
+                                        
+                                    </div>  
+                                </div>
+                            </div>
                 </div>
-                <div className="main-dashboard-footer"></div>
+
+                <div className="main-dashboard-content">
+                    <img src="./img/logo.png" alt="Logo"/>
+                </div>
+                <div className="main-dashboard-footer">
+                    <div>
+                        <span>&copy; 2021 Haribon Digital Banking Application | All Rights Reserved.</span>
+                    </div>
+                </div>
             </div>
         </div>
     )
     
 }
 
-    {/* <table>
+    /* <table>
                 <thead>
                     <tr>
                         <td>ID</td>
@@ -81,6 +138,6 @@ const Admin = () => {
                     }
                 
                 </tbody>
-            </table> */}
+            </table> */
 
 export default Admin

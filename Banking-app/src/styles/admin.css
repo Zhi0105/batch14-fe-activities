@@ -6,14 +6,14 @@
 
     /* Layout */
     display: grid;
-    grid-template-columns: 250px 1fr;
+    grid-template-columns: auto 1fr;
 
 }
 
 .admin-main .sidebar{
     grid-column: 1/2;
     background: rgb(21,26,37);
-    
+
 }
 
 .admin-main .main-dashboard{
@@ -21,6 +21,54 @@
     background: white;
 }
 
+
+/* DASHBOARD SIDEBAR MENU START */
+.sidebar {
+    /* layout */
+    display: grid;
+    grid-template-rows: 10% auto;
+
+}
+
+.sidebar .sidebar-header, .sidebar-menu{
+    padding:20px;
+}
+
+.sidebar .sidebar-header{
+    /* background: rgb(62, 76, 106);
+     */
+    background: #8f461f;
+    color:white;
+}
+
+.sidebar-header span{
+    cursor:pointer;
+}
+
+.sidebar .sidebar-menu{
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-menu button{
+
+    margin: 0 0 10px 0;
+    height: 50px;
+    background: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    
+}
+
+.sidebar-menu button:hover{
+    background: rgb(206, 136, 69);
+    border-radius: 5px;
+}
+
+/* DASHBOARD SIDEBAR MENU END */
+
+/* MAIN DASHBOARD START */
 .main-dashboard{
     /* Layout */
     display: grid;
@@ -29,20 +77,139 @@
 
 .main-dashboard .main-dashboard-header{
     grid-row: 1/2;
-    background:blue;
+    background: rgb(206, 136, 69);
+
+    /* layout */
+    display:flex;
+    justify-content: space-between;
+
+    padding:10px;
+    color: white;
 }
+
+.main-dashboard .greet{
+    padding: 10px 30px 0 0;
+}
+
 .main-dashboard .main-dashboard-content{
     grid-row: 2/3;
-    background:url('../img/logo.png');
-    background-repeat: no-repeat;
-    /* backdrop-filter: blur(5x);
-     */
+    background: white;
     
+    /* Layout */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.main-dashboard-content img{
+    height: 75vmin;
+}
+
 .main-dashboard .main-dashboard-footer{
     grid-row: 3/4;
-    background:yellow;
+    background: rgb(206, 136, 69);
+
+    /* Layout */
+    display:flex;
+    justify-content: space-between;
+
+    padding:20px;
+    color: white;
+
 }
+
+.main-dashboard-footer span{
+    font-size: 2.4vmin;
+}
+/* MAIN DASHBOARD END */
+
+
+/* MOBILE VIEW START HERE */
+.top-admin-nav{
+    display: none;
+}
+
+.top-admin-nav img{
+    width:40px;
+    height:40px;
+    cursor: pointer;
+}
+/* MOBILE VIEW END HERE */
+
+
+/* MEDIA QUERY FOR MOBILE NAVIGATION FOR ADMIN PANEL START */
+@media screen and (max-width: 499px){
+
+    .main-dashboard .main-dashboard-header{     
+        justify-content: space-between;
+    }
+
+    .main-dashboard .main-dashboard-footer{
+        justify-content: center;
+    }
+
+    .main-dashboard .greet{
+        display: none;
+    }
+
+    .sidebar{
+        display: none;
+    }
+
+
+    /* NAVIGATOR START*/
+    .top-admin-nav {
+        display: block;
+        margin: 10px 10px 0 0;
+        
+    }
+
+    .navOverlay {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: rgb(206, 129, 66);
+        background-color: rgb(206, 129, 66, 0.9);
+        overflow-x: hidden;
+        transition: 0.5s;
+    }
+    
+    .navOverlay-content{
+        position: relative;
+        top: 25%;
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+    }
+    
+    .navOverlay a {
+        padding: 8px;
+        text-decoration: none;
+        font-size: 36px;
+        color:white;
+        display: block;
+        transition: 0.3s;
+    }
+    
+    .navOverlay a:hover, .navOverlay a:focus {
+        color:white;
+        background: #8f461f;
+    }
+    
+    .navOverlay .closebtn {
+        position: absolute;
+        top: 20px;
+        right: 45px;
+        font-size: 60px;
+    }    
+
+        /* NAVIGATOR END*/
+}
+/* MEDIA QUERY FOR MOBILE NAVIGATION FOR ADMIN PANEL END */
+
 
 
 /* .admin-main table{

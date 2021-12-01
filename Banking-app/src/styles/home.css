@@ -1,6 +1,6 @@
 /* home page start */
 .home-main {
-    height: 100vh;
+    height: 95vh;
     margin: 0;
     padding: 0;
 
@@ -333,7 +333,7 @@
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 40%;
+    width: 45%;
     border-radius: 10px;
     text-align: center;
 }
@@ -362,3 +362,13 @@
     cursor: pointer;
 }
 
+
+/* MEDIA QUERY FOR ALERT */
+@media screen and (max-width: 499px){
+
+    .loginSuccess-content{
+        color:white;
+        background-color: rgb(47, 184, 134);
+        width: 27%;
+    }
+}
