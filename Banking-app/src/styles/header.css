@@ -81,19 +81,26 @@
         width: 100%;
         text-align: center;
         margin-top: 30px;
+        
+        /* LAYOUT */
+        display: flex;
+        flex-direction: column;
     }
     
-    .overlay a {
+    .overlay button{
         padding: 8px;
         text-decoration: none;
+        background-color: transparent;
+        border:none;
         font-size: 36px;
         color: #818181;
         display: block;
         transition: 0.3s;
     }
     
-    .overlay a:hover, .overlay a:focus {
-        color: #f1f1f1;
+    .overlay button:hover, .overlay button:focus {
+        background:chocolate;
+        color:white;
     }
     
     .overlay .closebtn {

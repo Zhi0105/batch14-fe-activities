@@ -39,20 +39,27 @@ const closeNav = () => {
                     <button onClick={handleHome} id="home">Home</button>
                     <button onClick={handleAbout} id="about">About</button>
                     <button onClick={handleFeatures} id="features">Features</button>
+
                 </div>
                   {/* Navigation for mobile size screen */}
                 <div className="topnav">
                     <div className="nav-icon">
-                        <img src="./img/burger.png" alt="icon-burger" onClick={openNav}/>
+                        <img src="./img/burger1.png" alt="icon-burger" onClick={openNav}/>
                     </div>
 
                     {/* OVERLAY NAV */}
                     <div id="myNav" className="overlay">
-                        <a href="#" className="closebtn" onClick={closeNav}>&times;</a>
+                        {/* <a href="#" className="closebtn" onClick={closeNav}>&times;</a> */}
+                            <button className="closebtn" onClick={closeNav}>&times;</button>
                         <div className="overlay-content">
-                            <a href="#" onClick={handleHome}>Home</a>
+                            {/* <a href="#" onClick={handleHome}>Home</a>
                             <a href="#" onClick={handleAbout}>About</a>
-                            <a href="#" onClick={handleFeatures}>Features</a>
+                            <a href="#" onClick={handleFeatures}>Features</a>  */}
+                            <button onClick={handleHome}>Home</button>
+                            <button onClick={handleAbout}>About</button>
+                            <button onClick={handleFeatures}>Features</button> 
+
+                    
                         </div>  
                     </div>
                 </div>

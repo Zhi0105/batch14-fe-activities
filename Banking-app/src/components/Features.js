@@ -10,7 +10,7 @@ import Footer from '../layout/Footer'
 const Features = () => {
     return (
         <>
-            <div className="about-header">< Header /></div>
+            <div className="feature-header">< Header /></div>
             <div className="features-main">
 
                 <div className="featDesc">
@@ -20,10 +20,9 @@ const Features = () => {
 
                 <img className="featureImage" src="./img/features-img.gif" alt="featureImage"/>
             </div>
-            <br></br><br></br><br></br><br></br><br></br>
-            
-            
-            <div className="about-footer">< Footer /></div>
+                <br></br><br></br><br></br><br></br><br></br>
+
+            <div className="feature-footer">< Footer /></div>
         </>
     )
 }

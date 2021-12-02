@@ -1,3 +1,10 @@
+.html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
 .features-main{
     padding:0;
     box-sizing: border-box;
@@ -7,6 +14,7 @@
     /* Layout */
     display: grid;
     place-items: center;
+    
 }
 
 .featDesc {

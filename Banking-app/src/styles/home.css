@@ -364,11 +364,11 @@
 
 
 /* MEDIA QUERY FOR ALERT */
-@media screen and (max-width: 499px){
+@media screen and (max-width: 699px){
 
     .loginSuccess-content{
         color:white;
         background-color: rgb(47, 184, 134);
-        width: 27%;
+        width: 30%;
     }
 }

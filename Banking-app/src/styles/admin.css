@@ -183,18 +183,24 @@
         width: 100%;
         text-align: center;
         margin-top: 30px;
+
+        /* LAYOUT */
+        display: flex;
+        flex-direction: column;
     }
     
-    .navOverlay a {
+    .navOverlay button {
         padding: 8px;
         text-decoration: none;
+        background-color: transparent;
+        border:none;
         font-size: 36px;
         color:white;
         display: block;
         transition: 0.3s;
     }
     
-    .navOverlay a:hover, .navOverlay a:focus {
+    .navOverlay button:hover, .navOverlay button:focus {
         color:white;
         background: #8f461f;
     }

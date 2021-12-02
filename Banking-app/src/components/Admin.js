@@ -74,17 +74,25 @@ const Admin = () => {
 
                                 {/* OVERLAY NAV */}
                                 <div id="Nav" className="navOverlay">
-                                    <a href="#" className="closebtn" onClick={closeNav}>&times;</a>
+                                    {/* <a href="#" className="closebtn" onClick={closeNav}>&times;</a>
+                                     */}
+                                    <button className="closebtn" onClick={closeNav}>&times;</button>
                                     <div className="navOverlay-content">
-                                        <a href="#">🏠Home</a>
+                                        {/* <a href="#">🏠Home</a>
                                         <a href="#">👥Account lists</a>
                                         <a href="#">➕Add account</a>
                                         <a href="#">💱Debit transact</a>
                                         <a href="#">💵Withdrawal</a>
                                         <a href="#">🏦Bank transfer</a>
-                                        <a href="#" onClick={handleLogout}>🚪Logout</a>
-                                        
-                                        
+                                        <a href="#" onClick={handleLogout}>🚪Logout</a> */}
+                                        <button>🏠Home</button>
+                                        <button>👥Account lists</button>
+                                        <button>➕Add account</button>
+                                        <button>💱Debit transact</button>
+                                        <button>💵Withdrawal</button>
+                                        <button>🏦Bank transfer</button>
+                                        <button onClick={handleLogout}>🚪Logout</button>
+
                                     </div>  
                                 </div>
                             </div>
