@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom'
 
 //CSS
 import '../styles/admin.css';
+import '../styles/withraw.css';
+
 
 
 const Withdraw = () => {
@@ -92,7 +94,20 @@ const Withdraw = () => {
                 </div>
 
                 <div className="main-dashboard-content">
-                    <span>Withdraw component</span>
+                        <div className="withrawal-form-container">                  
+                                <h1> ✍️ Withdrawal Transaction Form</h1>
+                                    <form className="withrawal-form">
+                                        <div className="withrawal-form-detail">
+                                            <label for="withrawal">username</label>                          
+                                            <select name="username" className="userName">
+                                                <option value="-">...</option>
+                                                <option value="item1">Item 1</option>                      
+                                            </select>   
+                                                <input placeholder="amount"/>                                                    
+                                                <button>🦅 submit</button>
+                                        </div>
+                                    </form>
+                            </div>
                 </div>
                 <div className="main-dashboard-footer">
                     <div>

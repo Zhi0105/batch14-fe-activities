@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom'
 
 //CSS
 import '../styles/admin.css';
+import '../styles/account.css';
+
+
 
 
 const Account = () => {
@@ -112,28 +115,38 @@ const Account = () => {
     const submitInfo = (e) => {
         e.preventDefault()
 
-        if(document.querySelector(`.regPassword`).value === document.querySelector(`.confirmPassword`).value){
-            let newUser = new userRecord(
-                document.querySelector(`.fname`).value, 
-                document.querySelector(`.lname`).value,
-                document.querySelector(`.email`).value,
-                document.querySelector(`.regPassword`).value,
-                document.querySelector(`.contact`).value,
-                document.querySelector(`.amount`).value
-            )     
-            newUser.createUserRecord()
-            localStorage.setItem(`accountRecord`, JSON.stringify(accountList))
+        
+        if(document.querySelector('.amount').value > 0){
 
-            document.querySelector('.userCreate-modal').style.display = 'block'
-            setTimeout(() => {
-                navigate('/admin')
-            }, 1500);
+            // console.log(storedUser)
+
+            if(document.querySelector(`.regPassword`).value === document.querySelector(`.confirmPassword`).value){
+                let newUser = new userRecord(
+                    document.querySelector(`.fname`).value, 
+                    document.querySelector(`.lname`).value,
+                    document.querySelector(`.email`).value,
+                    document.querySelector(`.regPassword`).value,
+                    document.querySelector(`.contact`).value,
+                    document.querySelector(`.amount`).value
+                )     
+                newUser.createUserRecord()
+                localStorage.setItem(`accountRecord`, JSON.stringify(accountList))
+
+                document.querySelector('.userCreate-modal').style.display = 'block'
+                setTimeout(() => {
+                    navigate('/admin')
+                }, 1500);
+            } else {
+                document.querySelector(`.errPassword-modal`).style.display = 'block'
+                setTimeout(() => {
+                    document.querySelector(`.errPassword-modal`).style.display = 'none'
+                }, 1500);
+            }
+
         } else {
-            document.querySelector(`.errPassword-modal`).style.display = 'block'
-            setTimeout(() => {
-                document.querySelector(`.errPassword-modal`).style.display = 'none'
-            }, 1500);
+            alert(`Initial Deposit should be not equal to 0 amount!`)
         }
+
     }
 
 

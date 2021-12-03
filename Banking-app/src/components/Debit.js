@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 //CSS
 import '../styles/admin.css';
+import '../styles/debit.css'
 
 
 const Debit = () => {
@@ -92,7 +93,32 @@ const Debit = () => {
                 </div>
 
                 <div className="main-dashboard-content">
-                    <span>Debit transaction component</span>
+                    <div className="debit-transaction-main">
+                            <div className="debit-transaction-form-container">
+                                <h1 className="debit-transaction-header"><span>✍️</span>Debit Transaction Form</h1>
+
+                                <form className="debit-transaction-form">
+                                    <div className="debit-transaction-form-detail">
+
+                                        <label for="sender">Debit Transaction Form</label>
+                                        <select className="choose-debit-transaction-username" id="choose-debit-transaction-username" required>
+                                            <option value="">...</option>
+                                            <option value="">Username 1</option>
+                                            <option value="">Username 2</option>
+                                        </select>
+
+                                            <input type="number" className="debit-transaction-amount" placeholder="amount" required/>
+                                        
+                                    </div>
+
+                                    <div className="debit-transaction-form-button">
+                                        <center>
+                                            <input type="submit" id="debit-transaction-submit-button" value="🦅 submit"/>
+                                        </center>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                 </div>
                 <div className="main-dashboard-footer">
                     <div>

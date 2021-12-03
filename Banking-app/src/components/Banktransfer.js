@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom'
 
 //CSS
 import '../styles/admin.css';
+import '../styles/banktransfer.css';
+
+
 
 
 const Banktransfer = () => {
@@ -92,7 +95,34 @@ const Banktransfer = () => {
                 </div>
 
                 <div className="main-dashboard-content">
-                    <span>Bank transfer component</span>
+                        <div className="transfer-main">
+                                <div className="transferform-container">
+                                    <h1 className="banktransfer">✍️ transfer</h1>
+                                        <form className="transfer-form">
+                                            <div className="transferform-detail">
+
+                                                <label for="sender">Transfer from:</label>
+                                                <select id="sender" required>
+                                                    <option value="...">...</option>
+                                                    <option value="item1">Item 1</option>
+                                                    
+                                                </select>
+                                                
+                                                <label for="receiver">Transfer to:</label>
+                                                <select id="receiver" required>
+                                                    <option value="...">...</option>
+                                                    <option value="item1">Item 1</option>
+                                                </select>
+
+                                                <input type="number" className="amount" placeholder="amount" required/>
+                                                
+                                            </div>
+                                            <div className="btnDiv">
+                                            <center><input type="submit" id="btn-submit" value="🦅 submit" /></center>
+                                            </div>
+                                        </form>
+                                </div>
+                            </div>
                 </div>
                 <div className="main-dashboard-footer">
                     <div>
