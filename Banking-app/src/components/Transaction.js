@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-
 //CSS
 import '../styles/admin.css';
 
 
-const Admin = () => {
-
+const Transaction = () => {
     
     const navigate = useNavigate()
     let adminSession = sessionStorage.getItem('adminsession')
@@ -48,7 +46,7 @@ const Admin = () => {
                     <span onClick={handleDashboardHome}>🦅 MENU</span>
                 </div>
                 <div className="sidebar-menu">
-                    <button onClick={()=>{navigate('/admin/transactions')}}>🧾Transactions</button>
+                    <button className="active">🧾Transactions</button>
                     <button onClick={()=>{navigate('/admin/account-list')}}>👥Account lists</button>
                     <button onClick={()=>{navigate('/admin/create-account')}}>➕Add account</button>
                     <button onClick={()=>{navigate('/admin/add-debit-transaction')}}>💱Debit transact</button>
@@ -71,7 +69,7 @@ const Admin = () => {
                             {/* Navigation for mobile size screen */}
                             <div className="top-admin-nav">
                                 <div className="nav-icon">
-                                    <img src="./img/burger.png" alt="icon-burger" onClick={openNav}/>
+                                    <img src="/img/burger.png" alt="icon-burger" onClick={openNav}/>
                                 </div>
 
                                 {/* OVERLAY NAV */}
@@ -81,21 +79,20 @@ const Admin = () => {
                                     <button className="closebtn" onClick={closeNav}>&times;</button>
                                     <div className="navOverlay-content">
                                         <button onClick={handleDashboardHome}>🏠Home</button>
-                                        <button onClick={()=>{navigate('/admin/transactions')}}>🧾Transactions</button>
+                                        <button>🧾Transactions</button>
                                         <button onClick={()=>{navigate('/admin/account-list')}}>👥Account lists</button>
                                         <button onClick={()=>{navigate('/admin/create-account')}}>➕Add account</button>
                                         <button onClick={()=>{navigate('/admin/add-debit-transaction')}}>💱Debit transact</button>
                                         <button onClick={()=>{navigate('/admin/add-withdrawal-transaction')}}>💵Withdrawal</button>
                                         <button onClick={()=>{navigate('/admin/add-bank-transfer-transaction')}}>🏦Bank transfer</button>
                                         <button onClick={handleLogout}>🚪Logout</button>
-
                                     </div>  
                                 </div>
                             </div>
                 </div>
 
                 <div className="main-dashboard-content">
-                    <img src="/img/logo.png" alt="Logo"/>
+                    <span>Transaction component</span>
                 </div>
                 <div className="main-dashboard-footer">
                     <div>
@@ -105,7 +102,6 @@ const Admin = () => {
             </div>
         </div>
     )
-    
 }
 
-export default Admin
+export default Transaction

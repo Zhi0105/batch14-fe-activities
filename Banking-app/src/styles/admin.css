@@ -39,6 +39,10 @@
      */
     background: #8f461f;
     color:white;
+
+    /* LAYOUT */
+    display:grid;
+    justify-content: center;
 }
 
 .sidebar-header span{
@@ -50,9 +54,15 @@
     flex-direction: column;
 }
 
+.sidebar-menu .active{
+    background: rgb(206, 136, 69);
+    border-radius: 5px;
+}
+
 .sidebar-menu button{
 
     margin: 0 0 10px 0;
+    padding:10px;
     height: 50px;
     background: transparent;
     color: white;
@@ -216,18 +226,6 @@
 }
 /* MEDIA QUERY FOR MOBILE NAVIGATION FOR ADMIN PANEL END */
 
-
-
-/* .admin-main table{
-    border-collapse : collapse;
-}
-
-table thead{
-    text-transform:initial;
-    font-weight: bolder;
-}
-
-table td,th{
-    border: 1px solid black;
-    padding:10px;
-} */
+/* CSS IMPORTS FOR ADMIN DASHBOARD START */
+@import './account.css';
+@import './accountlist.css';

@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-
 //CSS
 import '../styles/admin.css';
 
 
-const Admin = () => {
-
+const Accountlist = () => {
     
     const navigate = useNavigate()
     let adminSession = sessionStorage.getItem('adminsession')
@@ -40,6 +38,19 @@ const Admin = () => {
         document.getElementById("Nav").style.width = "0%";
     }
 
+    let storedMember = JSON.parse(localStorage.getItem('accountRecord'))
+    if(!storedMember){
+
+        setTimeout(() => {
+            navigate('/admin')
+        }, 1000);
+
+        return(
+            <span>No record found!</span>
+        )
+    }
+    
+
     return (
     
         <div className="admin-main">
@@ -49,7 +60,7 @@ const Admin = () => {
                 </div>
                 <div className="sidebar-menu">
                     <button onClick={()=>{navigate('/admin/transactions')}}>🧾Transactions</button>
-                    <button onClick={()=>{navigate('/admin/account-list')}}>👥Account lists</button>
+                    <button className="active">👥Account lists</button>
                     <button onClick={()=>{navigate('/admin/create-account')}}>➕Add account</button>
                     <button onClick={()=>{navigate('/admin/add-debit-transaction')}}>💱Debit transact</button>
                     <button onClick={()=>{navigate('/admin/add-withdrawal-transaction')}}>💵Withdrawal</button>
@@ -71,7 +82,7 @@ const Admin = () => {
                             {/* Navigation for mobile size screen */}
                             <div className="top-admin-nav">
                                 <div className="nav-icon">
-                                    <img src="./img/burger.png" alt="icon-burger" onClick={openNav}/>
+                                    <img src="/img/burger.png" alt="icon-burger" onClick={openNav}/>
                                 </div>
 
                                 {/* OVERLAY NAV */}
@@ -82,20 +93,56 @@ const Admin = () => {
                                     <div className="navOverlay-content">
                                         <button onClick={handleDashboardHome}>🏠Home</button>
                                         <button onClick={()=>{navigate('/admin/transactions')}}>🧾Transactions</button>
-                                        <button onClick={()=>{navigate('/admin/account-list')}}>👥Account lists</button>
+                                        <button>👥Account lists</button>
                                         <button onClick={()=>{navigate('/admin/create-account')}}>➕Add account</button>
                                         <button onClick={()=>{navigate('/admin/add-debit-transaction')}}>💱Debit transact</button>
                                         <button onClick={()=>{navigate('/admin/add-withdrawal-transaction')}}>💵Withdrawal</button>
                                         <button onClick={()=>{navigate('/admin/add-bank-transfer-transaction')}}>🏦Bank transfer</button>
                                         <button onClick={handleLogout}>🚪Logout</button>
-
                                     </div>  
                                 </div>
                             </div>
                 </div>
 
                 <div className="main-dashboard-content">
-                    <img src="/img/logo.png" alt="Logo"/>
+                    <table>
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>First Name</td>
+                        <td>Last Name</td>
+                        <td>Email</td>    
+                        <td>Password</td>    
+                        <td>Contact</td>    
+                        <td>Balance</td>    
+                        
+                        
+                    </tr>
+                </thead>
+                <tbody id="member-info">
+                    {
+                        storedMember.length ? 
+                        storedMember.map((value, index) => {
+
+                            const {id, firstname, lastname, email, password, contact, amount} = value
+
+                            return (
+                                <tr key={index}>
+                                    <td>{id}</td>
+                                    <td>{firstname}</td>
+                                    <td>{lastname}</td>
+                                    <td>{email}</td>
+                                    <td>{password}</td>
+                                    <td>{contact}</td>
+                                    <td>{amount}</td>                                
+                                </tr>
+                            ) 
+                        }) : <p>No Users found!</p>
+
+                    }
+                
+                </tbody>
+                </table>
                 </div>
                 <div className="main-dashboard-footer">
                     <div>
@@ -105,7 +152,6 @@ const Admin = () => {
             </div>
         </div>
     )
-    
 }
 
-export default Admin
+export default Accountlist

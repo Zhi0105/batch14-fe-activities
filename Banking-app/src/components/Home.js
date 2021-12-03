@@ -153,21 +153,21 @@ const Home = () => {
             </div>
 
             <div id="incLogin" className="incLogin-modal">
-            {/* <!-- Modal content --> */}
+            {/* <!-- Modal for incomplete login credential --> */}
                 <div className="incLogin-content">
                     <p><strong>WARNING!</strong> Incomplete Login Credential!😐</p><br></br>
                 </div>
             </div>
             
             <div id="xLogin" className="xLogin-modal">
-            {/* <!-- Modal content --> */}
+            {/* <!-- Modal for incorrect login credential --> */}
                 <div className="xLogin-content">
                     <p><strong>DANGER!</strong> Incorrect username or password!❌</p><br></br>
                 </div>
             </div>
 
             <div id="loginSuccess" className="loginSuccess-modal">
-            {/* <!-- Modal content --> */}
+            {/* <!-- Modal for login successful --> */}
                 <div className="loginSuccess-content">
                     <p><strong>SUCCESS!💸</strong></p><br></br>
                 </div>

@@ -6,8 +6,17 @@ import Home from './components/Home'
 import About from './components/About'
 import Features from './components/Features'
 
+// ADMIN COMPONENTS
 import Admin from './components/Admin'
-import Create from './components/Create'
+import Account from './components/Account'
+import Accountlist from './components/Accountlist'
+import Transaction from './components/Transaction'
+import Debit from './components/Debit'
+import Withdraw from './components/Withdraw'
+import Banktransfer from './components/Banktransfer'
+
+// import Create from './components/Create'
+
 
 // //ACTIVITY
 // import Api from './components/Api'
@@ -23,7 +32,12 @@ const App = () => {
                 <Route path='/about' element={<About />}/>
                 <Route path='/features' element={<Features />}/>
                 <Route path='/admin' element={<Admin />} />
-                <Route path='/admin/create' element={<Create />} />
+                <Route path='/admin/create-account' element={<Account />} />
+                <Route path='/admin/account-list' element={<Accountlist />} />
+                <Route path='/admin/transactions' element={<Transaction />} />
+                <Route path='/admin/add-debit-transaction' element={<Debit />} />
+                <Route path='/admin/add-withdrawal-transaction' element={<Withdraw />} />
+                <Route path='/admin/add-bank-transfer-transaction' element={<Banktransfer />} />
                 
                 {/* <Route path='/api' element={<Api />} /> */}
                 </Routes>

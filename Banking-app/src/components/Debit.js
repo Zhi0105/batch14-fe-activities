@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-
 //CSS
 import '../styles/admin.css';
 
 
-const Admin = () => {
-
+const Debit = () => {
     
     const navigate = useNavigate()
     let adminSession = sessionStorage.getItem('adminsession')
@@ -51,7 +49,7 @@ const Admin = () => {
                     <button onClick={()=>{navigate('/admin/transactions')}}>🧾Transactions</button>
                     <button onClick={()=>{navigate('/admin/account-list')}}>👥Account lists</button>
                     <button onClick={()=>{navigate('/admin/create-account')}}>➕Add account</button>
-                    <button onClick={()=>{navigate('/admin/add-debit-transaction')}}>💱Debit transact</button>
+                    <button className="active">💱Debit transact</button>
                     <button onClick={()=>{navigate('/admin/add-withdrawal-transaction')}}>💵Withdrawal</button>
                     <button onClick={()=>{navigate('/admin/add-bank-transfer-transaction')}}>🏦Bank transfer</button>
                     <button onClick={handleLogout}>🚪Logout</button>
@@ -71,7 +69,7 @@ const Admin = () => {
                             {/* Navigation for mobile size screen */}
                             <div className="top-admin-nav">
                                 <div className="nav-icon">
-                                    <img src="./img/burger.png" alt="icon-burger" onClick={openNav}/>
+                                    <img src="/img/burger.png" alt="icon-burger" onClick={openNav}/>
                                 </div>
 
                                 {/* OVERLAY NAV */}
@@ -84,18 +82,17 @@ const Admin = () => {
                                         <button onClick={()=>{navigate('/admin/transactions')}}>🧾Transactions</button>
                                         <button onClick={()=>{navigate('/admin/account-list')}}>👥Account lists</button>
                                         <button onClick={()=>{navigate('/admin/create-account')}}>➕Add account</button>
-                                        <button onClick={()=>{navigate('/admin/add-debit-transaction')}}>💱Debit transact</button>
+                                        <button>💱Debit transact</button>
                                         <button onClick={()=>{navigate('/admin/add-withdrawal-transaction')}}>💵Withdrawal</button>
                                         <button onClick={()=>{navigate('/admin/add-bank-transfer-transaction')}}>🏦Bank transfer</button>
                                         <button onClick={handleLogout}>🚪Logout</button>
-
                                     </div>  
                                 </div>
                             </div>
                 </div>
 
                 <div className="main-dashboard-content">
-                    <img src="/img/logo.png" alt="Logo"/>
+                    <span>Debit transaction component</span>
                 </div>
                 <div className="main-dashboard-footer">
                     <div>
@@ -105,7 +102,6 @@ const Admin = () => {
             </div>
         </div>
     )
-    
 }
 
-export default Admin
+export default Debit

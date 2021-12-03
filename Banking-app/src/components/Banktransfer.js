@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-
 //CSS
 import '../styles/admin.css';
 
 
-const Admin = () => {
-
+const Banktransfer = () => {
     
     const navigate = useNavigate()
     let adminSession = sessionStorage.getItem('adminsession')
@@ -53,7 +51,7 @@ const Admin = () => {
                     <button onClick={()=>{navigate('/admin/create-account')}}>➕Add account</button>
                     <button onClick={()=>{navigate('/admin/add-debit-transaction')}}>💱Debit transact</button>
                     <button onClick={()=>{navigate('/admin/add-withdrawal-transaction')}}>💵Withdrawal</button>
-                    <button onClick={()=>{navigate('/admin/add-bank-transfer-transaction')}}>🏦Bank transfer</button>
+                    <button className="active">🏦Bank transfer</button>
                     <button onClick={handleLogout}>🚪Logout</button>
                 </div>
             </div>
@@ -71,7 +69,7 @@ const Admin = () => {
                             {/* Navigation for mobile size screen */}
                             <div className="top-admin-nav">
                                 <div className="nav-icon">
-                                    <img src="./img/burger.png" alt="icon-burger" onClick={openNav}/>
+                                    <img src="/img/burger.png" alt="icon-burger" onClick={openNav}/>
                                 </div>
 
                                 {/* OVERLAY NAV */}
@@ -86,16 +84,15 @@ const Admin = () => {
                                         <button onClick={()=>{navigate('/admin/create-account')}}>➕Add account</button>
                                         <button onClick={()=>{navigate('/admin/add-debit-transaction')}}>💱Debit transact</button>
                                         <button onClick={()=>{navigate('/admin/add-withdrawal-transaction')}}>💵Withdrawal</button>
-                                        <button onClick={()=>{navigate('/admin/add-bank-transfer-transaction')}}>🏦Bank transfer</button>
+                                        <button>🏦Bank transfer</button>
                                         <button onClick={handleLogout}>🚪Logout</button>
-
                                     </div>  
                                 </div>
                             </div>
                 </div>
 
                 <div className="main-dashboard-content">
-                    <img src="/img/logo.png" alt="Logo"/>
+                    <span>Bank transfer component</span>
                 </div>
                 <div className="main-dashboard-footer">
                     <div>
@@ -105,7 +102,6 @@ const Admin = () => {
             </div>
         </div>
     )
-    
 }
 
-export default Admin
+export default Banktransfer
