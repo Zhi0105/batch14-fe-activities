@@ -108,43 +108,43 @@ const Accountlist = () => {
 
                 <div className="main-dashboard-content">
                     <table>
-                <thead>
-                    <tr>
-                        <td>ID</td>
-                        <td>First Name</td>
-                        <td>Last Name</td>
-                        <td>Email</td>    
-                        <td>Password</td>    
-                        <td>Contact</td>    
-                        <td>Balance</td>    
+                        <thead>
+                            <tr>
+                                <td>ID</td>
+                                <td>First Name</td>
+                                <td>Last Name</td>
+                                <td>Email</td>    
+                                <td>Password</td>    
+                                <td>Contact</td>    
+                                <td>Current Balance</td>    
+                                
+                                
+                            </tr>
+                        </thead>
+                        <tbody id="member-info">
+                            {
+                                storedMember.length ? 
+                                storedMember.map((value, index) => {
+
+                                    const {id, firstname, lastname, email, password, contact, amount} = value
+
+                                    return (
+                                        <tr key={index}>
+                                            <td>{id}</td>
+                                            <td>{firstname}</td>
+                                            <td>{lastname}</td>
+                                            <td>{email}</td>
+                                            <td>{password}</td>
+                                            <td>{contact}</td>
+                                            <td>{`₱ ${amount}.00`}</td>                           
+                                        </tr>
+                                    ) 
+                                }) : <p>No Users found!</p>
+
+                            }
                         
-                        
-                    </tr>
-                </thead>
-                <tbody id="member-info">
-                    {
-                        storedMember.length ? 
-                        storedMember.map((value, index) => {
-
-                            const {id, firstname, lastname, email, password, contact, amount} = value
-
-                            return (
-                                <tr key={index}>
-                                    <td>{id}</td>
-                                    <td>{firstname}</td>
-                                    <td>{lastname}</td>
-                                    <td>{email}</td>
-                                    <td>{password}</td>
-                                    <td>{contact}</td>
-                                    <td>{amount}</td>                                
-                                </tr>
-                            ) 
-                        }) : <p>No Users found!</p>
-
-                    }
-                
-                </tbody>
-                </table>
+                        </tbody>
+                    </table>
                 </div>
                 <div className="main-dashboard-footer">
                     <div>

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 //CSS
 import '../styles/admin.css';
-import '../styles/debit.css'
+import '../styles/debit.css';
 
 
 const Debit = () => {
@@ -38,6 +38,87 @@ const Debit = () => {
     const closeNav = () => {
         document.getElementById("Nav").style.width = "0%";
     }
+
+    let storedMember = JSON.parse(localStorage.getItem('accountRecord'))
+    if(!storedMember){
+
+        setTimeout(() => {
+            navigate('/admin')
+        }, 1000);
+
+        return(
+            <span>No record found!</span>
+        )
+    }  
+
+
+    //INITIALIZING VARIABLES START
+    let storedDebitTransaction = JSON.parse(localStorage.getItem('debitRecord'))
+    let debitTransaction = []
+    let date = new Date()
+    let currentYear = date.getFullYear()
+    let currentMonth = date.getMonth()
+    let currentday = date.getDate()
+    let debitID = 0
+    //INITIALIZING VARIABLES END
+    
+
+    // INITIALIZING DEBIT ID START
+    if(!storedDebitTransaction){
+        debitID = 0
+    }
+    if(storedDebitTransaction){
+        debitTransaction = [...storedDebitTransaction]
+        debitID = storedDebitTransaction[storedDebitTransaction.length - 1].id
+    }
+    // INITIALIZING DEBIT ID END
+    
+    
+    // FUNCTION HANDLES DEBIT TRANSACTION START
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        // CONDITION IF USER VALUE ON SELECT ELEMENT = '...'
+        if(document.querySelector(`#user`).value !== '...'){
+
+            //DECLARATION OF OBJECT FOR DEBIT TRANSACTION RECORD START
+            let debitObj = {
+            id : debitID + 1,
+            name : document.querySelector(`#user`).value,
+            amount : document.querySelector(`#amount`).value,
+            date : `${currentMonth + 1}-${currentday}-${currentYear}`,
+            transaction : `debit`
+        }  
+        //DECLARATION OF OBJECT FOR DEBIT TRANSACTION RECORD END
+            
+        // INSERTING DEBIT OBJECT TO DEBIT TRANSACTION ARRAY
+        debitTransaction.push(debitObj)
+        // SETTING RECORD OF LOCAL STORAGE FOR DEBIT TRANSACTION 
+        localStorage.setItem('debitRecord', JSON.stringify(debitTransaction))
+
+        // ITERATE STORED MEMBER TO COMPUTE OR MANIPUATE AMOUNT START
+        storedMember.forEach(i => {
+            if(`${i.firstname} ${i.lastname}` === document.querySelector(`#user`).value){
+                i.amount = parseInt(i.amount) + parseInt(document.querySelector(`#amount`).value)
+            }
+        })
+        // ITERATE STORED MEMBER TO COMPUTE OR MANIPUATE AMOUNT END
+        
+        // OVERWRIDE OR UPDATE LOCAL STORAGE ACCOUNT RECORD
+        localStorage.setItem('accountRecord', JSON.stringify(storedMember))
+        
+        //DISPLAY MESSAGE FOR SUCCESSFULLY UPDATED RECORD AND NAVIGATE TO HOME ADMIN PANEL 
+        alert(`Account successfully updated!`)
+        navigate(`/admin`)
+        
+
+        } else {
+            alert(`invalid user!`)
+        }
+        
+    
+    }
+    // FUNCTION HANDLES DEBIT TRANSACTION END
 
     return (
     
@@ -97,17 +178,31 @@ const Debit = () => {
                             <div className="debit-transaction-form-container">
                                 <h1 className="debit-transaction-header"><span>✍️</span>Debit Transaction Form</h1>
 
-                                <form className="debit-transaction-form">
+                                <form className="debit-transaction-form" onSubmit={handleSubmit}>
                                     <div className="debit-transaction-form-detail">
 
-                                        <label for="sender">Debit Transaction Form</label>
-                                        <select className="choose-debit-transaction-username" id="choose-debit-transaction-username" required>
-                                            <option value="">...</option>
-                                            <option value="">Username 1</option>
-                                            <option value="">Username 2</option>
+                                        <label>Debit Transaction Form</label>
+                                        <select className="choose-debit-transaction-username" id="user" required>
+                                            <option value="...">...</option>
+                                            {
+                                                storedMember.length ? 
+                                                storedMember.map((value, index) => {
+
+                                                    const { firstname, lastname} = value
+                                                    
+                                                    return (
+                                                        <option key={index} value={`${firstname} ${lastname}`}>
+                                                            {firstname} {lastname}                    
+                                                        </option>
+                                                        
+                                                    ) 
+                                                }) : <p>No Users found!</p>
+
+                                            }
+                                            
                                         </select>
 
-                                            <input type="number" className="debit-transaction-amount" placeholder="amount" required/>
+                                            <input type="number" id="amount" className="debit-transaction-amount" placeholder="amount" required/>
                                         
                                     </div>
 

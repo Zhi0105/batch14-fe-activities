@@ -6,7 +6,6 @@ import '../styles/admin.css';
 import '../styles/withraw.css';
 
 
-
 const Withdraw = () => {
     
     const navigate = useNavigate()
@@ -39,6 +38,24 @@ const Withdraw = () => {
     const closeNav = () => {
         document.getElementById("Nav").style.width = "0%";
     }
+
+    let storedMember = JSON.parse(localStorage.getItem('accountRecord'))
+    if(!storedMember){
+
+        setTimeout(() => {
+            navigate('/admin')
+        }, 1000);
+
+        return(
+            <span>No record found!</span>
+        )
+    }
+
+        //FUNCTION HANDLES WITHDRAW TRANSACTIONS
+        const handleSubmit = (e) => {
+            e.preventDefault();
+            alert(`your withdrawal code start here!`)
+        }
 
     return (
     
@@ -96,12 +113,26 @@ const Withdraw = () => {
                 <div className="main-dashboard-content">
                         <div className="withrawal-form-container">                  
                                 <h1> ✍️ Withdrawal Transaction Form</h1>
-                                    <form className="withrawal-form">
+                                    <form className="withrawal-form" onSubmit={handleSubmit}>
                                         <div className="withrawal-form-detail">
-                                            <label for="withrawal">username</label>                          
-                                            <select name="username" className="userName">
+                                            <label>username</label>                          
+                                            <select name="username" className="userName" id="withdraw">
                                                 <option value="-">...</option>
-                                                <option value="item1">Item 1</option>                      
+                                                {
+                                                storedMember.length ? 
+                                                storedMember.map((value, index) => {
+
+                                                    const {firstname, lastname} = value
+
+                                                    return (
+                                                        <option key={index} value={`${firstname} ${lastname}`}>
+                                                            {firstname} {lastname}                    
+                                                        </option>
+                                                        
+                                                    ) 
+                                                }) : <p>No Users found!</p>
+
+                                                }
                                             </select>   
                                                 <input placeholder="amount"/>                                                    
                                                 <button>🦅 submit</button>

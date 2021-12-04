@@ -101,14 +101,14 @@ const Banktransfer = () => {
                                         <form className="transfer-form">
                                             <div className="transferform-detail">
 
-                                                <label for="sender">Transfer from:</label>
+                                                <label>Transfer from:</label>
                                                 <select id="sender" required>
                                                     <option value="...">...</option>
                                                     <option value="item1">Item 1</option>
                                                     
                                                 </select>
                                                 
-                                                <label for="receiver">Transfer to:</label>
+                                                <label>Transfer to:</label>
                                                 <select id="receiver" required>
                                                     <option value="...">...</option>
                                                     <option value="item1">Item 1</option>

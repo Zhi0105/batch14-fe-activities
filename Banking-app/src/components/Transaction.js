@@ -38,6 +38,8 @@ const Transaction = () => {
         document.getElementById("Nav").style.width = "0%";
     }
 
+    let debitTransaction = JSON.parse(localStorage.getItem('debitRecord'))
+
     return (
     
         <div className="admin-main">
@@ -92,7 +94,41 @@ const Transaction = () => {
                 </div>
 
                 <div className="main-dashboard-content">
-                    <span>Transaction component</span>
+                    <table>
+                            <thead>
+                                <tr>
+                                    <td>ID</td>
+                                    <td>Accout Name</td>
+                                    <td>Transaction Amount</td>
+                                    <td>Transaction type</td>
+                                    <td>date</td>    
+                                    
+                                </tr>
+                            </thead>
+                            <tbody id="member-info">
+                                {
+                                    debitTransaction.length ? 
+                                    debitTransaction.map((value, index) => {
+
+                                        const {id, name, amount, date, transaction} = value
+
+                                        return (
+                                            <tr key={index}>
+                                                <td>{id}</td>
+                                                <td>{name}</td>
+                                                <td>{`₱ ${amount}.00`}</td>
+                                                <td>{transaction}</td>
+                                                <td>{date}</td>
+                                                                        
+                                            </tr>
+                                        ) 
+                                    }) : <p>No Users found!</p>
+
+                                }
+                            
+                            </tbody>
+                        </table>
+                
                 </div>
                 <div className="main-dashboard-footer">
                     <div>
