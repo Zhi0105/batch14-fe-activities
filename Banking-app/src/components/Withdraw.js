@@ -133,7 +133,8 @@ const Withdraw = () => {
                     <span onClick={handleDashboardHome}>🦅 MENU</span>
                 </div>
                 <div className="sidebar-menu">
-                    <button onClick={()=>{navigate('/admin/transactions')}}>🧾Transactions</button>
+                    <button onClick={()=>{navigate('/admin/transactions')}}>🧾Withraw/deposit records</button>
+                    <button onClick={()=>{navigate('/admin/transfer-transaction')}}>📜Bank transfer records</button>
                     <button onClick={()=>{navigate('/admin/account-list')}}>👥Account lists</button>
                     <button onClick={()=>{navigate('/admin/create-account')}}>➕Add account</button>
                     <button onClick={()=>{navigate('/admin/add-deposit-transaction')}}>💱Deposit transact</button>
@@ -166,7 +167,8 @@ const Withdraw = () => {
                                     <button className="closebtn" onClick={closeNav}>&times;</button>
                                     <div className="navOverlay-content">
                                         <button onClick={handleDashboardHome}>🏠Home</button>
-                                        <button onClick={()=>{navigate('/admin/transactions')}}>🧾Transactions</button>
+                                        <button onClick={()=>{navigate('/admin/transactions')}}>🧾Withraw/deposit records</button>
+                                        <button onClick={()=>{navigate('/admin/transfer-transaction')}}>📜Bank transfer records</button>
                                         <button onClick={()=>{navigate('/admin/account-list')}}>👥Account lists</button>
                                         <button onClick={()=>{navigate('/admin/create-account')}}>➕Add account</button>
                                         <button onClick={()=>{navigate('/admin/add-deposit-transaction')}}>💱Deposit transact</button>

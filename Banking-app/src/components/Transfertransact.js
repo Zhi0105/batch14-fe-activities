@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import '../styles/admin.css';
 
 
-const Transaction = () => {
+const Transfertransact = () => {
     
     const navigate = useNavigate()
     let adminSession = sessionStorage.getItem('adminsession')
@@ -38,29 +38,6 @@ const Transaction = () => {
         document.getElementById("Nav").style.width = "0%";
     }
 
-    let debitTransaction = JSON.parse(localStorage.getItem('debitRecord'))
-    let withdrawTransaction= JSON.parse(localStorage.getItem('withdrawRecord'))
-    let Transactions = []
-
-    if(debitTransaction || withdrawTransaction){
-        if(debitTransaction){
-            Transactions.push(...debitTransaction)
-        }
-        if(withdrawTransaction){
-            Transactions.push(...withdrawTransaction)
-        }
-    }
-    
-    if(!Transactions){
-
-        setTimeout(() => {
-            navigate('/admin')
-        }, 1000);
-
-        return(
-            <span>No record found!</span>
-        )
-    }  
 
     return (
     
@@ -70,8 +47,8 @@ const Transaction = () => {
                     <span onClick={handleDashboardHome}>🦅 MENU</span>
                 </div>
                 <div className="sidebar-menu">
-                    <button className="active">🧾Withraw/deposit records</button>
-                    <button onClick={()=>{navigate('/admin/transfer-transaction')}}>📜Bank transfer records</button>
+                    <button onClick={()=>{navigate('/admin/transactions')}}>🧾Withraw/deposit records</button>
+                    <button className="active">📜Bank transfer records</button>
                     <button onClick={()=>{navigate('/admin/account-list')}}>👥Account lists</button>
                     <button onClick={()=>{navigate('/admin/create-account')}}>➕Add account</button>
                     <button onClick={()=>{navigate('/admin/add-deposit-transaction')}}>💱Deposit transact</button>
@@ -104,8 +81,8 @@ const Transaction = () => {
                                     <button className="closebtn" onClick={closeNav}>&times;</button>
                                     <div className="navOverlay-content">
                                         <button onClick={handleDashboardHome}>🏠Home</button>
-                                        <button>🧾Withraw/deposit records</button>
-                                        <button onClick={()=>{navigate('/admin/transfer-transaction')}}>📜Bank transfer records</button>
+                                        <button onClick={()=>{navigate('/admin/transactions')}}>🧾Withraw/deposit records</button>
+                                        <button>📜Bank transfer records</button>
                                         <button onClick={()=>{navigate('/admin/account-list')}}>👥Account lists</button>
                                         <button onClick={()=>{navigate('/admin/create-account')}}>➕Add account</button>
                                         <button onClick={()=>{navigate('/admin/add-deposit-transaction')}}>💱Deposit transact</button>
@@ -118,40 +95,7 @@ const Transaction = () => {
                 </div>
 
                 <div className="main-dashboard-content">
-                    <table>
-                            <thead>
-                                <tr>
-                                    <td>ID</td>
-                                    <td>Account Name</td>
-                                    <td>Transaction Amount</td>
-                                    <td>Transaction type</td>
-                                    <td>Date</td>    
-                                    
-                                </tr>
-                            </thead>
-                            <tbody id="member-info">
-                                {
-                                    Transactions.length ? 
-                                    Transactions.map((value, index) => {
-
-                                        const {id, name, amount, date, transaction} = value
-
-                                        return (
-                                            <tr key={index}>
-                                                <td>{id}</td>
-                                                <td>{name}</td>
-                                                <td>{`₱ ${amount}.00`}</td>
-                                                <td>{transaction}</td>
-                                                <td>{date}</td>
-                                                                        
-                                            </tr>
-                                        ) 
-                                    }) : <tr><td colSpan="5">No transaction found!</td></tr>
-
-                                }
-                            </tbody>
-                        </table>
-                
+                    <span>this is for transfer record!</span>
                 </div>
                 <div className="main-dashboard-footer">
                     <div>
@@ -163,4 +107,4 @@ const Transaction = () => {
     )
 }
 
-export default Transaction
+export default Transfertransact

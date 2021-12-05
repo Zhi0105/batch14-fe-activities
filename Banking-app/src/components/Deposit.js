@@ -128,7 +128,8 @@ const Deposit = () => {
                     <span onClick={handleDashboardHome}>🦅 MENU</span>
                 </div>
                 <div className="sidebar-menu">
-                    <button onClick={()=>{navigate('/admin/transactions')}}>🧾Transactions</button>
+                    <button onClick={()=>{navigate('/admin/transactions')}}>🧾Withraw/deposit records</button>
+                    <button onClick={()=>{navigate('/admin/transfer-transaction')}}>📜Bank transfer records</button>
                     <button onClick={()=>{navigate('/admin/account-list')}}>👥Account lists</button>
                     <button onClick={()=>{navigate('/admin/create-account')}}>➕Add account</button>
                     <button className="active">💱Deposit transact</button>
@@ -161,7 +162,8 @@ const Deposit = () => {
                                     <button className="closebtn" onClick={closeNav}>&times;</button>
                                     <div className="navOverlay-content">
                                         <button onClick={handleDashboardHome}>🏠Home</button>
-                                        <button onClick={()=>{navigate('/admin/transactions')}}>🧾Transactions</button>
+                                        <button onClick={()=>{navigate('/admin/transactions')}}>🧾Withraw/deposit records</button>
+                                        <button onClick={()=>{navigate('/admin/transfer-transaction')}}>📜Bank transfer records</button>
                                         <button onClick={()=>{navigate('/admin/account-list')}}>👥Account lists</button>
                                         <button onClick={()=>{navigate('/admin/create-account')}}>➕Add account</button>
                                         <button>💱Deposit transact</button>
@@ -176,7 +178,7 @@ const Deposit = () => {
                 <div className="main-dashboard-content">
                     <div className="debit-transaction-main">
                             <div className="debit-transaction-form-container">
-                                <h1 className="debit-transaction-header"><span>✍️</span>Debit Transaction Form</h1>
+                                <h1 className="debit-transaction-header"><span>✍️</span>Deposit Transaction Form</h1>
 
                                 <form className="debit-transaction-form" onSubmit={handleSubmit}>
                                     <div className="debit-transaction-form-detail">

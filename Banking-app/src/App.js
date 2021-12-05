@@ -14,6 +14,7 @@ import Transaction from './components/Transaction'
 import Deposit from './components/Deposit'
 import Withdraw from './components/Withdraw'
 import Banktransfer from './components/Banktransfer'
+import Transfertransact from './components/Transfertransact'
 
 // import Create from './components/Create'
 
@@ -38,6 +39,8 @@ const App = () => {
                 <Route path='/admin/add-deposit-transaction' element={<Deposit />} />
                 <Route path='/admin/add-withdrawal-transaction' element={<Withdraw />} />
                 <Route path='/admin/add-bank-transfer-transaction' element={<Banktransfer />} />
+                <Route path='/admin/transfer-transaction' element={<Transfertransact />} />
+                
                 
                 {/* <Route path='/api' element={<Api />} /> */}
                 </Routes>
