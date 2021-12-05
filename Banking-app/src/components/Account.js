@@ -121,21 +121,25 @@ const Account = () => {
             // console.log(storedUser)
 
             if(document.querySelector(`.regPassword`).value === document.querySelector(`.confirmPassword`).value){
-                let newUser = new userRecord(
-                    document.querySelector(`.fname`).value, 
-                    document.querySelector(`.lname`).value,
-                    document.querySelector(`.email`).value,
-                    document.querySelector(`.regPassword`).value,
-                    document.querySelector(`.contact`).value,
-                    document.querySelector(`.amount`).value
-                )     
-                newUser.createUserRecord()
-                localStorage.setItem(`accountRecord`, JSON.stringify(accountList))
-
-                document.querySelector('.userCreate-modal').style.display = 'block'
-                setTimeout(() => {
-                    navigate('/admin')
-                }, 1500);
+                if(document.querySelector(`.contact`).value > 0){
+                    let newUser = new userRecord(
+                        document.querySelector(`.fname`).value, 
+                        document.querySelector(`.lname`).value,
+                        document.querySelector(`.email`).value,
+                        document.querySelector(`.regPassword`).value,
+                        document.querySelector(`.contact`).value,
+                        document.querySelector(`.amount`).value
+                    )     
+                    newUser.createUserRecord()
+                    localStorage.setItem(`accountRecord`, JSON.stringify(accountList))
+    
+                    document.querySelector('.userCreate-modal').style.display = 'block'
+                    setTimeout(() => {
+                        navigate('/admin')
+                    }, 1500);
+                } else {
+                    alert(`contact should be a number`)
+                }
             } else {
                 document.querySelector(`.errPassword-modal`).style.display = 'block'
                 setTimeout(() => {
@@ -161,7 +165,7 @@ const Account = () => {
                     <button onClick={()=>{navigate('/admin/transactions')}}>🧾Transactions</button>
                     <button onClick={()=>{navigate('/admin/account-list')}}>👥Account lists</button>
                     <button className="active">➕Add account</button>
-                    <button onClick={()=>{navigate('/admin/add-debit-transaction')}}>💱Debit transact</button>
+                    <button onClick={()=>{navigate('/admin/add-deposit-transaction')}}>💱Deposit transact</button>
                     <button onClick={()=>{navigate('/admin/add-withdrawal-transaction')}}>💵Withdrawal</button>
                     <button onClick={()=>{navigate('/admin/add-bank-transfer-transaction')}}>🏦Bank transfer</button>
                     <button onClick={handleLogout}>🚪Logout</button>
@@ -194,7 +198,7 @@ const Account = () => {
                                         <button onClick={()=>{navigate('/admin/transactions')}}>🧾Transactions</button>
                                         <button onClick={()=>{navigate('/admin/account-list')}}>👥Account lists</button>
                                         <button>➕Add account</button>
-                                        <button onClick={()=>{navigate('/admin/add-debit-transaction')}}>💱Debit transact</button>
+                                        <button onClick={()=>{navigate('/admin/add-deposit-transaction')}}>💱Deposit transact</button>
                                         <button onClick={()=>{navigate('/admin/add-withdrawal-transaction')}}>💵Withdrawal</button>
                                         <button onClick={()=>{navigate('/admin/add-bank-transfer-transaction')}}>🏦Bank transfer</button>
                                         <button onClick={handleLogout}>🚪Logout</button>

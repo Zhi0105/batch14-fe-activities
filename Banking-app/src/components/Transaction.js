@@ -39,6 +39,28 @@ const Transaction = () => {
     }
 
     let debitTransaction = JSON.parse(localStorage.getItem('debitRecord'))
+    let withdrawTransaction= JSON.parse(localStorage.getItem('withdrawRecord'))
+    let Transactions = []
+
+    if(debitTransaction || withdrawTransaction){
+        if(debitTransaction){
+            Transactions.push(...debitTransaction)
+        }
+        if(withdrawTransaction){
+            Transactions.push(...withdrawTransaction)
+        }
+    }
+    
+    if(!Transactions){
+
+        setTimeout(() => {
+            navigate('/admin')
+        }, 1000);
+
+        return(
+            <span>No record found!</span>
+        )
+    }  
 
     return (
     
@@ -51,7 +73,7 @@ const Transaction = () => {
                     <button className="active">🧾Transactions</button>
                     <button onClick={()=>{navigate('/admin/account-list')}}>👥Account lists</button>
                     <button onClick={()=>{navigate('/admin/create-account')}}>➕Add account</button>
-                    <button onClick={()=>{navigate('/admin/add-debit-transaction')}}>💱Debit transact</button>
+                    <button onClick={()=>{navigate('/admin/add-deposit-transaction')}}>💱Deposit transact</button>
                     <button onClick={()=>{navigate('/admin/add-withdrawal-transaction')}}>💵Withdrawal</button>
                     <button onClick={()=>{navigate('/admin/add-bank-transfer-transaction')}}>🏦Bank transfer</button>
                     <button onClick={handleLogout}>🚪Logout</button>
@@ -84,7 +106,7 @@ const Transaction = () => {
                                         <button>🧾Transactions</button>
                                         <button onClick={()=>{navigate('/admin/account-list')}}>👥Account lists</button>
                                         <button onClick={()=>{navigate('/admin/create-account')}}>➕Add account</button>
-                                        <button onClick={()=>{navigate('/admin/add-debit-transaction')}}>💱Debit transact</button>
+                                        <button onClick={()=>{navigate('/admin/add-deposit-transaction')}}>💱Deposit transact</button>
                                         <button onClick={()=>{navigate('/admin/add-withdrawal-transaction')}}>💵Withdrawal</button>
                                         <button onClick={()=>{navigate('/admin/add-bank-transfer-transaction')}}>🏦Bank transfer</button>
                                         <button onClick={handleLogout}>🚪Logout</button>
@@ -107,8 +129,8 @@ const Transaction = () => {
                             </thead>
                             <tbody id="member-info">
                                 {
-                                    debitTransaction.length ? 
-                                    debitTransaction.map((value, index) => {
+                                    Transactions.length ? 
+                                    Transactions.map((value, index) => {
 
                                         const {id, name, amount, date, transaction} = value
 
@@ -122,10 +144,9 @@ const Transaction = () => {
                                                                         
                                             </tr>
                                         ) 
-                                    }) : <p>No Users found!</p>
+                                    }) : <tr><td colSpan="5">No transaction found!</td></tr>
 
                                 }
-                            
                             </tbody>
                         </table>
                 

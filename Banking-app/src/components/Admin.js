@@ -51,7 +51,7 @@ const Admin = () => {
                     <button onClick={()=>{navigate('/admin/transactions')}}>🧾Transactions</button>
                     <button onClick={()=>{navigate('/admin/account-list')}}>👥Account lists</button>
                     <button onClick={()=>{navigate('/admin/create-account')}}>➕Add account</button>
-                    <button onClick={()=>{navigate('/admin/add-debit-transaction')}}>💱Debit transact</button>
+                    <button onClick={()=>{navigate('/admin/add-deposit-transaction')}}>💱Deposit transact</button>
                     <button onClick={()=>{navigate('/admin/add-withdrawal-transaction')}}>💵Withdrawal</button>
                     <button onClick={()=>{navigate('/admin/add-bank-transfer-transaction')}}>🏦Bank transfer</button>
                     <button onClick={handleLogout}>🚪Logout</button>
@@ -84,7 +84,7 @@ const Admin = () => {
                                         <button onClick={()=>{navigate('/admin/transactions')}}>🧾Transactions</button>
                                         <button onClick={()=>{navigate('/admin/account-list')}}>👥Account lists</button>
                                         <button onClick={()=>{navigate('/admin/create-account')}}>➕Add account</button>
-                                        <button onClick={()=>{navigate('/admin/add-debit-transaction')}}>💱Debit transact</button>
+                                        <button onClick={()=>{navigate('/admin/add-deposit-transaction')}}>💱Deposit transact</button>
                                         <button onClick={()=>{navigate('/admin/add-withdrawal-transaction')}}>💵Withdrawal</button>
                                         <button onClick={()=>{navigate('/admin/add-bank-transfer-transaction')}}>🏦Bank transfer</button>
                                         <button onClick={handleLogout}>🚪Logout</button>

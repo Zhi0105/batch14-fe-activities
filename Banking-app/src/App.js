@@ -11,7 +11,7 @@ import Admin from './components/Admin'
 import Account from './components/Account'
 import Accountlist from './components/Accountlist'
 import Transaction from './components/Transaction'
-import Debit from './components/Debit'
+import Deposit from './components/Deposit'
 import Withdraw from './components/Withdraw'
 import Banktransfer from './components/Banktransfer'
 
@@ -35,7 +35,7 @@ const App = () => {
                 <Route path='/admin/create-account' element={<Account />} />
                 <Route path='/admin/account-list' element={<Accountlist />} />
                 <Route path='/admin/transactions' element={<Transaction />} />
-                <Route path='/admin/add-debit-transaction' element={<Debit />} />
+                <Route path='/admin/add-deposit-transaction' element={<Deposit />} />
                 <Route path='/admin/add-withdrawal-transaction' element={<Withdraw />} />
                 <Route path='/admin/add-bank-transfer-transaction' element={<Banktransfer />} />
                 

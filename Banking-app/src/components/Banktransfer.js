@@ -41,6 +41,88 @@ const Banktransfer = () => {
         document.getElementById("Nav").style.width = "0%";
     }
 
+    let storedMember = JSON.parse(localStorage.getItem('accountRecord'))
+    if(!storedMember){
+
+        setTimeout(() => {
+            navigate('/admin')
+        }, 1000);
+
+        return(
+            <span>No record found!</span>
+        )
+    }  
+
+    // INITIALIZING FOR TRANSFER BANK ACCOUNT
+    let storedTransferTransaction = JSON.parse(localStorage.getItem('transferRecord'))
+    let transferTransact = []
+    let date = new Date()
+    let currentYear = date.getFullYear()
+    let currentMonth = date.getMonth()
+    let currentday = date.getDate()
+    let transferID = 0
+
+    if(!storedTransferTransaction){
+        transferID = 0
+    }
+    if(storedTransferTransaction){
+        transferTransact = [...storedTransferTransaction]
+        transferID = storedTransferTransaction[storedTransferTransaction.length - 1].id
+    }
+
+    
+
+    // FUNCTION HANDLES TRANSACTION FOR TRANSFER BANK ACCOUNT
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        
+        if(document.querySelector(`#sender`).value  === document.querySelector(`#receiver`).value){
+            alert(`sender and receiver should not be the same!`)
+        } else {
+            if(document.querySelector(`#sender`).value === '...' || document.querySelector(`#receiver`).value === '...'){
+                alert(`Select account name for receiver or sender!`)
+            } else {
+                
+                let transferObj = {
+                    id: transferID + 1,
+                    sender : document.querySelector(`#sender`).value,
+                    receiver : document.querySelector(`#receiver`).value,
+                    date : `${currentMonth + 1}-${currentday}-${currentYear}`,
+                    amount:  document.querySelector(`.amount`).value,
+                    transaction : `bank transfer`
+                }  
+
+                storedMember.forEach(i => {
+                    if(`${i.firstname} ${i.lastname}` === document.querySelector(`#sender`).value){
+                        if (parseInt(i.amount) < parseInt(document.querySelector(`.amount`).value)) {
+                            alert(`Insufficient Balance!`)
+                        } else {
+                            i.amount = parseInt(i.amount) - parseInt(document.querySelector(`.amount`).value)
+                            transferTransact.push(transferObj)
+                            localStorage.setItem('transferRecord', JSON.stringify(transferTransact))
+                            alert(`Account successfully updated!`)
+                            navigate(`/admin`)
+                            
+                        }
+                    }
+                })
+
+                storedMember.forEach(i => {
+                    if(`${i.firstname} ${i.lastname}` === document.querySelector(`#receiver`).value){
+                        if (parseInt(i.amount) < parseInt(document.querySelector(`.amount`).value)) {
+                            console.log('Insufficient Balance!')
+                        } else {
+                            i.amount = parseInt(i.amount) + parseInt(document.querySelector(`.amount`).value)
+                        }
+                    }
+                })
+
+                localStorage.setItem('accountRecord', JSON.stringify(storedMember))
+            }
+        }
+
+    }
+
     return (
     
         <div className="admin-main">
@@ -52,7 +134,7 @@ const Banktransfer = () => {
                     <button onClick={()=>{navigate('/admin/transactions')}}>🧾Transactions</button>
                     <button onClick={()=>{navigate('/admin/account-list')}}>👥Account lists</button>
                     <button onClick={()=>{navigate('/admin/create-account')}}>➕Add account</button>
-                    <button onClick={()=>{navigate('/admin/add-debit-transaction')}}>💱Debit transact</button>
+                    <button onClick={()=>{navigate('/admin/add-deposit-transaction')}}>💱Deposit transact</button>
                     <button onClick={()=>{navigate('/admin/add-withdrawal-transaction')}}>💵Withdrawal</button>
                     <button className="active">🏦Bank transfer</button>
                     <button onClick={handleLogout}>🚪Logout</button>
@@ -85,7 +167,7 @@ const Banktransfer = () => {
                                         <button onClick={()=>{navigate('/admin/transactions')}}>🧾Transactions</button>
                                         <button onClick={()=>{navigate('/admin/account-list')}}>👥Account lists</button>
                                         <button onClick={()=>{navigate('/admin/create-account')}}>➕Add account</button>
-                                        <button onClick={()=>{navigate('/admin/add-debit-transaction')}}>💱Debit transact</button>
+                                        <button onClick={()=>{navigate('/admin/add-deposit-transaction')}}>💱Deposit transact</button>
                                         <button onClick={()=>{navigate('/admin/add-withdrawal-transaction')}}>💵Withdrawal</button>
                                         <button>🏦Bank transfer</button>
                                         <button onClick={handleLogout}>🚪Logout</button>
@@ -97,21 +179,49 @@ const Banktransfer = () => {
                 <div className="main-dashboard-content">
                         <div className="transfer-main">
                                 <div className="transferform-container">
-                                    <h1 className="banktransfer">✍️ transfer</h1>
-                                        <form className="transfer-form">
+                                    <h1 className="banktransfer">✍️ Bank transfer</h1>
+                                        <form className="transfer-form" onSubmit={handleSubmit}>
                                             <div className="transferform-detail">
 
                                                 <label>Transfer from:</label>
                                                 <select id="sender" required>
                                                     <option value="...">...</option>
-                                                    <option value="item1">Item 1</option>
-                                                    
+                                                    {
+                                                    storedMember.length ? 
+                                                    storedMember.map((value, index) => {
+
+                                                        const { firstname, lastname} = value
+                                                        
+                                                        return (
+                                                            <option key={index} value={`${firstname} ${lastname}`}>
+                                                                {firstname} {lastname}                    
+                                                            </option>
+                                                            
+                                                        ) 
+                                                    }) : <p>No Users found!</p>
+
+                                                    }
+                                                        
                                                 </select>
                                                 
                                                 <label>Transfer to:</label>
                                                 <select id="receiver" required>
                                                     <option value="...">...</option>
-                                                    <option value="item1">Item 1</option>
+                                                    {
+                                                    storedMember.length ? 
+                                                    storedMember.map((value, index) => {
+
+                                                        const { firstname, lastname} = value
+                                                        
+                                                        return (
+                                                            <option key={index} value={`${firstname} ${lastname}`}>
+                                                                {firstname} {lastname}                    
+                                                            </option>
+                                                            
+                                                        ) 
+                                                    }) : <p>No Users found!</p>
+
+                                                    }
                                                 </select>
 
                                                 <input type="number" className="amount" placeholder="amount" required/>

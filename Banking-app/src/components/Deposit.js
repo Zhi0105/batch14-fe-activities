@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom'
 
 //CSS
 import '../styles/admin.css';
-import '../styles/withraw.css';
+import '../styles/deposit.css';
 
 
-const Withdraw = () => {
+const Deposit = () => {
     
     const navigate = useNavigate()
     let adminSession = sessionStorage.getItem('adminsession')
@@ -49,81 +49,76 @@ const Withdraw = () => {
         return(
             <span>No record found!</span>
         )
-    }
+    }  
+
 
     //INITIALIZING VARIABLES START
-    let storedWithdrawTransaction = JSON.parse(localStorage.getItem("withdrawRecord"))
-    let withdrawTransaction = []
-    let withdrawDate = new Date()
-    let withdrawCurrentYear = withdrawDate.getFullYear()
-    let withdrawCurrentMonth = withdrawDate.getMonth()
-    let withdrawCurrentDay = withdrawDate.getDate()
-    let withdrawID = 0
+    let storedDebitTransaction = JSON.parse(localStorage.getItem('debitRecord'))
+    let debitTransaction = []
+    let date = new Date()
+    let currentYear = date.getFullYear()
+    let currentMonth = date.getMonth()
+    let currentday = date.getDate()
+    let debitID = 0
     //INITIALIZING VARIABLES END
+    
 
-    // INITIALIZING WITHDRAW ID START
-    if (!storedWithdrawTransaction) {
-        withdrawID = 0
+    // INITIALIZING DEBIT ID START
+    if(!storedDebitTransaction){
+        debitID = 0
     }
-    if (storedWithdrawTransaction) {
-        withdrawTransaction = [...storedWithdrawTransaction]
-        withdrawID = storedWithdrawTransaction[storedWithdrawTransaction.length - 1].id
+    if(storedDebitTransaction){
+        debitTransaction = [...storedDebitTransaction]
+        debitID = storedDebitTransaction[storedDebitTransaction.length - 1].id
     }
-    // INITIALIZING WITHDRAW ID END
-
-     //FUNCTION HANDLES WITHDRAW TRANSACTION START
+    // INITIALIZING DEBIT ID END
+    
+    
+    // FUNCTION HANDLES DEBIT TRANSACTION START
     const handleSubmit = (e) => {
         e.preventDefault();
         
         // CONDITION IF USER VALUE ON SELECT ELEMENT = '...'
-        if (document.querySelector(`#withdraw`).value !== '...') {
-            
+        if(document.querySelector(`#user`).value !== '...'){
 
-            //DECLARATION OF OBJECT FOR WITHDRAW TRANSACTION RECORD START
-            let withdrawObj = {
-                id: withdrawID + 1,
-                name: document.querySelector(`.userName`).value,
-                amount: document.querySelector(`.amount`).value,
-                date: `${withdrawCurrentMonth + 1}-${withdrawCurrentDay}-${withdrawCurrentYear}`,
-                transaction: `withdrawal`,
+            //DECLARATION OF OBJECT FOR DEBIT TRANSACTION RECORD START
+            let debitObj = {
+                id : debitID + 1,
+                name : document.querySelector(`#user`).value,
+                amount : document.querySelector(`#amount`).value,
+                date : `${currentMonth + 1}-${currentday}-${currentYear}`,
+                transaction : `deposit`
+            }  
+        //DECLARATION OF OBJECT FOR DEBIT TRANSACTION RECORD END
+            
+        // INSERTING DEBIT OBJECT TO DEBIT TRANSACTION ARRAY
+        debitTransaction.push(debitObj)
+        // SETTING RECORD OF LOCAL STORAGE FOR DEBIT TRANSACTION 
+        localStorage.setItem('debitRecord', JSON.stringify(debitTransaction))
+
+        // ITERATE STORED MEMBER TO COMPUTE OR MANIPUATE AMOUNT START
+        storedMember.forEach(i => {
+            if(`${i.firstname} ${i.lastname}` === document.querySelector(`#user`).value){
+                i.amount = parseInt(i.amount) + parseInt(document.querySelector(`#amount`).value)
             }
-             //DECLARATION OF OBJECT FOR WITHDRAW TRANSACTION RECORD END
-            
+        })
+        // ITERATE STORED MEMBER TO COMPUTE OR MANIPUATE AMOUNT END
         
-            
-        // ITERATE STORED MEMBER TO COMPUTE OR MANIPULATE AMOUNT START
-            storedMember.forEach(i => {
-            if (`${i.firstname} ${i.lastname}` === document.querySelector(`.userName`).value) {
+        // OVERWRIDE OR UPDATE LOCAL STORAGE ACCOUNT RECORD
+        localStorage.setItem('accountRecord', JSON.stringify(storedMember))
+        
+        //DISPLAY MESSAGE FOR SUCCESSFULLY UPDATED RECORD AND NAVIGATE TO HOME ADMIN PANEL 
+        alert(`Account successfully updated!`)
+        navigate(`/admin`)
+        
 
-                    if (parseInt(i.amount) < parseInt(document.querySelector(`.amount`).value)) {
-                        alert(`Insufficient Balance!`)
-                    }
-
-                    else {
-
-                        // INSERTING WITHDRAW OBJECT TO WITHDRAW TRANSACTION ARRAY
-                        withdrawTransaction.push(withdrawObj)
-                        // SETTING RECORD OF LOCAL STORAGE FOR WITHDRAW TRANSACTION 
-                        localStorage.setItem('withdrawRecord', JSON.stringify(withdrawTransaction))
-
-                        i.amount = parseInt(i.amount) - parseInt(document.querySelector(`.amount`).value)
-                        //DISPLAY MESSAGE FOR SUCCESSFULLY UPDATED RECORD AND NAVIGATE TO HOME ADMIN PANEL
-                        alert(`Account successfully updated!`)
-                        navigate(`/admin`)
-                    }
-                }
-            })
-        // ITERATE STORED MEMBER TO COMPUTE OR MANIPULATE AMOUNT END
-
-        // OVERRIDE OR UPDATE LOCAL STORAGE ACCOUNT RECORD
-            localStorage.setItem('accountRecord', JSON.stringify(storedMember))
-
-            
         } else {
-            alert(`invalid user!`)
+            alert(`select account name!`)
         }
+        
+    
     }
-    //FUNCTION HANDLES WITHDRAW TRANSACTION END
+    // FUNCTION HANDLES DEBIT TRANSACTION END
 
     return (
     
@@ -136,8 +131,8 @@ const Withdraw = () => {
                     <button onClick={()=>{navigate('/admin/transactions')}}>🧾Transactions</button>
                     <button onClick={()=>{navigate('/admin/account-list')}}>👥Account lists</button>
                     <button onClick={()=>{navigate('/admin/create-account')}}>➕Add account</button>
-                    <button onClick={()=>{navigate('/admin/add-deposit-transaction')}}>💱Deposit transact</button>
-                    <button className="active">💵Withdrawal</button>
+                    <button className="active">💱Deposit transact</button>
+                    <button onClick={()=>{navigate('/admin/add-withdrawal-transaction')}}>💵Withdrawal</button>
                     <button onClick={()=>{navigate('/admin/add-bank-transfer-transaction')}}>🏦Bank transfer</button>
                     <button onClick={handleLogout}>🚪Logout</button>
                 </div>
@@ -169,8 +164,8 @@ const Withdraw = () => {
                                         <button onClick={()=>{navigate('/admin/transactions')}}>🧾Transactions</button>
                                         <button onClick={()=>{navigate('/admin/account-list')}}>👥Account lists</button>
                                         <button onClick={()=>{navigate('/admin/create-account')}}>➕Add account</button>
-                                        <button onClick={()=>{navigate('/admin/add-deposit-transaction')}}>💱Deposit transact</button>
-                                        <button>💵Withdrawal</button>
+                                        <button>💱Deposit transact</button>
+                                        <button onClick={()=>{navigate('/admin/add-withdrawal-transaction')}}>💵Withdrawal</button>
                                         <button onClick={()=>{navigate('/admin/add-bank-transfer-transaction')}}>🏦Bank transfer</button>
                                         <button onClick={handleLogout}>🚪Logout</button>
                                     </div>  
@@ -179,18 +174,20 @@ const Withdraw = () => {
                 </div>
 
                 <div className="main-dashboard-content">
-                        <div className="withrawal-form-container">                  
-                                <h1> ✍️ Withdrawal Transaction Form</h1>
-                                    <form className="withrawal-form" onSubmit={handleSubmit}>
-                                        <div className="withrawal-form-detail">
-                                            <select name="username" className="userName" id="withdraw" required>
-                                                <option value="...">...</option>
-                                                {
+                    <div className="debit-transaction-main">
+                            <div className="debit-transaction-form-container">
+                                <h1 className="debit-transaction-header"><span>✍️</span>Debit Transaction Form</h1>
+
+                                <form className="debit-transaction-form" onSubmit={handleSubmit}>
+                                    <div className="debit-transaction-form-detail">
+                                        <select className="choose-debit-transaction-username" id="user" required>
+                                            <option value="...">...</option>
+                                            {
                                                 storedMember.length ? 
                                                 storedMember.map((value, index) => {
 
-                                                    const {firstname, lastname} = value
-
+                                                    const { firstname, lastname} = value
+                                                    
                                                     return (
                                                         <option key={index} value={`${firstname} ${lastname}`}>
                                                             {firstname} {lastname}                    
@@ -199,13 +196,22 @@ const Withdraw = () => {
                                                     ) 
                                                 }) : <p>No Users found!</p>
 
-                                                }
-                                            </select>   
-                                                <input type="number" className="amount" placeholder="amount" required/>                                                    
-                                                <button>🦅 submit</button>
-                                        </div>
-                                    </form>
+                                            }
+                                            
+                                        </select>
+
+                                            <input type="number" id="amount" className="debit-transaction-amount" placeholder="amount" required/>
+                                        
+                                    </div>
+
+                                    <div className="debit-transaction-form-button">
+                                        <center>
+                                            <input type="submit" id="debit-transaction-submit-button" value="🦅 submit"/>
+                                        </center>
+                                    </div>
+                                </form>
                             </div>
+                        </div>
                 </div>
                 <div className="main-dashboard-footer">
                     <div>
@@ -217,4 +223,4 @@ const Withdraw = () => {
     )
 }
 
-export default Withdraw
+export default Deposit
