@@ -223,7 +223,7 @@ const Banktransfer = () => {
                                                     }
                                                 </select>
 
-                                                <input type="number" className="amount" placeholder="amount" required/>
+                                                <input type="number" min="1" className="amount" placeholder="amount" required/>
                                                 
                                             </div>
                                             <div className="btnDiv">

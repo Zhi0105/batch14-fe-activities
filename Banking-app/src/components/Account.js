@@ -148,7 +148,7 @@ const Account = () => {
             }
 
         } else {
-            alert(`Initial Deposit should be not equal to 0 amount!`)
+            alert(`Initial Deposit should be not below or equal to 0 amount!`)
         }
 
     }

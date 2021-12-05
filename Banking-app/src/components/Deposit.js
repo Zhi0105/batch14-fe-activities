@@ -201,9 +201,7 @@ const Deposit = () => {
                                             }
                                             
                                         </select>
-
-                                            <input type="number" id="amount" className="debit-transaction-amount" placeholder="amount" required/>
-                                        
+                                            <input type="number" id="amount" className="debit-transaction-amount" placeholder="amount" min="1" required/>
                                     </div>
 
                                     <div className="debit-transaction-form-button">

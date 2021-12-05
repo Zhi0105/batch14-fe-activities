@@ -203,7 +203,7 @@ const Withdraw = () => {
 
                                                 }
                                             </select>   
-                                                <input type="number" className="amount" placeholder="amount" required/>                                                    
+                                                <input type="number" min="1" className="amount" placeholder="amount" required/>                                                    
                                                 <button>🦅 submit</button>
                                         </div>
                                     </form>

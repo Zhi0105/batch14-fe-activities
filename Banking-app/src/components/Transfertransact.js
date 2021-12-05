@@ -38,6 +38,23 @@ const Transfertransact = () => {
         document.getElementById("Nav").style.width = "0%";
     }
 
+    let storedTransfer = JSON.parse(localStorage.getItem('transferRecord'))
+    let transfer = []
+
+    if(storedTransfer){
+        transfer.push(...storedTransfer)
+    }
+    
+    if(!transfer){
+
+        setTimeout(() => {
+            navigate('/admin')
+        }, 1000);
+
+        return(
+            <span>No record found!</span>
+        )
+    }  
 
     return (
     
@@ -95,7 +112,41 @@ const Transfertransact = () => {
                 </div>
 
                 <div className="main-dashboard-content">
-                    <span>this is for transfer record!</span>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>ID</td>
+                                    <td>Transfer from</td>
+                                    <td>Transfer to</td>
+                                    <td>Transaction Amount</td>
+                                    <td>Transaction type</td>
+                                    <td>Date</td>    
+                                    
+                                </tr>
+                            </thead>
+                            <tbody id="transfer-info">
+                                {
+                                    transfer.length ? 
+                                    transfer.map((value, index) => {
+
+                                        const {id, sender,receiver, amount, date, transaction} = value
+
+                                        return (
+                                            <tr key={index}>
+                                                <td>{id}</td>
+                                                <td>{sender}</td>
+                                                <td>{receiver}</td>
+                                                <td>{`₱ ${amount}.00`}</td>
+                                                <td>{transaction}</td>
+                                                <td>{date}</td>
+                                                                        
+                                            </tr>
+                                        ) 
+                                    }) : <tr><td colSpan="6">No transaction found!</td></tr>
+
+                                }
+                            </tbody>
+                        </table>
                 </div>
                 <div className="main-dashboard-footer">
                     <div>
