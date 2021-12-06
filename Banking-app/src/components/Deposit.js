@@ -108,12 +108,20 @@ const Deposit = () => {
         localStorage.setItem('accountRecord', JSON.stringify(storedMember))
         
         //DISPLAY MESSAGE FOR SUCCESSFULLY UPDATED RECORD AND NAVIGATE TO HOME ADMIN PANEL 
-        alert(`Account successfully updated!`)
-        navigate(`/admin`)
+        // alert(`Account successfully updated!`)
+        document.querySelector('.accountUpdate-modal').style.display = 'block'
+        setTimeout(() => {
+            navigate('/admin')
+        }, 1500);
         
 
         } else {
-            alert(`select account name!`)
+            // alert(`Invalid account name!`)
+            document.querySelector('.errName-modal').style.display = 'block'
+            setTimeout(() => {
+                document.querySelector(`.errName-modal`).style.display = 'none'
+            }, 3000);
+
         }
         
     
@@ -210,6 +218,18 @@ const Deposit = () => {
                                         </center>
                                     </div>
                                 </form>
+                            </div>
+                        </div>
+                        <div id="errName" className="errName-modal">
+                            {/* <!-- Modal for invalid account name --> */}
+                            <div className="errName-content">
+                                <p><strong>WARNING!</strong> Invalid account name!😐</p><br></br>
+                        </div>
+                        </div>
+                        <div id="accountUpdate" className="accountUpdate-modal">
+                            {/* <!-- Modal for User successfully updated --> */}
+                            <div className="accountUpdate-content">
+                                <p>Account successfully updated!💸</p><br></br>
                             </div>
                         </div>
                 </div>

@@ -138,17 +138,26 @@ const Account = () => {
                         navigate('/admin')
                     }, 1500);
                 } else {
-                    alert(`contact should be a number`)
+                    // alert(`contact should be a number`)
+                    document.querySelector('.errcontact-modal').style.display = 'block'
+                    setTimeout(() => {
+                        document.querySelector(`.errcontact-modal`).style.display = 'none'
+                    }, 3000);
                 }
             } else {
                 document.querySelector(`.errPassword-modal`).style.display = 'block'
                 setTimeout(() => {
                     document.querySelector(`.errPassword-modal`).style.display = 'none'
-                }, 1500);
+                }, 2000);
             }
 
         } else {
-            alert(`Initial Deposit should be not below or equal to 0 amount!`)
+            // alert(`Initial Deposit should be not below or equal to 0 amount!`)
+
+            document.querySelector('.errDeposit-modal').style.display = 'block'
+            setTimeout(() => {
+                document.querySelector('.errDeposit-modal').style.display = 'none'
+            }, 3000);
         }
 
     }
@@ -235,7 +244,21 @@ const Account = () => {
                     <div id="errPassowrd" className="errPassword-modal">
                         {/* <!-- Modal for mismatched password --> */}
                         <div className="errPassword-content">
-                            <p><strong>WARNING!</strong>Password not matched!😐</p><br></br>
+                            <p><strong>WARNING!</strong> Password not matched!😐</p><br></br>
+                        </div>
+                    </div>
+
+                    <div id="errContact" className="errcontact-modal">
+                        {/* <!-- Modal for contact --> */}
+                        <div className="errContact-content">
+                            <p><strong>WARNING!</strong> Contact should be a number!😐</p><br></br>
+                        </div>
+                    </div>
+
+                    <div id="errDeposit" className="errDeposit-modal">
+                        {/* <!-- Modal for initial deposit --> */}
+                        <div className="errDeposit-content">
+                            <p><strong>WARNING!</strong> Initial Deposit should be not below or equal to 0 amount!😐</p><br></br>
                         </div>
                     </div>
                     <div id="userCreate" className="userCreate-modal">

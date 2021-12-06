@@ -73,10 +73,19 @@ const Banktransfer = () => {
         e.preventDefault()
         
         if(document.querySelector(`#sender`).value  === document.querySelector(`#receiver`).value){
-            alert(`sender and receiver should not be the same!`)
+            // alert(`sender and receiver should not be the same!`)
+            document.querySelector('.sameName-modal').style.display = 'block'
+            setTimeout(() => {
+                document.querySelector(`.sameName-modal`).style.display = 'none'
+            }, 3000);
         } else {
             if(document.querySelector(`#sender`).value === '...' || document.querySelector(`#receiver`).value === '...'){
-                alert(`Select account name for receiver or sender!`)
+                // alert(`Select account name for receiver or sender!`)
+                document.querySelector('.invName-modal').style.display = 'block'
+                setTimeout(() => {
+                    document.querySelector(`.invName-modal`).style.display = 'none'
+                }, 3000);
+
             } else {
                 
                 let transferObj = {
@@ -91,14 +100,21 @@ const Banktransfer = () => {
                 storedMember.forEach(i => {
                     if(`${i.firstname} ${i.lastname}` === document.querySelector(`#sender`).value){
                         if (parseInt(i.amount) < parseInt(document.querySelector(`.amount`).value)) {
-                            alert(`Insufficient Balance!`)
+                            // alert(`Insufficient Balance!`)
+                            document.querySelector('.invBalance-modal').style.display = 'block'
+                            setTimeout(() => {
+                                document.querySelector(`.invBalance-modal`).style.display = 'none'
+                            }, 3000);
                         } else {
                             i.amount = parseInt(i.amount) - parseInt(document.querySelector(`.amount`).value)
                             transferTransact.push(transferObj)
                             localStorage.setItem('transferRecord', JSON.stringify(transferTransact))
-                            alert(`Account successfully updated!`)
-                            navigate(`/admin`)
-                            
+                            // alert(`Account successfully updated!`)
+                            // navigate(`/admin`)
+                            document.querySelector('.transfer-modal').style.display = 'block'
+                            setTimeout(() => {
+                                navigate('/admin')
+                            }, 1500);
                         }
                     }
                 })
@@ -232,6 +248,31 @@ const Banktransfer = () => {
                                         </form>
                                 </div>
                             </div>
+                            <div id="sameName" className="sameName-modal">
+                                {/* <!-- Modal for same name of sender and receiver --> */}
+                                <div className="sameName-content">
+                                    <p><strong>WARNING!</strong> Sender and receiver should not be the same!😐</p><br></br>
+                                </div>
+                            </div>
+                            <div id="invName" className="invName-modal">
+                                {/* <!-- Modal for invalid names --> */}
+                                <div className="invName-content">
+                                    <p><strong>WARNING!</strong> Select account name for receiver or sender!😐</p><br></br>
+                            </div>
+                            </div>
+                            <div id="invBalance" className="invBalance-modal">
+                                {/* <!-- Modal for not enough balance --> */}
+                                <div className="invBalance-content">
+                                    <p><strong>WARNING!</strong> Insufficient account balance!😐</p><br></br>
+                            </div>
+                            </div>
+                            <div id="transfer" className="transfer-modal">
+                                {/* <!-- Modal for account successfully updated --> */}
+                                <div className="transfer-content">
+                                    <p>Account successfully updated!💸</p><br></br>
+                                </div>
+                            </div>
+
                 </div>
                 <div className="main-dashboard-footer">
                     <div>

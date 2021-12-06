@@ -96,7 +96,11 @@ const Withdraw = () => {
             if (`${i.firstname} ${i.lastname}` === document.querySelector(`.userName`).value) {
 
                     if (parseInt(i.amount) < parseInt(document.querySelector(`.amount`).value)) {
-                        alert(`Insufficient Balance!`)
+                        // alert(`Insufficient Balance!`)
+                        document.querySelector('.errBalance-modal').style.display = 'block'
+                        setTimeout(() => {
+                            document.querySelector(`.errBalance-modal`).style.display = 'none'
+                        }, 3000);
                     }
 
                     else {
@@ -108,8 +112,12 @@ const Withdraw = () => {
 
                         i.amount = parseInt(i.amount) - parseInt(document.querySelector(`.amount`).value)
                         //DISPLAY MESSAGE FOR SUCCESSFULLY UPDATED RECORD AND NAVIGATE TO HOME ADMIN PANEL
-                        alert(`Account successfully updated!`)
-                        navigate(`/admin`)
+                        // alert(`Account successfully updated!`)
+                        // navigate(`/admin`)
+                        document.querySelector('.withdraw-modal').style.display = 'block'
+                        setTimeout(() => {
+                            navigate('/admin')
+                        }, 1500);
                     }
                 }
             })
@@ -120,7 +128,12 @@ const Withdraw = () => {
 
             
         } else {
-            alert(`invalid user!`)
+            // alert(`invalid user!`)
+            document.querySelector('.noName-modal').style.display = 'block'
+            setTimeout(() => {
+                document.querySelector(`.noName-modal`).style.display = 'none'
+            }, 3000);
+
         }
     }
     //FUNCTION HANDLES WITHDRAW TRANSACTION END
@@ -207,7 +220,25 @@ const Withdraw = () => {
                                                 <button>🦅 submit</button>
                                         </div>
                                     </form>
+                        </div>
+                        <div id="noName" className="noName-modal">
+                            {/* <!-- Modal for invalid account name --> */}
+                            <div className="noName-content">
+                                <p><strong>WARNING!</strong> Invalid account name!😐</p><br></br>
+                        </div>
+                        </div>
+                        <div id="errBalance" className="errBalance-modal">
+                            {/* <!-- Modal for not enough balance --> */}
+                            <div className="errBalance-content">
+                                <p><strong>WARNING!</strong> Insufficient account balance!😐</p><br></br>
+                        </div>
+                        </div>
+                        <div id="withdraw" className="withdraw-modal">
+                            {/* <!-- Modal for account successfully updated --> */}
+                            <div className="withdraw-content">
+                                <p>Account successfully updated!💸</p><br></br>
                             </div>
+                        </div>
                 </div>
                 <div className="main-dashboard-footer">
                     <div>

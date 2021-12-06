@@ -29,7 +29,7 @@
 
 
 /* MODALS START */
-.errPassword-modal, .userCreate-modal{
+.errPassword-modal, .userCreate-modal, .errcontact-modal, .errDeposit-modal{
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -45,7 +45,7 @@
 }
 
 /* Modal Content */
-.errPassword-content, .userCreate-content{
+.errPassword-content, .userCreate-content, .errContact-content, .errDeposit-content{
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
@@ -55,7 +55,7 @@
     text-align: center;
 }
 
-.errPassword-content{
+.errPassword-content, .errContact-content, .errDeposit-content{
     color:white;
     background-color: rgb(255, 169, 44);
     width: 45%;
@@ -70,7 +70,7 @@
 
 @media screen and (max-width: 599px){
 
-    .errPassword-content{
+    .errPassword-content, .errContact-content, .errDeposit-content{
         color:white;
         background-color: rgb(255, 169, 44);
         width: 70%;
