@@ -1,9 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const User = () => {
-    return (
+    
+
+    const navigate = useNavigate()
+    let userSession = JSON.parse(sessionStorage.getItem('usersession'))
+    // let storedMember = JSON.parse(localStorage.getItem('userRecord'))
+
+
+    //LOGIN SESSION OF ADMIN
+    useEffect(()=>{
+        if(!userSession){
+            navigate('/')
+        }
+    } ,[navigate, userSession])
+
+    let {fullname, amount} = userSession
+
+    return (        
         <div>
-            <span>This is a user page!</span>
+            <span>Welcome  <strong>{fullname}</strong>, your current balance is <strong>{`₱${amount}.00`}</strong></span>
         </div>
     )
 }
