@@ -112,7 +112,7 @@ const Accountlist = () => {
                     <table>
                         <thead>
                             <tr>
-                                <td>ID</td>
+                                <td>Account number</td>
                                 <td>First Name</td>
                                 <td>Last Name</td>
                                 <td>Email</td>    

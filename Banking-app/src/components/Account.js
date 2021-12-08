@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { v4 as uuidv4 } from 'uuid';
 
 //CSS
 import '../styles/admin.css';
@@ -75,13 +76,13 @@ const Account = () => {
         accountList = [...storedUser]
     }
 
-    let userID = 0     
-    if(!storedUser){
-            userID = 0
-        }
-    if(storedUser){
-        userID = storedUser[storedUser.length - 1].id
-    }
+    // let userID = 0     
+    // if(!storedUser){
+    //         userID = 0
+    //     }
+    // if(storedUser){
+    //     userID = storedUser[storedUser.length - 1].id
+    // }
     
     class userRecord{
         constructor(firstname, lastname, email, password, contact, amount){
@@ -100,7 +101,8 @@ const Account = () => {
 
     const addUserRecord = (firstname, lastname, email, password, contact, amount) => {
         let userDetail = {
-            id : userID + 1,
+            // id : userID + 1,
+            id : uuidv4(),
             firstname : firstname,
             lastname : lastname,
             email : email,

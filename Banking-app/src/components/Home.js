@@ -76,15 +76,17 @@ const Home = () => {
                 let ifLoginSuccess = false
                 let userFullname = ''
                 let accountBalance = ''
+                let accountNumber = ''
                 
     
                 
                 user.forEach(i => {
-                    let {firstname, lastname, amount, email, password} = i
+                    let {id, firstname, lastname, amount, email, password} = i
                     if(username === email && loginPassword === password){
                         ifLoginSuccess = true
                         userFullname = `${firstname} ${lastname}`
                         accountBalance = amount
+                        accountNumber = id
                     } 
                 })
 
@@ -92,7 +94,7 @@ const Home = () => {
                     
                     document.querySelector('.loginSuccess-modal').style.display = 'block'
                     setTimeout(() => {
-                        sessionStorage.setItem('usersession', JSON.stringify({fullname : userFullname, amount : accountBalance}))
+                        sessionStorage.setItem('usersession', JSON.stringify({id: accountNumber, fullname : userFullname, amount : accountBalance}))
                         navigate('/user') 
                         
                     },1000);
