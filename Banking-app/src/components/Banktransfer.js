@@ -113,7 +113,7 @@ const Banktransfer = () => {
                             // navigate(`/admin`)
                             document.querySelector('.transfer-modal').style.display = 'block'
                             setTimeout(() => {
-                                navigate('/admin')
+                                navigate('/admin/transfer-transaction')
                             }, 1500);
                         }
                     }

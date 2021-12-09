@@ -116,7 +116,7 @@ const Withdraw = () => {
                         // navigate(`/admin`)
                         document.querySelector('.withdraw-modal').style.display = 'block'
                         setTimeout(() => {
-                            navigate('/admin')
+                            navigate('/admin/transactions')
                         }, 1500);
                     }
                 }

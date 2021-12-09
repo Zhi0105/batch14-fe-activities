@@ -27,8 +27,6 @@
 }
 
 
-
-
 /* main dashboard cards */
 .withdraw-illustration-photo,
 .deposit-illustration-photo,
@@ -108,6 +106,67 @@
     .user-description span{
         font-size: 3.5vmin;
     }
+}
+
+/* MODAL  START*/
+
+/* The Modal (background) */
+.deposit-modal, .withdraw-modal, .transfer-modal, .expense-modal{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 210px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    
+}
+
+/* Modal Content */
+.deposit-content, .withdraw-content, .transfer-content, .expense-content{
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    color:black;
+    width:75%;
+    border-radius: 10px;
+    text-align: center;
+    
+}
+.deposit-content .container,
+.withdraw-content .container, 
+.transfer-content .container, 
+.expense-content .container{
+    margin: 30px 0 0 0;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
 
 
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* MODAL END */
+
+/* MODAL HOVER */
+.withdraw-item:hover,
+.deposit-item:hover,
+.bank-transfer-item:hover,
+.expenses-item:hover {
+    color:white;
+    background: rgb(21,26,37);
 }

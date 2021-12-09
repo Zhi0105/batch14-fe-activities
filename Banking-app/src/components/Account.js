@@ -137,7 +137,7 @@ const Account = () => {
     
                     document.querySelector('.userCreate-modal').style.display = 'block'
                     setTimeout(() => {
-                        navigate('/admin')
+                        navigate('/admin/account-list')
                     }, 1500);
                 } else {
                     // alert(`contact should be a number`)

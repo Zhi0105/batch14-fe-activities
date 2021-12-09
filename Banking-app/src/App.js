@@ -16,9 +16,11 @@ import Withdraw from './components/Withdraw'
 import Banktransfer from './components/Banktransfer'
 import Transfertransact from './components/Transfertransact'
 
+
 // USER COMPONENTS
 import User from './components/User'
-
+import Usertransaction from './components/Usertransaction'
+import Usertransfer from './components/Usertransfer'
 // import Create from './components/Create'
 
 
@@ -44,6 +46,10 @@ const App = () => {
                 <Route path='/admin/add-bank-transfer-transaction' element={<Banktransfer />} />
                 <Route path='/admin/transfer-transaction' element={<Transfertransact />} />
                 <Route path='/user' element={<User />} />
+                <Route path='/user/transactions' element={<Usertransaction />} />
+                <Route path='/user/transfer-transactions' element={<Usertransfer />} />
+                
+                
                 
                 
                 

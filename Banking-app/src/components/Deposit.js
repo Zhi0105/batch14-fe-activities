@@ -111,7 +111,7 @@ const Deposit = () => {
         // alert(`Account successfully updated!`)
         document.querySelector('.accountUpdate-modal').style.display = 'block'
         setTimeout(() => {
-            navigate('/admin')
+            navigate('/admin/transactions')
         }, 1500);
         
 
