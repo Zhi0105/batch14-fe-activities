@@ -192,6 +192,13 @@ const User = () => {
 
     // FUNCTIONS HANDLE TRANSFER START
     const handleChange = () => {
+
+        storedMember.forEach(i => {
+            if(i.id !== document.querySelector(`.account-number`).value){
+                document.querySelector(`.user-fullname`).value = ''
+            } 
+        })
+
         storedMember.forEach(i => {
             if(i.id === document.querySelector(`.account-number`).value){
                 document.querySelector(`.user-fullname`).value = `${i.firstname} ${i.lastname}`
@@ -384,7 +391,7 @@ const User = () => {
                                     <form className="user-deposit-form" onSubmit={handleDeposit}>
                                         <div className="user-deposit-form-detail">
                                             <input type="number" min="1" className="user-deposit-amount" placeholder="amount" required />
-                                            <input type="submit" value="🦅 submit" />
+                                            <input type="submit" value="🦅 submit" className="user-button-submit"/>
                                         </div>
                                     </form>
                             </div> 
@@ -398,7 +405,7 @@ const User = () => {
                                     <form className="user-withdraw-form" onSubmit={handleWithdraw}>
                                         <div className="user-withdraw-form-detail">
                                             <input type="number" min="1" className="user-withdraw-amount" placeholder="amount" required />
-                                            <input type="submit" value="🦅 submit" />
+                                            <input type="submit" value="🦅 submit" className="user-button-submit"/>
                                         </div>
                                     </form>
                             </div> 
@@ -414,7 +421,7 @@ const User = () => {
                                             <input type="text" className="user-fullname" disabled />
                                             <input type="text" className="account-number" placeholder="Account Number" onChange={handleChange} required />
                                             <input type="number" min="1" className="bank-transfer-amount" placeholder="amount" required />
-                                            <input type="submit" value="🦅 submit" />
+                                            <input type="submit" value="🦅 submit" className="user-button-submit"/>
                                         </div>
                                     </form>
                             </div> 
@@ -434,7 +441,7 @@ const User = () => {
                                                 <option value="internet-bill">🌐Internet Bill</option>
                                             </select>
                                             <input type="number" min="1" className="user-expense-amount" placeholder="amount" required />
-                                            <button>🦅 submit</button>
+                                            <input type="submit" value="🦅 submit" className="user-button-submit"/>
                                         </div>
                                     </form>
                             </div> 

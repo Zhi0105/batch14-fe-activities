@@ -43,6 +43,47 @@ const Usertransaction = () => {
         document.getElementById("Nav").style.width = "0%";
     }
 
+    let debitTransaction = JSON.parse(localStorage.getItem('debitRecord'))
+    let withdrawTransaction= JSON.parse(localStorage.getItem('withdrawRecord'))
+    let expenseTransaction= JSON.parse(localStorage.getItem('expenseRecord'))
+    let Transactions = []
+
+
+    if(debitTransaction || withdrawTransaction || expenseTransaction){
+        if(debitTransaction){
+            debitTransaction.forEach(i => {
+                if(`${i.name}` === fullname.toLowerCase()){
+                    Transactions.push(i)
+                }
+            })
+        }
+        if(withdrawTransaction){
+            withdrawTransaction.forEach(i => {
+                if(`${i.name}` === fullname.toLowerCase()){
+                    Transactions.push(i)
+                }
+            })
+        }
+        if(expenseTransaction){
+            expenseTransaction.forEach(i => {
+                if(`${i.name}` === fullname.toLowerCase()){
+                    Transactions.push(i)
+                }
+            })
+        }
+    }
+
+    if(!Transactions){
+
+        setTimeout(() => {
+            navigate('/admin')
+        }, 1000);
+
+        return(
+            <span>No record found!</span>
+        )
+    }  
+
     return (        
         <div className="admin-main">
         <div className="sidebar">
@@ -94,7 +135,37 @@ const Usertransaction = () => {
             </div>
 
             <div className="main-dashboard-content">
-                <span>Deposit/Withraw Transaction goes here!</span>
+                    <table>
+                            <thead>
+                                <tr>
+                                    <td>Account Name</td>
+                                    <td>Transaction Amount</td>
+                                    <td>Transaction type</td>
+                                    <td>Date</td>    
+                                    
+                                </tr>
+                            </thead>
+                            <tbody id="member-info">
+                                {
+                                    Transactions.length ? 
+                                    Transactions.map((value, index) => {
+
+                                        const {name, amount, date, transaction} = value
+
+                                        return (
+                                            <tr key={index}>
+                                                <td>{name}</td>
+                                                <td>{`₱ ${amount}.00`}</td>
+                                                <td>{transaction}</td>
+                                                <td>{date}</td>
+                                                                        
+                                            </tr>
+                                        ) 
+                                    }) : <tr><td colSpan="4">No transaction found!</td></tr>
+
+                                }
+                            </tbody>
+                    </table>
             </div>
             <div className="main-dashboard-footer">
                 <div>

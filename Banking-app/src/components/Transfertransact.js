@@ -115,7 +115,6 @@ const Transfertransact = () => {
                         <table>
                             <thead>
                                 <tr>
-                                    <td>ID</td>
                                     <td>Transfer from</td>
                                     <td>Transfer to</td>
                                     <td>Transaction Amount</td>
@@ -129,11 +128,10 @@ const Transfertransact = () => {
                                     transfer.length ? 
                                     transfer.map((value, index) => {
 
-                                        const {id, sender,receiver, amount, date, transaction} = value
+                                        const {sender,receiver, amount, date, transaction} = value
 
                                         return (
                                             <tr key={index}>
-                                                <td>{id}</td>
                                                 <td>{sender}</td>
                                                 <td>{receiver}</td>
                                                 <td>{`₱ ${amount}.00`}</td>
@@ -142,7 +140,7 @@ const Transfertransact = () => {
                                                                         
                                             </tr>
                                         ) 
-                                    }) : <tr><td colSpan="6">No transaction found!</td></tr>
+                                    }) : <tr><td colSpan="5">No transaction found!</td></tr>
 
                                 }
                             </tbody>

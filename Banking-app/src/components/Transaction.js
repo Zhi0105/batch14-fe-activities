@@ -126,7 +126,6 @@ const Transaction = () => {
                     <table>
                             <thead>
                                 <tr>
-                                    <td>ID</td>
                                     <td>Account Name</td>
                                     <td>Transaction Amount</td>
                                     <td>Transaction type</td>
@@ -139,11 +138,10 @@ const Transaction = () => {
                                     Transactions.length ? 
                                     Transactions.map((value, index) => {
 
-                                        const {id, name, amount, date, transaction} = value
+                                        const {name, amount, date, transaction} = value
 
                                         return (
                                             <tr key={index}>
-                                                <td>{id}</td>
                                                 <td>{name}</td>
                                                 <td>{`₱ ${amount}.00`}</td>
                                                 <td>{transaction}</td>
@@ -151,7 +149,7 @@ const Transaction = () => {
                                                                         
                                             </tr>
                                         ) 
-                                    }) : <tr><td colSpan="5">No transaction found!</td></tr>
+                                    }) : <tr><td colSpan="4">No transaction found!</td></tr>
 
                                 }
                             </tbody>

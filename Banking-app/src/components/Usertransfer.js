@@ -43,6 +43,33 @@ const Usertransfer = () => {
         document.getElementById("Nav").style.width = "0%";
     }
 
+    
+    let transferRecord = JSON.parse(localStorage.getItem('transferRecord'))
+    let Transactions = []
+
+    
+    if(transferRecord){
+        if(transferRecord){
+            transferRecord.forEach(i => {
+                if(`${i.sender}` === fullname.toLowerCase()){
+                    Transactions.push(i)
+                }
+            })
+        }
+    }
+    
+    if(!Transactions){
+
+        setTimeout(() => {
+            navigate('/admin')
+        }, 1000);
+
+        return(
+            <span>No record found!</span>
+        )
+    }  
+
+
     return (        
         <div className="admin-main">
         <div className="sidebar">
@@ -93,7 +120,39 @@ const Usertransfer = () => {
             </div>
 
             <div className="main-dashboard-content">
-                <span>Transfer Transaction goes here!</span>
+                    <table>
+                            <thead>
+                                <tr>
+                                    <td>Transfer from</td>
+                                    <td>Transfer to</td>
+                                    <td>Transaction Amount</td>
+                                    <td>Transaction type</td>
+                                    <td>Date</td>    
+                                    
+                                </tr>
+                            </thead>
+                            <tbody id="transfer-info">
+                                {
+                                    Transactions.length ? 
+                                    Transactions.map((value, index) => {
+
+                                        const {sender,receiver, amount, date, transaction} = value
+
+                                        return (
+                                            <tr key={index}>
+                                                <td>{sender}</td>
+                                                <td>{receiver}</td>
+                                                <td>{`₱ ${amount}.00`}</td>
+                                                <td>{transaction}</td>
+                                                <td>{date}</td>
+                                                                        
+                                            </tr>
+                                        ) 
+                                    }) : <tr><td colSpan="5">No transaction found!</td></tr>
+
+                                }
+                            </tbody>
+                    </table>
             </div>
             <div className="main-dashboard-footer">
                 <div>

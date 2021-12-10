@@ -128,12 +128,12 @@
 
 /* Modal Content */
 .deposit-content, .withdrawal-content, .transfer-content, .expense-content{
-    background: rgb(21,26,37);
+    background: #ca6c3c;
     opacity: 91%;
     margin: auto;
     padding: 20px;
     height: auto;
-    border: 1px solid #888;
+    border: none;
     color:black;
     width:50%;
     border-radius: 10px;
@@ -149,7 +149,7 @@
 }
 
 .close {
-    color: #aaa;
+    color: #f5f4f3;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -158,7 +158,7 @@
 
 .close:hover,
 .close:focus {
-    color: #000;
+    color: #753319;
     text-decoration: none;
     cursor: pointer;
 }
@@ -171,7 +171,7 @@
 .bank-transfer-item:hover,
 .expenses-item:hover {
     color:white;
-    background: rgb(21,26,37);
+    background: #753319;
 }
 
 
@@ -185,12 +185,38 @@
     color: white;
 }
 .container input, .container button{
+    outline: none;
+    border: none;
     font-size: 2.5vmin;
     margin:5px 0 0 0;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+.user-fullname{
+    color:white;
+}
+
+.user-button-submit {
+    background: #efbf61;
+    cursor: pointer;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+.user-button-submit:hover {
+    background: #8f461f;
+    color: white;
 }
 
 .container .user-fullname{
-    background: rgb(149, 180, 247);
+    background: #753319;
 }
 
 /* MODAL CONTENTS END */
