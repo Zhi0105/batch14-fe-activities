@@ -2,12 +2,14 @@ import React, {useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 
 //COMPONENT
-import Header from '../layout/Header'
-import Footer from '../layout/Footer'
+import Header from '../layout/Header' // HEADER
+import Footer from '../layout/Footer' // FOOTER
 
 
 const Home = () => {
 
+
+    //INITIALIZATION OF VARIABLE START
     const navigate  = useNavigate()
     let [attempt, loginAttempt] = useState(2)
     let [count, setCount] = useState(30)  
@@ -15,8 +17,10 @@ const Home = () => {
     let userSession = sessionStorage.getItem('usersession')
     
     let user = JSON.parse(localStorage.getItem('accountRecord'))
+    //INITIALIZATION OF VARIABLE END
+    
 
-    //LOGIN SESSIONS
+    //LOGIN SESSIONS START
     useEffect(()=>{
         if(adminSession){
             navigate('/admin')
@@ -28,126 +32,114 @@ const Home = () => {
             navigate('/user')
         }
     } ,[navigate, userSession])
+    //LOGIN SESSIONS END
 
 
-    
-    //FUNCTION NAVIGATE TO REGISTER PAGE
-    // const handleRegister = () => {
-    //     navigate('/register')
-    // }
-
-    //FUNCTION HANDLES LOGIN PROCESS
     const handleLogin = (e) => {
         e.preventDefault()
 
+        //INITIALIZATION FOR LOGIN PROCESS START
         let username = document.querySelector(`.username`).value
         let loginPassword = document.querySelector(`.password`).value
         let admin = 'Admin'
-    
+        //INITIALIZATION FOR LOGIN PROCESS END
 
 
+        if(    
+            (username === admin || username === admin.toLowerCase() || username === admin.toUpperCase()) &&
+            (loginPassword === admin || loginPassword === admin.toLowerCase() || loginPassword === admin.toUpperCase())
 
-            if (username === "" || loginPassword === ""){
-                document.querySelector(`.incLogin-modal`).style.display = 'block'
+
+        ){  
+            
+            document.querySelector('.loginSuccess-modal').style.display = 'block' 
+            setTimeout(() => {
+                sessionStorage.setItem('adminsession', 'login')
+                navigate('/admin') 
                 
-                setTimeout(() => {
-                    document.querySelector(`.incLogin-modal`).style.display = 'none'
-                }, 1000);
-            }
+            },1000);
+        } else {
 
-            else if(    
-                (username === admin || username === admin.toLowerCase() || username === admin.toUpperCase()) &&
-                (loginPassword === admin || loginPassword === admin.toLowerCase() || loginPassword === admin.toUpperCase())
-
-    
-            ){  
+            if(!user){
+                alert(`User doesn't exist`)
+            } else{
                 
-                document.querySelector('.loginSuccess-modal').style.display = 'block' 
-                setTimeout(() => {
-                    sessionStorage.setItem('adminsession', 'login')
-                    navigate('/admin') 
+                if (username === "" || loginPassword === ""){
+                    document.querySelector(`.incLogin-modal`).style.display = 'block'
                     
-                },1000);
-            }
-
-
-            else {
-                // console.log(user)
-                let ifLoginSuccess = false
-                let userFullname = ''
-                let accountBalance = ''
-                let accountNumber = ''
-                
-    
-                
-                user.forEach(i => {
-                    let {id, firstname, lastname, amount, email, password} = i
-                    if(username === email && loginPassword === password){
-                        ifLoginSuccess = true
-                        userFullname = `${firstname} ${lastname}`
-                        accountBalance = amount
-                        accountNumber = id
-                    } 
-                })
-
-                if(ifLoginSuccess === true){
-                    
-                    document.querySelector('.loginSuccess-modal').style.display = 'block'
                     setTimeout(() => {
-                        sessionStorage.setItem('usersession', JSON.stringify({id: accountNumber, fullname : userFullname, amount : accountBalance}))
-                        navigate('/user') 
-                        
-                    },1000);
-                    
-                } else {
-                
-                    loginAttempt(attempt - 1)
-                    // console.log(attempt,count)
-
-                        if(attempt !== 0){
-                            document.querySelector('.xLogin-modal').style.display = 'block'
-
-                            setTimeout(() => {
-                                document.querySelector('.xLogin-modal').style.display = 'none'    
-                            }, 1000);
-                        }
-                                    
-                        if(attempt === 0){
-                            document.querySelector(`.modal`).style.display = 'block'
-                            let countdown =  setInterval(() => {
-                                        count -= 1
-                                        setCount(count)
-                                        if(count < 0){
-                                            clearInterval(countdown)
-                                            loginAttempt(attempt = 2)
-                                            // console.log(count, attempt)
-                                            document.querySelector(`.modal`).style.display = 'none'
-                                            setCount(count + 31)
-                                        }
-                            }, 1000)
-                        }
-                    
-                    
+                        document.querySelector(`.incLogin-modal`).style.display = 'none'
+                    }, 1000);
                 }
+    
+                else {
+                    // console.log(user)
+                    let ifLoginSuccess = false
+                    let userFullname = ''
+                    let accountBalance = ''
+                    let accountNumber = ''
+                    
+        
+                    
+                    user.forEach(i => {
+                        let {id, firstname, lastname, amount, email, password} = i
+                        if(username === email && loginPassword === password){
+                            ifLoginSuccess = true
+                            userFullname = `${firstname} ${lastname}`
+                            accountBalance = amount
+                            accountNumber = id
+                        } 
+                    })
+    
+                    if(ifLoginSuccess === true){
+                        
+                        document.querySelector('.loginSuccess-modal').style.display = 'block'
+                        setTimeout(() => {
+                            sessionStorage.setItem('usersession', JSON.stringify({id: accountNumber, fullname : userFullname, amount : accountBalance}))
+                            navigate('/user') 
+                            
+                        },1000);
+                        
+                    } else {
+                    
+                        loginAttempt(attempt - 1)
+                        // console.log(attempt,count)
+    
+                            if(attempt !== 0){
+                                document.querySelector('.xLogin-modal').style.display = 'block'
+    
+                                setTimeout(() => {
+                                    document.querySelector('.xLogin-modal').style.display = 'none'    
+                                }, 1000);
+                            }
+                                        
+                            if(attempt === 0){
+                                document.querySelector(`.modal`).style.display = 'block'
+                                let countdown =  setInterval(() => {
+                                            count -= 1
+                                            setCount(count)
+                                            if(count < 0){
+                                                clearInterval(countdown)
+                                                loginAttempt(attempt = 2)
+                                                // console.log(count, attempt)
+                                                document.querySelector(`.modal`).style.display = 'none'
+                                                setCount(count + 31)
+                                            }
+                                }, 1000)
+                            }
+                        
+                        
+                    }
+    
+                } 
+    
+    
+            }
 
-            } 
+
+        }
         
     }
-
-    // return(
-    //     <div className="home-main">
-    //         <div className="container">
-    //             <form>
-    //                 <input type="text"  className="username" id="username" autoComplete="off" placeholder="email"/>
-    //                 <input type="password"  className="password" id="password" autoComplete="off" placeholder="password"/>
-    //             </form>
-                
-    //             <button id="btn-login" onClick={handleLogin}>Login</button>
-    //             <button id="btn-register" onClick={handleRegister}>Sign up</button>
-                
-    //         </div>
-    //     </div>
-    // )
 
 
     return(
@@ -177,10 +169,6 @@ const Home = () => {
                             </svg>
                         </button>
                     </div>
-                    {/* <div className=no"signup-container">
-                        <h4 className="dont-have-account-text">don't have an account yet?</h4>
-                        <button id="btn-register" className="btn-register" onClick={handleRegister}>register 🦅</button>
-                    </div> */}
                 </form>
             </div>
 

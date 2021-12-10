@@ -11,8 +11,6 @@ const Admin = () => {
     
     const navigate = useNavigate()
     let adminSession = sessionStorage.getItem('adminsession')
-    // let storedMember = JSON.parse(localStorage.getItem('userRecord'))
-
 
     //LOGIN SESSION OF ADMIN
     useEffect(()=>{

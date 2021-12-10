@@ -111,7 +111,7 @@
 /* MODAL  START*/
 
 /* The Modal (background) */
-.deposit-modal, .withdrawal-modal, .transfer-modal, .expense-modal{
+.deposit-modal, .withdrawal-modal, .user-transfer-modal, .expense-modal{
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -127,7 +127,7 @@
 }
 
 /* Modal Content */
-.deposit-content, .withdrawal-content, .transfer-content, .expense-content{
+.deposit-content, .withdrawal-content, .user-transfer-content, .expense-content{
     background: #ca6c3c;
     opacity: 91%;
     margin: auto;
@@ -142,7 +142,7 @@
 }
 .deposit-content .container,
 .withdrawal-content .container, 
-.transfer-content .container, 
+.user-transfer-content .container, 
 .expense-content .container{
     margin: 30px 0 0 0;
     

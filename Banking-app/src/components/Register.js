@@ -86,28 +86,7 @@ const Register = () => {
             alert(`Please make sure your password matched!`)
         }
     }
-
-    // return(
-
-    //     <div className="register-main">
-    //         <h1>Sign Up</h1>
-
-    //         <div className="form-container">
-    //             <form className="bank-form" onSubmit={submitInfo}>
-    //                 <div className="form-detail">
-    //                     <i className="fa">&#xf406;</i><input type="text" className="fname" placeholder="First Name" maxLength="25" autoComplete="on" onKeyPress={handleInput} required/>
-    //                     <i className="fa">&#xf406;</i><input type="text" className="lname" placeholder="Last Name" maxLength="25" autoComplete="on" onKeyPress={handleInput} required/>
-    //                     <i className="fa">&#xf0e0;</i><input type="email" className="email" placeholder="Email" maxLength="30" autoComplete="off" required/>
-    //                     <i className='fa'>&#xf3c1;</i><input type="password" className="password" placeholder="Password" maxLength="20" minLength="8" autoComplete="off" required/>
-    //                     <i className='fa'>&#xf3c1;</i><input type="password" className="confirmPassword" placeholder="Confirm Password" maxLength="20" minLength="8" autoComplete="off" required/>
-    //                 </div>
-    //                 <input type="submit" id="btn-submit" value="Sign up" />
-    //                 <button className="backHome" onClick={handleBackToHome}>back</button>
-    //             </form>
-    //         </div>
-    //     </div>
-    // )
-
+    
     return(
         <div className="register-main">
             <div className="form-container">

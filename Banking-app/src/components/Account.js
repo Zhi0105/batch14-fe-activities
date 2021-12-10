@@ -8,12 +8,10 @@ import '../styles/account.css';
 
 
 
-
 const Account = () => {
     
     const navigate = useNavigate()
     let adminSession = sessionStorage.getItem('adminsession')
-    // let storedMember = JSON.parse(localStorage.getItem('userRecord'))
 
 
     //LOGIN SESSION OF ADMIN
@@ -76,14 +74,6 @@ const Account = () => {
         accountList = [...storedUser]
     }
 
-    // let userID = 0     
-    // if(!storedUser){
-    //         userID = 0
-    //     }
-    // if(storedUser){
-    //     userID = storedUser[storedUser.length - 1].id
-    // }
-    
     class userRecord{
         constructor(firstname, lastname, email, password, contact, amount){
             this.firstname = firstname

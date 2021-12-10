@@ -59,7 +59,7 @@ const User = () => {
         document.querySelector(`.withdrawal-modal`).style.display = 'block'
     }
     const handleClickTransfer = () => {
-        document.querySelector(`.transfer-modal`).style.display = 'block'
+        document.querySelector(`.user-transfer-modal`).style.display = 'block'
         
     }
     const handleClickExpense = () => {
@@ -68,7 +68,7 @@ const User = () => {
     const handleClose = () => {
         document.querySelector(`.deposit-modal`).style.display = 'none'
         document.querySelector(`.withdrawal-modal`).style.display = 'none'
-        document.querySelector(`.transfer-modal`).style.display = 'none'
+        document.querySelector(`.user-transfer-modal`).style.display = 'none'
         document.querySelector(`.expense-modal`).style.display = 'none'
         
     }
@@ -411,8 +411,8 @@ const User = () => {
                             </div> 
                         </div>
                     </div>
-                    <div id="transfer" className="transfer-modal">
-                        <div className="transfer-content">
+                    <div id="user-transfer" className="user-transfer-modal">
+                        <div className="user-transfer-content">
                             <span className="close" onClick={handleClose}>&times;</span>
                             <div className="container">
                                 <h1> ✍️ Send Money </h1>

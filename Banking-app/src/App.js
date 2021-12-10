@@ -24,8 +24,6 @@ import Usertransfer from './components/Usertransfer'
 // import Create from './components/Create'
 
 
-// //ACTIVITY
-// import Api from './components/Api'
 
 const App = () => {
     
@@ -48,11 +46,6 @@ const App = () => {
                 <Route path='/user' element={<User />} />
                 <Route path='/user/transactions' element={<Usertransaction />} />
                 <Route path='/user/transfer-transactions' element={<Usertransfer />} />
-                
-                
-                
-        
-                {/* <Route path='/api' element={<Api />} /> */}
                 </Routes>
             
             </div>
