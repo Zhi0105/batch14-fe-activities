@@ -17,6 +17,9 @@ const Home = () => {
     let userSession = sessionStorage.getItem('usersession')
     
     let user = JSON.parse(localStorage.getItem('accountRecord'))
+    if(!user){
+        user = []
+    }
     //INITIALIZATION OF VARIABLE END
     
 
@@ -58,9 +61,47 @@ const Home = () => {
                 navigate('/admin') 
                 
             },1000);
-        } else {
+        } 
 
-            if(!user){
+        else if(
+            (username === admin || username === admin.toLowerCase() || username === admin.toUpperCase()) &&
+            (loginPassword !== admin || loginPassword !== admin.toLowerCase() || loginPassword !== admin.toUpperCase())
+        ) {
+                loginAttempt(attempt - 1)
+                // console.log(attempt,count)
+
+                    if(attempt !== 0){
+                        document.querySelector('.xLogin-modal').style.display = 'block'
+
+                        setTimeout(() => {
+                            document.querySelector('.xLogin-modal').style.display = 'none'    
+                        }, 1000);
+                    }
+                                
+                    if(attempt === 0){
+                        document.querySelector(`.modal`).style.display = 'block'
+                        let countdown =  setInterval(() => {
+                                    count -= 1
+                                    setCount(count)
+                                    if(count < 0){
+                                        clearInterval(countdown)
+                                        loginAttempt(attempt = 2)
+                                        // console.log(count, attempt)
+                                        document.querySelector(`.modal`).style.display = 'none'
+                                        setCount(count + 31)
+                                    }
+                        }, 1000)
+                    }
+        }
+        else {
+
+            let isEmail = 0
+            user.forEach(i => {
+                if(i.email === username){
+                    isEmail = 1
+                }
+            })
+            if(isEmail !== 1){
                 alert(`User doesn't exist`)
             } else{
                 
