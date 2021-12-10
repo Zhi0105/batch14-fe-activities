@@ -111,7 +111,7 @@
 /* MODAL  START*/
 
 /* The Modal (background) */
-.deposit-modal, .withdraw-modal, .transfer-modal, .expense-modal{
+.deposit-modal, .withdrawal-modal, .transfer-modal, .expense-modal{
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -127,22 +127,25 @@
 }
 
 /* Modal Content */
-.deposit-content, .withdraw-content, .transfer-content, .expense-content{
-    background-color: #fefefe;
+.deposit-content, .withdrawal-content, .transfer-content, .expense-content{
+    background: rgb(21,26,37);
+    opacity: 91%;
     margin: auto;
     padding: 20px;
+    height: auto;
     border: 1px solid #888;
     color:black;
-    width:75%;
+    width:50%;
     border-radius: 10px;
     text-align: center;
     
 }
 .deposit-content .container,
-.withdraw-content .container, 
+.withdrawal-content .container, 
 .transfer-content .container, 
 .expense-content .container{
     margin: 30px 0 0 0;
+    
 }
 
 .close {
@@ -170,3 +173,24 @@
     color:white;
     background: rgb(21,26,37);
 }
+
+
+/* MODAL CONTENTS START */
+.container *{
+    width:100%;
+    padding:10px;
+}
+.container h1{
+    font-size: 5vmin;
+    color: white;
+}
+.container input, .container button{
+    font-size: 2.5vmin;
+    margin:5px 0 0 0;
+}
+
+.container .user-fullname{
+    background: rgb(149, 180, 247);
+}
+
+/* MODAL CONTENTS END */

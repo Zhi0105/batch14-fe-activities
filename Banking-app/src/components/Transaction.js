@@ -40,14 +40,19 @@ const Transaction = () => {
 
     let debitTransaction = JSON.parse(localStorage.getItem('debitRecord'))
     let withdrawTransaction= JSON.parse(localStorage.getItem('withdrawRecord'))
+    let expenseTransaction= JSON.parse(localStorage.getItem('expenseRecord'))
+    
     let Transactions = []
 
-    if(debitTransaction || withdrawTransaction){
+    if(debitTransaction || withdrawTransaction || expenseTransaction){
         if(debitTransaction){
             Transactions.push(...debitTransaction)
         }
         if(withdrawTransaction){
             Transactions.push(...withdrawTransaction)
+        }
+        if(expenseTransaction){
+            Transactions.push(...expenseTransaction)
         }
     }
     
