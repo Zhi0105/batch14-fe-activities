@@ -52,7 +52,7 @@ body{
 }
 
 
-.modal-container .add-people{
+.modal-container .add-people, .modal-container .edit-people{
     display: flex;
     place-items: center;
     flex-direction: column;
@@ -67,4 +67,8 @@ body{
 
 .lists{
     display: flex;
+}
+
+.lists .person{
+    cursor: pointer;
 }

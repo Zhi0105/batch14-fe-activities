@@ -18,6 +18,17 @@ const modalReducer = (state, action) => {
           ...state,
           isAddModalOpen: false,
         }
+    case 'openEditModal' :
+          return {
+              ...state,
+              isEditModalOpen: true,
+          }
+    case 'closeEditModal' :
+          return {
+              ...state,
+              isEditModalOpen: false,
+            }
+        
     default :
       return state
   }
@@ -33,6 +44,32 @@ const App = () => {
     modalDispatch({type : 'closeAddModal'})
   }
 
+  const handleEditOpenModal = (name, index) => {
+    modalDispatch({type : 'openEditModal'})
+    let nameLength = name.split(' ').length
+      if(nameLength === 1){
+        setFirstname(name)
+        setLastname('ROBOT')
+        setID(index)
+      }
+      if(nameLength === 2){
+        setFirstname(`${name.split(' ')[0]}`)
+        setLastname(`${name.split(' ')[1]}`)
+        setID(index)
+      }
+      if(nameLength === 3){
+        setFirstname(`${name.split(' ')[0]} ${name.split(' ')[1]}`)
+        setLastname(`${name.split(' ')[2]}`)
+        setID(index)
+      }
+  } 
+
+  const handleCloseEditModal = () => {
+    modalDispatch({type : 'closeEditModal'})
+    setFirstname('')
+    setLastname('')    
+  }
+
 
   const [firstname, setFirstname] = useState('')
   const [lastname, setLastname] = useState('')
@@ -40,8 +77,11 @@ const App = () => {
   const [filteredListNames, setFilteredListNames] = useState([])
   const [names, setNames] = useState([])
   const [isLoading, setIsLoading] = useState(false)
+  const [id, setID] = useState(0)
   const [modalState, modalDispatch] = useReducer(modalReducer, {
       isAddModalOpen : false,
+      isEditModalOpen : false,
+      
   })
 
 
@@ -104,6 +144,23 @@ const App = () => {
       setSearchKeyword('')
     }
   }
+  
+  const handleEdit = (e) => {
+    e.preventDefault()
+  
+    const editName = names.find((i) => names.indexOf(i) === id)
+    // console.log(editName)
+    names.map((i) => {
+          if(i.name === editName.name){
+              i.name = `${firstname} ${lastname}`
+          }
+          return names
+        })
+        
+    setNames(names)
+    handleCloseEditModal()
+  
+  }
 
   return(
     <>
@@ -123,6 +180,7 @@ const App = () => {
                         
                           <div className='modal'>
                               <div className='modal-container'>
+                              <h1>Add new Name:</h1>
                               <form className='add-people' onSubmit={handleAdd}>
                                   <div className='field'>
                                       <input className='fname' placeholder='firstname' value={firstname} onChange={handleFnameValue} required/>
@@ -137,8 +195,28 @@ const App = () => {
                           </div>
 
                         }
+                        {modalState.isEditModalOpen && 
+
+                          <div className='modal'>
+                            <div className='modal-container'>
+                            <h1>Modify Name:</h1>
+                              <form className='edit-people' onSubmit={handleEdit}>
+                                  <div className='field'>
+                                      <input className='fname' placeholder='firstname' value={firstname} onChange={handleFnameValue} required/>
+                                      <input className='lname' placeholder='lastname' value={lastname} onChange={handleLnameValue} required/>
+                                  </div>
+                                  <div className='buttons'>
+                                    <input type="submit" value="save" />
+                                    <button onClick={handleCloseEditModal}>Cancel</button>
+                                  </div>
+                            </form>
+                            </div>
+                          </div>
+
+
+                        }
                       <div className='listname'>
-                        <List onDelete={handleDelete}/>  
+                        <List onDelete={handleDelete} onEditOpenModal={handleEditOpenModal}/>  
                       </div>
                     </div>
 
