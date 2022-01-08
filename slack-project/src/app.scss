@@ -15,7 +15,9 @@ body{
 }
 
 .app-main{
+    
     @import url('./styles/login.scss');
     @import url('./styles/register.scss');
+    @import url('./styles/dashboard.scss');
     
 }

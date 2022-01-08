@@ -5,6 +5,10 @@ import {
     Button,
 } from '@mui/material'
 
+// COMPONENT
+import { createuser } from '../api/fetch'
+
+import toastr from 'toastr'
 
 
 const Register = () => {
@@ -13,21 +17,38 @@ const Register = () => {
     const [lastname, setLastname] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [confirmPassword, setConfirmPassword] = useState('')
+    const [ConfirmPassword, setConfirmPassword] = useState('')
     const [contact, setContact] = useState('')
     const [validate, setValidate] = useState(false)
     
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": true,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "1000",
+        "hideDuration": "500",
+        "timeOut": "1000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
     
     const handleSubmit = () => {
         let mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
         let nameformat = /^[a-zA-Z ]*$/
         let validateEmail = email.trim()
         
-        !email || !firstname || !lastname || !email || !password || !confirmPassword || !contact ? alert(`Kindly fill up all fields!`)
-            : !firstname.match(nameformat) || !lastname.match(nameformat) ?  alert(`Invalid name!`)
-                : !validateEmail.match(mailformat) ?  alert(`Invalid email!`)
-                    : password !== confirmPassword ? alert(`Password should matched!`)
-                        : contact.length !== 11 ? alert(`contact should be 11 digit!`)
+        !email || !firstname || !lastname || !email || !password || !ConfirmPassword || !contact ? toastr['error'](`Kindly fill up all fields!`)
+            : !firstname.match(nameformat) || !lastname.match(nameformat) ?  toastr['error'](`Name is not valid!`)
+                : !validateEmail.match(mailformat) ?  toastr['error'](`Email is not valid!`)
+                    : password !== ConfirmPassword ? toastr['error'](`Password should be matched!`)
+                        : contact.length !== 11 ? toastr['error'](`contact should be 11 digit!`)
                             :setValidate(true)
 
     } 
@@ -35,11 +56,33 @@ const Register = () => {
     useEffect(() => {
 
         if(validate === true){
-            alert(`account successfully created!`)
-            navigate(`/`)
-        }
-    
-    }, [validate, navigate])
+            (async () => {
+        
+                    const [res, error] = await createuser(
+                        firstname,
+                        lastname,
+                        email,
+                        password,
+                        ConfirmPassword,
+                        contact
+                    )
+                    if(error.length > 0){
+                        toastr['error'](error[0])
+                    } else {
+
+                        localStorage.setItem(`access-token`, res.headers['access-token'])
+                        localStorage.setItem(`client`, res.headers.client)
+                        localStorage.setItem(`expiry`, res.headers.expiry)
+                        localStorage.setItem(`uid`, res.headers.uid)
+                        navigate(`/`)
+                        toastr['success'](`Account successfully created!`)
+                        
+                    }
+            })()
+
+        }  
+        
+    }, [validate, navigate, firstname, lastname, email, password, ConfirmPassword, contact])
 
 
     return (
@@ -57,7 +100,7 @@ const Register = () => {
                             <TextField type="emaii" label="Email" variant="outlined" onChange={(e) => setEmail(e.target.value)} value={email} autoComplete='off'/>
                             <span>Password:</span>
                             <TextField type="password" label="Password" variant="outlined" onChange={(e) => setPassword(e.target.value)} value={password} autoComplete='off'/>
-                            <TextField type="password" label="Retype-password" variant="outlined" onChange={(e) => setConfirmPassword(e.target.value)} value={confirmPassword} autoComplete='off'/>
+                            <TextField type="password" label="Retype-password" variant="outlined" onChange={(e) => setConfirmPassword(e.target.value)} value={ConfirmPassword} autoComplete='off'/>
                             <span>Contact:</span>
                             <TextField type="number" label="Contact number" variant="outlined" onChange={(e) => setContact(e.target.value)} value={contact} autoComplete='off'/>
                             
