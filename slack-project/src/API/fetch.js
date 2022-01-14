@@ -101,3 +101,58 @@ export const getChannelDetail = async(headers, channelID) => {
 
     return [res, error]
 }
+
+//RETREIVING MESSAGE VIA CHANNEL
+export const getMessageChannel = async(headers, channel, ID) => {
+    const res = await axios.get(`${URL}/messages?receiver_id=${ID}&receiver_class=${channel}`, {
+        headers : headers
+    })
+    .catch((err) => {
+        error = err.response.data.errors
+    })
+    
+    return [res, error]
+}
+
+//RETRIEVING MESSAGE VIA USER
+export const getMessageUser = async(headers, user, ID) => {
+    const res = await axios.get(`${URL}/messages?receiver_id=${ID}&receiver_class=${user}`, {
+        headers : headers
+    })
+    .catch((err) => {
+        error = err.response.data.errors
+    })
+
+    return [res, error]
+}
+
+//SEND MESSAGE VIA CHANNEL
+export const sendMessageChannel = async(headers, body, ID) => {
+    const res = await axios.post(`${URL}/messages`, {
+        receiver_id : ID,
+        receiver_class : 'Channel',
+        body : body
+    }, {
+        headers : headers
+    })
+    .catch((err) => {
+        error = err.response.data.errors
+    })
+
+    return [res, error]
+}
+//SEND MESSAGE VIA USER
+export const sendMessageUser = async(headers, body, ID) => {
+    const res = await axios.post(`${URL}/messages`, {
+        receiver_id : ID,
+        receiver_class : 'User',
+        body : body
+    }, {
+        headers : headers
+    })
+    .catch((err) => {
+        error = err.response.data.errors
+    })
+
+    return [res, error]
+}

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
 
 const Search = ({onClose, allUsers = [], setSearchValue = '', setUserID=null}) => {
     const [search, setSearchKeyword] = useState('')
     const [filteredUser, setFilteredUser] = useState([])
-
+    
     const handleSearch = (e) => {
         setSearchKeyword(e.target.value)
         const filtered = allUsers.filter(i => {
@@ -28,7 +30,7 @@ const Search = ({onClose, allUsers = [], setSearchValue = '', setUserID=null}) =
     }, [search, allUsers, setSearchValue, onClose])
     // console.log(allUsers)
 
-
+    
     return (
         <div className='modal'>
             <div className='modal-container'>
@@ -44,11 +46,20 @@ const Search = ({onClose, allUsers = [], setSearchValue = '', setUserID=null}) =
                         {
                             !search ? (
                                 allUsers.length ? allUsers.map((user, index) => (
-                                    <li key={index} onClick={()=> {setSearchKeyword(user.uid); setUserID(user.id)}}>{user?.uid}</li>  
+                                    <li key={index} onClick={()=> {setSearchKeyword(user.uid); setUserID(user.id)}}>
+                                        <Stack direction="row" spacing={2}>
+                                            
+                                            <Avatar alt="JD" src='' />&nbsp;&nbsp;{user?.uid}
+                                        </Stack>
+                                    </li>  
                                 )) : (<li>No Record found!</li>)
                             ):(
                                 filteredUser.length ? filteredUser.map((user, index) => (
-                                    <li key={index}  onClick={()=> {setSearchKeyword(user.uid); setUserID(user.id)}}>{user?.uid}</li>
+                                    <li key={index} onClick={()=> {setSearchKeyword(user.uid); setUserID(user.id)}}>
+                                        <Stack direction="row" spacing={2}>
+                                            <Avatar alt="JD" src='' />&nbsp;&nbsp;{user?.uid}
+                                        </Stack>
+                                    </li>  
                                 )) : (<li>No Record found!</li>)
                             )
                         }

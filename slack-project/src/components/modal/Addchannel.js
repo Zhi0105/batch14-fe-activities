@@ -50,8 +50,10 @@ const Addchannel = ({onClose, userChannel = []}) => {
                         toastr['error'](error[0])
                     }
                         else {
+                            
                             toastr['success'](`Channel successfully created`)
-                            window.location.reload()    
+                            window.location.reload()
+
                         }
             }
             if(isChannelExist.length > 0){

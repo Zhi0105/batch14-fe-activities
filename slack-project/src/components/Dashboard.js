@@ -8,10 +8,14 @@ import Search from './modal/Search'
 import List from './channel/List'
 import Channelmember from './modal/Channelmember'
 import Addchannel from './modal/Addchannel'
+import Users from './user/Users'
+import Channel from './chat/Channel'
+import DMS from './chat/DMS'
 import toastr from 'toastr'
 
+
 //FETCH
-import { getAllUser, getUserChannel, addToChannel, getChannelDetail } from '../api/fetch'
+import { getAllUser, getUserChannel, addToChannel, getChannelDetail, getMessageUser } from '../api/fetch'
 // import userheader from '../api/responseheader'
 
 
@@ -159,9 +163,13 @@ const Dashboard = () => {
     }
 
 const navigate = useNavigate()
+const [user] = useState(localStorage.getItem(`uid`))
 const [allUsers, setAllUsers] = useState([])
 const [userChannel, setUserChannel] = useState([])
 const [userID, setUserID] = useState(null)
+const [DMList, setDMList] = useState([])
+
+const [userDMS, setUserDMS] = useState('')
 
 const [status, setStatus] = useState(null)
 const [channel, setChannel] = useState('')
@@ -191,7 +199,7 @@ toastr.options = {
     "onclick": null,
     "showDuration": "1000",
     "hideDuration": "500",
-    "timeOut": "1000",
+    "timeOut": "2000",
     "extendedTimeOut": "1000",
     "showEasing": "swing",
     "hideEasing": "linear",
@@ -211,6 +219,7 @@ toastr.options = {
     }, [navigate])
 
 
+    //RETREVING ALL USER
     useEffect(() => {
 
         (async () => {
@@ -232,6 +241,7 @@ toastr.options = {
         
     }, [])
 
+    //RETREIVING ALL USER CHANNEL
     useEffect(() => {
             (async() => {
                 const [res, error] = await getUserChannel({
@@ -250,7 +260,43 @@ toastr.options = {
             })()
     }, [])
 
+    //RETREIVING ALL DIRECT MESSAGE FROM OTHER USER
+    useEffect(() => {
+        for(let i = 0; i < allUsers.length; i+=1){
+            (async() => {
+                const [res, error] = await getMessageUser({
+                    "access-token" : localStorage.getItem(`access-token`),
+                    expiry : localStorage.getItem(`expiry`),
+                    uid : localStorage.getItem(`uid`),
+                    client : localStorage.getItem(`client`)
+                }, 'User', allUsers[i].id)
+                
+                    if(error.length){
+                        toastr['error'](error[0])
+                    } else {
+                        if(res.data.data.length){
+                            let user = localStorage.getItem(`user`)
+                            let userDM = JSON.parse(localStorage.getItem(`${user}`))
+                        
+                            if(!userDM){
+                                DMList.push(res.data.data[0].sender.uid)
+                                setDMList(DMList)
+                                localStorage.setItem(`${localStorage.getItem(`uid`)}`, JSON.stringify(DMList))
+                            } else {
+                                let isExist = userDM.filter(names => res.data.data[0].sender.uid === names)
+                                    if(!isExist.length){
+                                        DMList.push(res.data.data[0].sender.uid)
+                                        setDMList(DMList)
+                                        localStorage.setItem(`${localStorage.getItem(`uid`)}`, JSON.stringify(DMList))
+                                    }
+                            }
+                        }
+                    }
+            })()
+        }
+    }, [allUsers, DMList])
     
+
     //FUNCTION HANDLE TO ADD MEMBER ON THE CHANNEL
     const addMemberToChannel = async(channel_id, user_id, channel) => {
         const [error] = await addToChannel({
@@ -268,7 +314,8 @@ toastr.options = {
             }
 
     }
-
+    
+    //RETREIVING CHANNEL DETAIL FROM THE SERVER
     const channelDetail= async(e) => {
         const [res, error] = await getChannelDetail({
             "access-token" : localStorage.getItem(`access-token`),
@@ -292,12 +339,44 @@ toastr.options = {
         
         }
     }
+
+    //HANDLE ADD TO DMS
+    const handleAddDMS = () => {
+        let user = localStorage.getItem(`user`)
+        let userDM = JSON.parse(localStorage.getItem(`${user}`))
+        // let toDMed = JSON.parse(localStorage.getItem(`${searchValue}`))
+
+
+        //INITIALIZING USER ADDING A NEW DMS 
+        //  SENDER
+        if(!userDM){
+            localStorage.setItem(`${user}`, JSON.stringify([searchValue]))
+            window.location.reload()
+
+        } else {
+            let isExist = userDM.filter(names => searchValue === names)
+                if(isExist.length){
+                    toastr['error'](`User already exist on your DM List`)
+                } else {
+                    userDM.push(searchValue)
+                    localStorage.setItem(`${user}`, JSON.stringify(userDM))
+                    window.location.reload()
+                }
+                
+        }
+
+    }
+
+    const handleDMCLick = (e) => {
+        setUserDMS(e.target.textContent)
+        setStatus('DMS')
+    }
     
     return (
         
         <div className='dashboard-main'>
             <div className="dashboard-sidebar">
-                <span>🟢 {localStorage.getItem(`uid`)}</span>
+                <span>🟢{localStorage.getItem(`uid`)}</span>
                 <ColorButton variant="contained" onClick={handleOpenAddChannelModal}>➕ Add Channel</ColorButton>
                 {modalState.isAddChannelOpenModal &&
                     <Addchannel onClose={handleClosenAddChannelModal} userChannel={userChannel}/>
@@ -314,12 +393,7 @@ toastr.options = {
                 </button>
                 <div className="dropdown-container">
                     {dropdownState.isDMSListOpen &&
-
-                        <ul>
-                            <li>user1</li>
-                            <li>user2</li>
-                            <li>user3</li>
-                        </ul> 
+                        <Users DMS={JSON.parse(localStorage.getItem(user))} onDMClick={handleDMCLick}/>
                     }
                 </div>
                 
@@ -333,7 +407,7 @@ toastr.options = {
                         <Button className="dropdown-btn" variant="contained" sx={searchValue === '' ? {display : 'none'} : {display : 'block'}}>add to 🡇</Button>
                         <div className="dropdown-content">
                             <span>
-                                <Button className="DM" variant="contained" >Direct msg</Button>
+                                <Button className="DMS" variant="contained" onClick={handleAddDMS}>Direct msg</Button>
                             </span>
                             <span>
                                 <Accordion>
@@ -364,7 +438,10 @@ toastr.options = {
                 </header>
                 <section>
                     <div className="section-header">
-                        {status === 'channel' ? <span>{channel}</span> : <span>direct message</span>}
+                        {status === 'channel' ? <span>{channel}</span> : 
+                            status === 'DMS' ? <span>{userDMS}</span> :
+                                <span>&nbsp;</span>
+                        }
                         <span style={{ display: 'none' }}>{status}</span>
                         <button style={status === 'channel' ? {display : 'block'} : {display: 'none'}} onClick={openChannelMemList}>
                             👥 members: <strong>{channelMemCount}</strong>
@@ -374,10 +451,21 @@ toastr.options = {
                             }
                     </div>
                     <div className="section-chat">
-                        <p>chat</p>
+                        {
+                            status === 'channel' ? < Channel channel={channel} userChannel={userChannel}/>
+                                : status === 'DMS' ? <DMS userDMS={userDMS} allUsers={allUsers} />
+                                : <p>No chat to load</p>
+                        }
                     </div>
                 </section>
-                <footer>< Footer /></footer>
+                <footer>
+                    < Footer status={status}
+                        receiver={
+                        status === 'channel' ? channel :
+                            status === 'DMS' ? userDMS :
+                            ''
+                } allUsers={allUsers} userChannel={userChannel}/>
+                </footer>
             </div>
         </div>
     )
