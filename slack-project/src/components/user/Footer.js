@@ -73,7 +73,7 @@ const Footer = ({status = '', receiver = '', allUsers=[], userChannel = []}) => 
             </div>
             <div className="editor-container">
                 {/* <ReactQuill theme="snow" value={value} onChange={setValue}/ > */}
-                <textarea placeholder='Message here' value={value} onChange={(e) => setValue(e.target.value)}/>
+                <textarea placeholder='Say something ?' value={value} onChange={(e) => setValue(e.target.value)}/>
             </div>
         </>
     )

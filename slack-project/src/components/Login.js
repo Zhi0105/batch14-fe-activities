@@ -117,7 +117,7 @@ const Login = () => {
             <div className='container'>
                 <div className="login-form">
                     <form>
-                        <div className='login-form-header'><span>Login</span></div>
+                        <div className='login-form-header'><span>Slack</span></div>
                         <div className='login-form-content'>
                             <TextField className="textfield" label="Email" variant="outlined" autoComplete='off' onChange={(e)=> setUsername(e.target.value)} value={username}/>
                             {/* <TextField className="textfield" label="Password" type="password"  autoComplete="current-password" variant="standard" /> */}

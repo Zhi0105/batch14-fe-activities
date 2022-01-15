@@ -210,6 +210,7 @@ toastr.options = {
     //LOGOUT
     const handleLogout = () => {
         localStorage.removeItem(`user`)
+        localStorage.removeItem(`${user}`)
         navigate(`/`)
     }
     //USER SESSION

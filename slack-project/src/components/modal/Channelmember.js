@@ -1,3 +1,7 @@
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
+
+
 const Channelmember = ({onClose, chMemberID=[], allUsers=[]}) => {
     // console.log(chMemberID)
     // console.log(allUsers)
@@ -17,7 +21,15 @@ const Channelmember = ({onClose, chMemberID=[], allUsers=[]}) => {
                         {
                         chMemberID.length ? chMemberID.map((member, index) => {
                             let i = allUsers.filter((names) => names.id === member)
-                            return <li key={index}>{i[0]?.uid}</li>
+                            // return <li key={index}>{i[0]?.uid}</li>
+                            return (
+                                <li key={index}>
+                                    <Stack direction="row" spacing={2}>
+                                        <Avatar alt="JD" src=''  sx={{ width: 24, height: 24 }} />&nbsp;&nbsp;{i[0]?.uid}
+                                    </Stack>
+                                </li>
+                            )
+
                         }):(<li>no record found!</li>)
                         }
                     </ul>

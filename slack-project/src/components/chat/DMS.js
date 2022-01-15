@@ -72,14 +72,14 @@ const DMS = ({userDMS = '', allUsers = []}) => {
                                     <p><strong>{value.date.slice(0, 10)}</strong></p>
                                     {/* <p>{value.sender}</p>
                                      */}
-                                    <p>
+                                
                                         <Stack direction="row" spacing={2}>
                                             <Avatar alt="JD" src=''  sx={{ width: 20, height: 20 }}/>&nbsp;&nbsp;
                                                 {
                                                     value.sender === user ? `${value.sender} (you)` : value.sender
                                                 }
                                         </Stack>
-                                    </p>
+                    
                                     <p className='body'>{value.body}</p>
                                 </li>
                             ))
