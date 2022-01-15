@@ -4,7 +4,7 @@ import toastr from 'toastr'
 
 //FETCH
 // import userheader from '../../api/responseheader'
-import {createchannel} from '../../api/fetch'
+import {createchannel} from '../../API/fetch'
 
 
 const Addchannel = ({onClose, userChannel = []}) => {

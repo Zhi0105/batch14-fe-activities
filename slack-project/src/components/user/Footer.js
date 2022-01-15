@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { sendMessageChannel, sendMessageUser} from '../../api/fetch'
+import { sendMessageChannel, sendMessageUser} from '../../API/fetch'
 import toastr from 'toastr'
 
 // import ReactQuill from 'react-quill'

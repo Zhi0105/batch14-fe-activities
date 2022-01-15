@@ -6,7 +6,7 @@ import {
 } from '@mui/material'
 
 // COMPONENT
-import { createuser } from '../api/fetch'
+import { createuser } from '../API/fetch'
 
 import toastr from 'toastr'
 

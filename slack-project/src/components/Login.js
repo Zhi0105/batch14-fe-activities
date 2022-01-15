@@ -21,7 +21,7 @@ import {
     VisibilityOff,
 } from '@mui/icons-material'
 
-import {loginuser} from '../api/fetch'
+import {loginuser} from '../API/fetch'
 
 const Login = () => {
 

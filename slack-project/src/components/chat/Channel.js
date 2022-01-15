@@ -1,6 +1,6 @@
 import React, {useState, useEffect } from 'react'
 import toastr from 'toastr'
-import { getMessageChannel } from '../../api/fetch'
+import { getMessageChannel } from '../../API/fetch'
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 

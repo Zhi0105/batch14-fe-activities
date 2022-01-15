@@ -1,6 +1,6 @@
 import React, {useState, useEffect } from 'react'
 import toastr from 'toastr'
-import { getMessageUser } from '../../api/fetch'
+import { getMessageUser } from '../../API/fetch'
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 

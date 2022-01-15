@@ -15,7 +15,7 @@ import toastr from 'toastr'
 
 
 //FETCH
-import { getAllUser, getUserChannel, addToChannel, getChannelDetail, getMessageUser } from '../api/fetch'
+import { getAllUser, getUserChannel, addToChannel, getChannelDetail, getMessageUser } from '../API/fetch'
 // import userheader from '../api/responseheader'
 
 
@@ -422,9 +422,10 @@ toastr.options = {
                                     <AccordionDetails>
                                         <ul>
                                             {
-                                                userChannel.length ? userChannel.map( (channel, index) => 
-                                                    <li key={index} onClick={() => {addMemberToChannel(channel.id, userID, channel.name)}}>{channel?.name}</li>
-                                                ) : ( <li>no channel yet!</li>)
+                                                !userChannel ? <li>No channel yet</li> : 
+                                                    userChannel.length ? userChannel.map( (channel, index) => 
+                                                        <li key={index} onClick={() => {addMemberToChannel(channel.id, userID, channel.name)}}>{channel?.name}</li>
+                                                    ) : ( <li>no channel yet!</li>)
                                             }
                                         </ul>
                                     </AccordionDetails>
